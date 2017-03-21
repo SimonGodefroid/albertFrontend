@@ -10,7 +10,7 @@ import {
     ListView,
     TouchableOpacity,
 } from 'react-native';
-import Global from '../Global';
+import Global from '../../Global';
 
 class EventSort extends React.Component {
   constructor(props) {

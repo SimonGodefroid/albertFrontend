@@ -15,20 +15,20 @@ const nunitoRegular = 'Nunito-Regular';
 const nunitoLight = 'Nunito-Light';
 
 /* sizes */
-ten: 10,
-fifteen: 15,
-twenty:20,
-thirty:30,
-fourty:40,
-fifty:50,
-sixty:60,
+const ten= 10;
+const fifteen= 15;
+const twenty= 20;
+const thirty= 30;
+const fourty= 40;
+const fifty= 50;
+const sixty= 60;
 
 export default {
   mainColor: mainColor,
   secondColor: secondColor,
   thirdColor: thirdColor,
   fourthColor: fourthColor,
-  fifthColor: fifthColorn
+  fifthColor: fifthColor,
   sixthColor: sixthColor,
 
   montserratBold: montserratBold,
@@ -38,5 +38,11 @@ export default {
   nunitoRegular:nunitoRegular,
   nunitoLight:nunitoLight,
 
-  ten:
+  ten:ten,
+  fifteen:fifteen,
+  twenty:twenty,
+  thirty:thirty,
+  fourty:fourty,
+  fifty:fifty,
+  sixty:sixty,
 };

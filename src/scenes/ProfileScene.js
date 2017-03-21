@@ -17,7 +17,7 @@ import {
 } from 'react-native-router-flux';
 
 import Api from '../Api';
-// import Global from '../Global';
+import Global from '../Global';
 import Button from '../components/core/Button';
 import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';

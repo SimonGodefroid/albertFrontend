@@ -16,7 +16,7 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
-// import Global from '../Global';
+import Global from '../Global';
 import Button from '../components/core/Button';
 
 class SearchScene extends React.Component {
