@@ -45,7 +45,7 @@ class ResultsScene extends React.Component {
             <EventsCard
             photo={rowData.image.url}
             title={rowData.title}
-            hourStart={rowData.evenements.periodes[0] !== undefined ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5)+'-' : '00:00'}
+            hourStart={rowData.evenements.periodes[0] !== undefined ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5)+' -' : '00:00'}
             hourEnd={rowData.evenements.periodes[0] !== undefined ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
             zipCode={rowData.place.zipCode}
             place={rowData.place.name}

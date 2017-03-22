@@ -53,8 +53,7 @@ class App extends React.Component {
         <Scene
           key={'search'}
           component={SearchScene}
-          title={'Search'}
-          />
+          hideNavBar={true}/>
         <Scene
           key={'results'}
           component={ResultsScene}
@@ -64,7 +63,8 @@ class App extends React.Component {
         <Scene
           key={'product'}
           component={ProductScene}
-          title={'Products'}/>
+          hideNavBar={true}
+          />
         <Scene
           key={'menu'}
           component={MenuScene}
