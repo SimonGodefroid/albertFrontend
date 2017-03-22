@@ -33,11 +33,11 @@ class App extends React.Component {
     return(
       <Router
         leftButtonIconStyle={{ tintColor: 'white' }}
-        navigationBarStyle={{ backgroundColor: '#5bbcb2'}}>
+        navigationBarStyle={{ backgroundColor: '#5bbcb2'}}
+        hideNavBar={true}>
         <Scene
           key={'signup'}
-          component={SignupScene}
-          hideNavBar={true}/>
+          component={SignupScene}/>
         <Scene
           key={'login'}
           component={LoginScene}/>
