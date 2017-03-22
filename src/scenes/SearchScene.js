@@ -15,9 +15,9 @@ import {
 } from 'react-native-router-flux';
 
 import Global from '../Global';
-import Button from '../components/core/Button';
 
-const PADDING = 10;
+const widthimage = (Dimensions.get('window').width)/2*0.9;
+const heightimage = (Dimensions.get('window').height)/4*0.75;
 
 const styles = StyleSheet.create({
   scrollview:{
@@ -33,12 +33,11 @@ const styles = StyleSheet.create({
     marginTop:10,
   },
   image:{
-    width: (Dimensions.get('window').width)/2*(0.9),
-    height: (Dimensions.get('window').width)/4*(1.2),
+    width: widthimage,
+    height: heightimage,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    opacity: 0.9,
   },
   viewCard:{
     paddingTop: 7,
@@ -46,10 +45,20 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
   },
+  textView: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   text:{
     color: Global.secondColor,
     fontFamily: Global.secondFontBold,
     fontSize: 21,
+    textAlign: 'center',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0,0,0, 0.35)',
+    height: heightimage,
+    width: widthimage,
   },
 });
 
@@ -64,10 +73,14 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-manger.jpg')}>
-                  <Text
-                    style={styles.text}>
-                    MANGER
-                  </Text>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        MANGER
+                      </Text>
+                    </View>
+                  </View>
               </Image>
             </View>
           </TouchableOpacity>
@@ -77,10 +90,14 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-boire.jpg')}>
-                <Text
-                  style={styles.text}>
-                  BOIRE
-                </Text>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        BOIRE
+                      </Text>
+                    </View>
+                  </View>
               </Image>
             </View>
           </TouchableOpacity>
@@ -90,11 +107,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-bouger.jpg')}>
-                <Text
-                  style={styles.text}>
-                  BOUGER
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        BOUGER
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -103,11 +124,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-ecouter.jpg')}>
-                <Text
-                  style={styles.text}>
-                  ECOUTER
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        ECOUTER
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -116,11 +141,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-decouvrir.jpg')}>
-                <Text
-                  style={styles.text}>
-                  DECOUVRIR
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        DECOUVRIR
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -129,11 +158,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-acheter.jpg')}>
-                <Text
-                  style={styles.text}>
-                  ACHETER
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        ACHETER
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -142,11 +175,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-se-detendre.jpg')}>
-                <Text
-                  style={styles.text}>
-                  SE DETENDRE
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        SE {'\n'} DETENDRE
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -155,11 +192,15 @@ class SearchScene extends React.Component {
               <Image
                 style={styles.image}
                 source={require('./../../assets/img/search-travailler.jpg')}>
-                <Text
-                  style={styles.text}>
-                  TRAVAILLER
-                </Text>
-            </Image>
+                  <View style={styles.overlay}>
+                    <View style={styles.textView}>
+                      <Text
+                        style={styles.text}>
+                        TRAVAILLER
+                      </Text>
+                    </View>
+                  </View>
+              </Image>
             </View>
           </TouchableOpacity>
         </View>

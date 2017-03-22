@@ -1,4 +1,14 @@
 /* colors */
+import {
+  Platform,
+} from 'react-native';
+
+const screen = {
+  flex: 1,
+  paddingTop: Platform.OS === 'ios' ? 64 : 54,
+  backgroundColor: '#FFFFFF',
+};
+
 const mainColor = '#5bbcb2';
 const secondColor = '#FFFFFF';
 const thirdColor = '#E2970D';
