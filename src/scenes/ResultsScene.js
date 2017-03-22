@@ -19,11 +19,13 @@ class ResultsScene extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+
             events: new ListView.DataSource({
                 rowHasChanged: (r1, r2) => r1 !== r2
             })
         }
         this.renderEvents = this.renderEvents.bind(this);
+        this.goToEvent = this.goToEvent.bind(this);
     }
 
     componentDidMount() {
@@ -35,13 +37,14 @@ class ResultsScene extends React.Component {
     }
 
     goToEvent(rowData) {
-      Actions.product(rowData);
+      console.log('results#rowData is:', this,rowData);
+      Actions.product({product: rowData});
     }
 
 
     renderEvents(rowData) {
         return (
-          <TouchableOpacity onPress={this.goToEvent}>
+          <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
             <EventsCard
             photo={rowData.image.url}
             title={rowData.title}

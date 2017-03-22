@@ -22,6 +22,9 @@ import InfoProduct from '../components/products/InfoProduct';
 import Favorites from '../components/user/Favorites';
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop:70,
+  },
   image:{
     width: (Dimensions.get('window').width),
     height: (Dimensions.get('window').height),
@@ -31,14 +34,19 @@ const styles = StyleSheet.create({
 class ProductScene extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
+    const {
+      title,
+    } = this.props.product;
+
+    console.log('product#rowdata is:', this.props);
     return(
-      <ScrollView>
-        <Image
-          style={styles.image}
-          source={require('./../../assets/img/search-bouger.jpg')}/>
+      <ScrollView style={styles.container}>
+        <Text>salut</Text>
+        <Text>{title}</Text>
       </ScrollView>
     );
   }
