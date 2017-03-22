@@ -54,11 +54,13 @@ class App extends React.Component {
           key={'search'}
           component={SearchScene}
           title={'Search'}
-          initial={true}/>
+          />
         <Scene
           key={'results'}
           component={ResultsScene}
-          title={'Results'}/>
+          title={'Results'}
+          initial={true}
+          />
         <Scene
           key={'product'}
           component={ProductScene}

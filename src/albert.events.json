@@ -1,0 +1,568 @@
+[{
+    "_id" : "58d15937b1423d23f05aa3c2",
+    "evenements" : {
+        "fermetures" : [
+
+        ],
+        "periodes" : [
+            {
+                "seances" : [
+                    {
+                        "timeRange" : "midi,après-midi,soir",
+                        "weekDays" : "3,4,5,6,0,1",
+                        "hourEnd" : "19:00:17",
+                        "hourStart" : "11:00:17",
+                        "idEvenementsPeriodes" : 74753
+                    }
+                ],
+                "dateEnd" : "2017-04-17T00:00:00.000Z",
+                "dateStart" : "2016-10-19T00:00:00.000Z",
+                "idPages" : 11561,
+                "idEvenementsPeriodes" : 74753
+            }
+        ],
+        "category" : {
+            "lvl1" : "Expositions > Art Contemporain",
+            "lvl0" : "Expositions"
+        },
+        "realDateEnd" : "2017-04-17T00:00:00.000Z",
+        "realDateStart" : "2016-10-19T00:00:00.000Z"
+    },
+    "leadText" : "Cinq regards sur le point de vue à la Galerie des Enfants du Centre Pompidou avec Vincent Broquaire, Paul Cox, Raphaël Garnier, Stéphane Kiehl, Pierre Vanni.",
+    "title" : "Mon Œil, une exposition atelier, à partir de 4 ans",
+    "type" : 1,
+    "providerName" : "Quefaire",
+    "idProvider" : 11561,
+    "contact" : {
+        "url" : "https://www.centrepompidou.fr",
+        "name" : "Centre Pompidou",
+        "twitter" : "https://twitter.com/CentrePompidou",
+        "facebook" : "https://www.facebook.com/centrepompidou.fr/?fref=ts",
+        "mail" : null,
+        "phone" : null
+    },
+    "modality" : {
+        "accessMail" : null,
+        "accessPhone" : null,
+        "accessLink" : null,
+        "accessType" : "libre",
+        "priceDetail" : "La Galerie est accessible avec un billet « musée et expositions ». Elle est gratuite pour les enfants, les jeunes de moins de 26 ans et pour tous les premiers dimanches du mois.",
+        "priceType" : "payant"
+    },
+    "place" : {
+        "name" : "Centre Pompidou",
+        "metro" : "11 : Rambuteau (103m)\n1, 11 : Hôtel de Ville (412m)",
+        "lon" : 2.35166,
+        "lat" : 48.8607,
+        "city" : "Paris",
+        "zipCode" : 75004,
+        "address" : "Place Georges-Pompidou"
+    },
+    "tags" : [
+        "Enfants",
+        "Expos",
+        "En famille"
+    ],
+    "image" : {
+        "alt" : "Mon œil au Centre Pompidou",
+        "credit" : "© Stéphane Kiehl / Centre Pompidou, 2016",
+        "url" : "http://quefaire-api.paris.fr/images/5631"
+    },
+    "components" : [
+        {
+            "data" : {
+                "block" : "<p class=\"\">Mon Œil, personnage principal de la web-série du Centre Pompidou, invite cinq artistes, graphistes ou illustrateurs, pour une exposition collective autour de la notion de point de vue. Au cœur d’un univers joyeusement contrasté et coloré, petits et grands évoluent d’installations interactives en espaces d’expérimentation à motifs, pour explorer activement la création graphique.</p>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "cookie" : false,
+                "block" : "<iframe frameborder=\"0\" src=\"http://www.dailymotion.com/embed/video/x3gdfc5\" allowfullscreen=\"\" title=\"Mon oeil : Une web-série du Centre Pompidou pour les enfants\"></iframe>",
+                "url" : "http://www.dailymotion.com/video/x3gdfc5",
+                "title" : "Mon oeil : Une web-série du Centre Pompidou pour les enfants"
+            },
+            "type" : "video"
+        },
+        {
+            "data" : {
+                "block" : "<p class=\"\">Pour retrouver tous les épisodes :&nbsp;<span data-auto-link=\"true\" data-href=\"https://www.centrepompidou.fr/cpv/theme/mon-oeil\"><a href=\"https://www.centrepompidou.fr/cpv/theme/mon-oeil\" target=\"_blank\">https://www.centrepompidou.fr/cpv/theme/mon-oeil</a></span></p>"
+            },
+            "type" : "text"
+        }
+    ],
+    "__v" : 0
+},
+{
+    "_id" : "58d15937b1423d23f05aa3c3",
+    "evenements" : {
+        "fermetures" : [
+            {
+                "dateEnd" : "2017-06-03T00:00:00.000Z",
+                "dateStart" : "2017-06-03T00:00:00.000Z",
+                "idPages" : 12808
+            },
+            {
+                "dateEnd" : "2017-04-15T00:00:00.000Z",
+                "dateStart" : "2017-04-15T00:00:00.000Z",
+                "idPages" : 12808
+            }
+        ],
+        "periodes" : [
+            {
+                "seances" : [
+                    {
+                        "timeRange" : "après-midi,soir",
+                        "weekDays" : "2,3,4,5,6",
+                        "hourEnd" : "19:00:18",
+                        "hourStart" : "13:00:18",
+                        "idEvenementsPeriodes" : 76957
+                    }
+                ],
+                "dateEnd" : "2017-06-17T00:00:00.000Z",
+                "dateStart" : "2017-02-28T00:00:00.000Z",
+                "idPages" : 12808,
+                "idEvenementsPeriodes" : 76957
+            }
+        ],
+        "category" : {
+            "lvl1" : "Expositions > Design / Mode",
+            "lvl0" : "Expositions"
+        },
+        "realDateEnd" : "2017-06-17T00:00:00.000Z",
+        "realDateStart" : "2017-02-28T00:00:00.000Z"
+    },
+    "leadText" : "A l'occasion de sa réouverture, la Bibliothèque Forney propose d'explorer l'histoire de la mode et des femmes dans la société française durant la Première Guerre mondiale.",
+    "title" : "Mode et Femmes 14-18",
+    "type" : 1,
+    "providerName" : "Quefaire",
+    "idProvider" : 12808,
+    "contact" : {
+        "url" : "http://bibliotheques-specialisees.paris.fr/in/faces/homeInBook.xhtml",
+        "name" : "Bibliothèque Forney",
+        "twitter" : "https://twitter.com/bibforney",
+        "facebook" : "https://fr-fr.facebook.com/Bibliotheque.Forney/",
+        "mail" : "bibliotheque.forney@paris.fr"
+    },
+    "modality" : {
+        "accessMail" : null,
+        "accessPhone" : null,
+        "accessLink" : null,
+        "accessType" : "libre",
+        "priceDetail" : null,
+        "priceType" : "gratuit"
+    },
+    "place" : {
+        "name" : "Bibliothèque Forney",
+        "metro" : "7 : Pont Marie (121m)\n1 : Saint-Paul (186m)",
+        "lon" : 2.35936600000002,
+        "lat" : 48.8533772,
+        "city" : "Paris",
+        "zipCode" : 75004,
+        "address" : "1 rue du Figuier"
+    },
+    "tags" : [
+        "Enfants",
+        "Bibliothèques",
+        "Ados",
+        "En famille",
+        "Expos"
+    ],
+    "image" : {
+        "alt" : "Bibliothèque Forney",
+        "credit" : "Bibliothèque Forney",
+        "url" : "http://quefaire-api.paris.fr/images/7544"
+    },
+    "components" : [
+        {
+            "data" : {
+                "block" : "<p>Le vestiaire féminin change radicalement au début du XXe siècle : la silhouette s’allège, abandonnant les cages de crinolines et les tournures du siècle passé, le nombre de changements de tenues quotidiennes se réduit chez la femme de la classe aisée car le costume-tailleur accompagne désormais la femme tout au long de sa journée. Le vêtement acquiert une praticité et une simplicité nouvelles en matière de textiles (lavables, souples) et de formes (poches, jupes amples). Ces changements qui apparaissent un peu avant la guerre sont accélérés par cette dernière. Mais pour autant, sur le plan vestimentaire comme social, la guerre a-t-elle libéré les femmes ? Que dit la mode de la complexité des évolutions sociétales que les femmes connaissent durant le conflit ?</p><p class=\"\">Comment la guerre accélère-t-elle la « modernisation » du vêtement féminin ? De quelle manière l’industrie de la couture et du textile s’adaptent-t-elles et innovent-elles face aux contraintes de la guerre ? Comment le travail féminin, le deuil, les relations intimes et familiales entre le front et l’arrière, et la question de l’émancipation féminine sont-ils perçus à travers le prisme de la mode ? Telles sont les questions posées par les commissaires à travers l’exposition Mode et femmes, 14/18.<br></p>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "modifiers" : null,
+                "credit" : "Bibliothèque Forney",
+                "size" : "Large",
+                "alt" : "Bibliothèque Forney",
+                "src" : "http://quefaire-api.paris.fr/images/7545?w=Large",
+                "id" : 7545
+            },
+            "type" : "image"
+        },
+        {
+            "data" : {
+                "block" : "<p class=\"\"><br></p><p><b>Visite commentée gratuite chaque samedi à 15h. Visites gratuites pour les groupes, réservation obligatoire : 01 72 63 40 89 ou justine.perrichon@paris.fr</b></p><p><b>Visites par les commissaires, Maude Bass-Krueger et Sophie Kurkdjan :</b></p><p><i>-\tSamedi 1er avril à 15h</i></p><p><i>-\tSamedi 8 avril à 15h</i></p><p><i>-\tSamedi 6 mai à 15h</i></p><p><i>-\tSamedi 13 mai à 15h</i></p><p style=\"\" class=\"\"><b>Autour de l'exposition:</b></p><p style=\"\" class=\"\">- Mercredi 15 mars à 19h à la Bibliothèque Forney, Conférence : <i>Mode et femmes, 14-18, genèse d’une exposition par Maude Bass-Krueger et Sophie Kurdjan (commissaires de l'exposition)</i><br></p><p style=\"\" class=\"\">- Mercredi 19 avril à 19h à la Bibliothèque Marguerite Durand, Conférence :  <i>Le lien conjugal pendant la Grande Guerre : correspondances amoureuses par Clémentine Vidal-Naquet (maîtresse de conférences à l'Université Picardie) <br></i></p><p style=\"\" class=\"\"><i>- </i>Mercredi 26 avril à 19h à la Bibliothèque Forney, Lecture :  <i>Destins de femmes, histoires de robes par Frédérique Bruyas</i></p><p style=\"\" class=\"\">- Jeudi 11 mai à 19h à la Mairie du 4ème, Conférence : <i>Le regard des poilus sur les femmes à l’arrière par Jean-Yves Le Naour (docteur en histoire, spécialiste de la Grande Guerre)</i> </p><h4 style=\"\">VIDÉO - Suivez la robe de deuil dans son voyage du Musée de la Grande Guerre de Meaux à la bibliothèque Forney pour l'exposition :</h4>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "cookie" : false,
+                "block" : "<iframe src=\"https://player.vimeo.com/video/204009496\" frameborder=\"0\" title=\"La robe de deuil, exposition &quot;Mode et Femmes, 14-18&quot;\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+                "url" : "https://vimeo.com/204009496",
+                "title" : "La robe de deuil, exposition \"Mode et Femmes, 14-18\""
+            },
+            "type" : "video"
+        },
+        {
+            "data" : {
+                "cookie" : false,
+                "block" : "<iframe src=\"https://player.vimeo.com/video/205845540\" frameborder=\"0\" title=\"The Lanvin Dress, &quot;Madame,&quot; Exhibition “Mode &amp; Femmes, 14-18” at the Bibliothèque Forney\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+                "url" : "https://vimeo.com/205845540",
+                "title" : "The Lanvin Dress, \"Madame,\" Exhibition “Mode & Femmes, 14-18” at the Bibliothèque Forney"
+            },
+            "type" : "video"
+        },
+        {
+            "data" : {
+                "cookie" : false,
+                "block" : "<iframe src=\"https://www.youtube.com/embed/FyLQpAvTT-s?feature=oembed\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\" title=\"Mode &amp; Femmes 14/18\"></iframe>",
+                "url" : "https://youtu.be/FyLQpAvTT-s",
+                "title" : "Mode & Femmes 14/18"
+            },
+            "type" : "video"
+        },
+        {
+            "data" : {
+                "text" : "<p><p>Publié le vendredi 3 mars 2017</p>",
+                "link" : "+",
+                "target" : "_blank",
+                "href" : "http://quefaire.paris.fr/16270/visite-de-la-bibliotheque-forney-avec-lucile-trunel",
+                "dates" : "Publié le vendredi 3 mars 2017",
+                "subtitle" : "Actualité",
+                "title" : "Lucile Trunel, un nouveau regard sur la bibliothèque Forney",
+                "image" : "http://quefaire-api.paris.fr/images/9449",
+                "modifiers" : [
+                    "is-article"
+                ],
+                "isArticle" : true,
+                "id" : "16270"
+            },
+            "type" : "content"
+        }
+    ],
+    "__v" : 0
+},
+{
+    "_id" : "58d15937b1423d23f05aa3c4",
+    "evenements" : {
+        "fermetures" : [
+
+        ],
+        "periodes" : [
+            {
+                "seances" : [
+                    {
+                        "timeRange" : "midi,après-midi,soir",
+                        "weekDays" : "3,4,5,6,0",
+                        "hourEnd" : "20:00:59",
+                        "hourStart" : "12:00:59",
+                        "idEvenementsPeriodes" : 72886
+                    }
+                ],
+                "dateEnd" : "2017-05-21T00:00:00.000Z",
+                "dateStart" : "2017-03-29T00:00:00.000Z",
+                "idPages" : 13827,
+                "idEvenementsPeriodes" : 72886
+            }
+        ],
+        "category" : {
+            "lvl1" : "Expositions > Art Contemporain",
+            "lvl0" : "Expositions"
+        },
+        "realDateEnd" : "2017-05-21T00:00:00.000Z",
+        "realDateStart" : "2017-03-29T00:00:00.000Z"
+    },
+    "leadText" : "Dans le cadre de son festival 100% Afriques, la Villette est heureuse de présenter l'exposition Afriques Capitales qui se déroulera du 29 mars au 21 mai 2017 et dont le deuxième chapitre s'écrira à la gare Saint Sauveur de Lille, du 06 avril au 03 septembre 2017, dans le cadre du \"Printemps 2017\" avec lille3000.",
+    "title" : "AFRIQUES CAPITALES",
+    "type" : 1,
+    "providerName" : "Quefaire",
+    "idProvider" : 13827,
+    "contact" : {
+        "url" : "https://lavillette.com/evenement/festival-100-2017/",
+        "name" : "",
+        "twitter" : null,
+        "facebook" : null,
+        "mail" : null,
+        "phone" : null
+    },
+    "modality" : {
+        "accessMail" : null,
+        "accessPhone" : null,
+        "accessLink" : "https://lavillette.com/evenement/festival-100-exposition-afriques-capitales/",
+        "accessType" : "conseillee",
+        "priceDetail" : "Plein tarif 8 €\n / Tarif réduit 5 €\n / Tarif-26 ans 3€\n / Tarif abonné et adhérent* Gratuit",
+        "priceType" : "payant"
+    },
+    "place" : {
+        "name" : "Grande Halle de la Villette",
+        "metro" : "5 : Porte de Pantin (32m)\n5 : Ourcq (518m)",
+        "lon" : 2.392438,
+        "lat" : 48.888948,
+        "city" : "Paris",
+        "zipCode" : 75019,
+        "address" : "211 Avenue Jean Jaurès"
+    },
+    "tags" : [
+        "Expos"
+    ],
+    "image" : {
+        "alt" : "Mimi Cherono Ng'ok, Sans titre, 2014",
+        "credit" : "Mimi Cherono Ng'ok",
+        "url" : "http://quefaire-api.paris.fr/images/7566"
+    },
+    "components" : [
+        {
+            "data" : {
+                "block" : "<p>Sous le commissariat de Simon Njami, Afriques Capitales sera l'occasion de (re)découvrir la scène artistique contemporaine africaine. À Paris, l'exposition permettra au public d'expérimenter une déambulation urbaine. À Lille, le sous-titre Vers le cap de Bonne espérance, fera figure d'invitation au voyage. </p><p>Une quinzaine de productions, plus de cinquante artistes mobilisés sur Paris, près de quarante à Lille. Toutes générations confondues : Pascale Marthine Tayou, Akinbode Akinbiyi, James Webb, Leïla Alaoui, Mimi Cherono Ng'ok, Bili Bidjocka, El Anatsui, Sammy Baloji, Lavar Munroe, William Kentridge, Abdoulaye Konate… dont certains jeunes artistes qui n'ont encore jamais été exposés en France.</p><p>Plus qu'un simple panorama de la création africaine, le propos de l'exposition \"est de travailler à partir des oeuvres et des artistes dont le travail parlera par lui-même pour dire l’histoire qui est la leur et qui, de fait, nous concerne tous.\" (Simon Njami)</p><p><br></p>"
+            },
+            "type" : "text"
+        }
+    ],
+    "__v" : 0
+},
+{
+    "_id" : "58d15937b1423d23f05aa3c6",
+    "evenements" : {
+        "fermetures" : [
+
+        ],
+        "periodes" : [
+            {
+                "seances" : [
+                    {
+                        "timeRange" : "après-midi,soir",
+                        "weekDays" : "0",
+                        "hourEnd" : "19:00:58",
+                        "hourStart" : "16:00:58",
+                        "idEvenementsPeriodes" : 75164
+                    },
+                    {
+                        "timeRange" : "soir,nuit",
+                        "weekDays" : "6",
+                        "hourEnd" : "23:30:58",
+                        "hourStart" : "20:30:58",
+                        "idEvenementsPeriodes" : 75164
+                    },
+                    {
+                        "timeRange" : "après-midi,soir",
+                        "weekDays" : "6",
+                        "hourEnd" : "19:00:58",
+                        "hourStart" : "16:00:58",
+                        "idEvenementsPeriodes" : 75164
+                    }
+                ],
+                "dateEnd" : "2017-06-04T00:00:00.000Z",
+                "dateStart" : "2017-04-01T00:00:00.000Z",
+                "idPages" : 15236,
+                "idEvenementsPeriodes" : 75164
+            }
+        ],
+        "category" : {
+            "lvl1" : "Spectacles > Cirque / Art de la Rue",
+            "lvl0" : "Spectacles"
+        },
+        "realDateEnd" : "2017-06-04T00:00:00.000Z",
+        "realDateStart" : "2017-04-01T00:00:00.000Z"
+    },
+    "leadText" : "... par la fenêtre de la caravane!\nLe Cirque Romanès est de retour à Paris avec son nouveau spectacle, un excellent remède contre la tristesse.",
+    "title" : "Si tu ne m’aimes plus je me jetterai...",
+    "type" : 1,
+    "providerName" : "Quefaire",
+    "idProvider" : 15236,
+    "contact" : {
+        "url" : "http://www.cirqueromanes.com",
+        "name" : "Cirque Romanès",
+        "twitter" : null,
+        "facebook" : null,
+        "mail" : "cirque.romanes@wanadoo.fr",
+        "phone" : 140092420
+    },
+    "modality" : {
+        "accessMail" : "cirque.romanes@wanadoo.fr",
+        "accessPhone" : "0140092420",
+        "accessLink" : "http://www.cirqueromanes.com",
+        "accessType" : "conseillee",
+        "priceDetail" : "Adultes : 20€\nMoins de 25 ans : 15€                                                      \nEnfant de 3 à 12 ans : 10€\nMoins de 3 ans : gratuit\n\n(Restauration possible sur place – pour le public, possibilité d’arriver  sur place une heure et demie avant la représentation)",
+        "priceType" : "payant"
+    },
+    "place" : {
+        "name" : "Cirque Romanès",
+        "metro" : "10 : Porte d'auteuil (835m)\n9 : Jasmin (945m)",
+        "lon" : 2.255497,
+        "lat" : 48.855151,
+        "city" : "Paris",
+        "zipCode" : 75016,
+        "address" : "Square Parodi, face du 31 Boulevard de l’Amiral-Bruix"
+    },
+    "tags" : [
+        "Enfants",
+        "Ados",
+        "En famille"
+    ],
+    "image" : {
+        "alt" : "Cirque Romanès",
+        "credit" : "Cirque Romanès",
+        "url" : "http://quefaire-api.paris.fr/images/8677"
+    },
+    "components" : [
+        {
+            "data" : {
+                "block" : "<p>Si tu m’aimes plus, je me jetterai par la fênetre de la caravane !                                               </p><p>Et la Tzigane répond : « Ouvre ton cœur, car le ciel est à ta porte ! </p><p>L’Amour, c’est la clé… et les femmes la portent depuis la Nuit des Temps…»</p><p>Il était une fois … Un jeune Gitan troubadour, qui rencontre une belle Tzigane au sourire d’or chantant dans la rue… Coup de foudre ! Il l’amène dans son campement pour vivre avec elle …</p><p>Mais, à la tombée d’une nuit étoilée, les jeunes amoureux s’enfuient pour prendre la route vers leur déstinée …</p><p>Alors, laissez-vous transporter dans un univers surprenant et beau, ce spectacle plein d’audace et de charme,le meilleur remède contre la tristesse !</p><p>Un tourbillon d’émotions, de grâce et de couleurs : contorsion, trapèze, ruban, cerceaux, funambule, des danses flamenca et tziganes accompagnées par un orchestre venu de Transylvanie au son du violon, guitare, contrebasse, accordéon et le chant de la Gitane.</p><p>Au milieu de ces joyaux, il y a ses cinq filles, fées envoutantes, qui vont faire battre votre cœur au rythme du vent des Balkans… </p><p>D’autres cousins et cousines sont venus les rejoindre pour partager cette fête fraternelle, guidée par la force d’un Peuple qui a toujours envie de nous faire tourner la tête et faire jaillir une pluie d’Amour ! </p><p>Le Cirque Romanès est le Dernier Cirque Tzigane –  à voir absolument!</p><p>Et comme l’écrit le poète gitan, Alexandre Romanès,  dans son recueil de poèmes «Paroles Perdues», publié chez Gallimard:   «Si ton cœur n’est pas royal, tu vas où?»&nbsp;</p><h4>AVRIL 2017                 </h4><ul><li>Samedi 1er Avril à 16h et 20h30<br></li><li>Dimanche 2 Avril à 16h<br></li><li>Samedi 8 Avril à 16h<br></li><li>Dimanche 9 Avril à 16h<br></li><li>Samedi 15 Avril à 16h et 20h30<br></li><li>Dimanche 16 Avril à 16h et 20h30<br></li><li>Lundi 17 Avril à 16h<br></li><li>Samedi 22 Avril à 16h et 20h30<br></li><li>Dimanche 23 Avril à 16h<br></li><li>Samedi 29 Avril à 16h et 20h30<br></li><li>Dimanche 30 Avril à 16h<br></li></ul><h4>MAI 2017</h4><ul><li>Lundi 1er Mai à 16h<br></li><li>Samedi 6 Mai à 16h et 20h30<br></li><li>Dimanche 7 Mai à 16h<br></li><li>Lundi 8 Mai à 16h<br></li><li>Samedi 13 Mai à 16h<br></li><li>Dimanche 14 Mai à 16h<br></li><li>Samedi 20 Mai à 16h et 20h30<br></li><li>Dimanche 21 Mai à 16h<br></li><li>Jeudi 25 Mai à 16h et 20h30<br></li><li>Samedi 27 Mai  à 16h et 20h30<br></li><li>Dimanche 28 Mai à 16h<br></li></ul><h4>JUIN 2017</h4><ul><li>Samedi 3 Juin  à 16h et 20h30<br></li><li>Dimanche 4 Juin à 16h<br></li><li>Lundi 5 Juin à 16h <br></li></ul>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "text" : "<p><p>Publié le mardi 14 mars 2017</p>",
+                "link" : "+",
+                "target" : "_blank",
+                "href" : "http://quefaire.paris.fr/17295/gagnez-des-places-pour-le-cirque-romanes",
+                "dates" : "Publié le mardi 14 mars 2017",
+                "subtitle" : "Jeu",
+                "title" : "Gagnez des places pour le cirque Romanes",
+                "image" : "http://quefaire-api.paris.fr/images/8677",
+                "modifiers" : [
+                    "is-article"
+                ],
+                "isArticle" : true,
+                "id" : "17295"
+            },
+            "type" : "content"
+        }
+    ],
+    "__v" : 0
+},
+{
+    "_id" : "58d15937b1423d23f05aa3c5",
+    "evenements" : {
+        "fermetures" : [
+
+        ],
+        "periodes" : [
+            {
+                "seances" : [
+                    {
+                        "timeRange" : "soir,nuit",
+                        "weekDays" : "3,4,5,6",
+                        "hourEnd" : "23:30:07",
+                        "hourStart" : "19:00:07",
+                        "idEvenementsPeriodes" : 70177
+                    }
+                ],
+                "dateEnd" : "2017-03-25T00:00:00.000Z",
+                "dateStart" : "2017-03-01T00:00:00.000Z",
+                "idPages" : 13906,
+                "idEvenementsPeriodes" : 70177
+            }
+        ],
+        "category" : {
+            "lvl1" : "Spectacles > Cirque / Art de la Rue",
+            "lvl0" : "Spectacles"
+        },
+        "realDateEnd" : "2017-03-25T00:00:00.000Z",
+        "realDateStart" : "2017-03-01T00:00:00.000Z"
+    },
+    "leadText" : "Le Cabaret se réinvente en Gouvernement Electrique.\nQueer pauvres poètes bourgeois sans idées peuple résigné… TOUS EN MARGE !",
+    "title" : "Cabaret Electrique - Revue n°4",
+    "type" : 1,
+    "providerName" : "Quefaire",
+    "idProvider" : 13906,
+    "contact" : {
+        "url" : "http://cirque-electrique.fr",
+        "name" : "Cirque Electrique",
+        "twitter" : "https://twitter.com/CirqElectrique",
+        "facebook" : "https://www.facebook.com/cirque.electrique.3/?ref=bookmarks",
+        "mail" : "reservation@cirque-electrique.com"
+    },
+    "modality" : {
+        "accessMail" : "reservation@cirque-electrique.com",
+        "accessPhone" : "0954544724",
+        "accessLink" : "http://cirque-electrique.fr/index.php/billetterie",
+        "accessType" : "reservation",
+        "priceDetail" : "15€ : Intermittents / Demandeurs d'emploi / Bénéficiaires du RSA  / Seniors (+70 ans) / Etudiants \n20 € : Tarif plein",
+        "priceType" : "payant"
+    },
+    "place" : {
+        "name" : "La Dalle des cirques - Cirque électrique",
+        "metro" : "3bis, 11 : Porte des Lilas (175m)\n11 : Mairie des Lilas (562m)",
+        "lon" : 2.409095500000035,
+        "lat" : 48.8777669,
+        "city" : "Paris",
+        "zipCode" : 75020,
+        "address" : "Place du Maquis en Vercors"
+    },
+    "tags" : [
+        "Les Nuits",
+        "Insolite"
+    ],
+    "image" : {
+        "alt" : "Antoine Delon",
+        "credit" : "Hervé Photograff",
+        "url" : "http://quefaire-api.paris.fr/images/7540"
+    },
+    "components" : [
+        {
+            "data" : {
+                "block" : "<h3><b>HIVER 2017- CABARET ELECTRIQUE - Paris XXe - n° 4</b></h3>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "cookie" : false,
+                "block" : "<iframe src=\"https://www.youtube.com/embed/3_Ot9SpW8B0?feature=oembed\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\" title=\"TEASER CABARET ELECTRIQUE / 2017\"></iframe>",
+                "url" : "https://www.youtube.com/watch?v=3_Ot9SpW8B0",
+                "title" : "TEASER CABARET ELECTRIQUE / 2017"
+            },
+            "type" : "video"
+        },
+        {
+            "data" : {
+                "block" : "<p>Une grosse farce.</p><p>Plus le temps de rire inutilement.</p><p>Plus le temps de vous séduire.</p><p>Plus le temps des indécisions.</p><p>Plus le temps de se lamenter.</p><p>Le temps est compté.</p><p>Le printemps des cerises arrive. Des cerises rouges et noires.</p><p>Une grosse farce…</p><h3><b>Acrobaties présidentielles ; Contorsions électorales ; Trapèze des idées ; Equilibre Optimum (en vente libre) ; Karaoké révolutionnaire ; Jonglage primaire ; Paint-ball gouvernemental ; Effeuillage de costards…</b></h3>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "modifiers" : [
+
+                ],
+                "credit" : "F.Beddok",
+                "size" : "Medium",
+                "alt" : "Lalla Morte & Mr Poudre",
+                "src" : "http://quefaire-api.paris.fr/images/7543?w=Large",
+                "id" : 7543
+            },
+            "type" : "image"
+        },
+        {
+            "data" : {
+                "block" : "<p>Une grosse farce.</p><p>Le Cabaret se réinvente en Gouvernement Electrique.</p><p>Queer pauvres poètes bourgeois sans idées peuple résigné… TOUS EN MARGE !</p><p><b>Possibilité de manger en bord de piste</b> - Réservation obligatoire au 09 54 54 47 24 ou par mail à l'adresse reservation@cirque-electrique.com</p><p>Du 1er mars au 25 mars 2017</p><p>Du mercredi au samedi - ouverture des portes à 19h - spectacle à 21h</p><p>Durée du spectacle : 2h30 - A partir de 17 ans (on n’est pas sérieux quand on a 17 ans. AR)</p><p><b>Arthur Rimbaud, <i>Illuminations -&nbsp;</i>Démocratie</b></p><h3>« Le drapeau va au paysage immonde, et notre patois étouffe le tambour. Aux centres nous alimenterons la plus cynique prostitution. Nous massacrerons les révoltes logiques. Aux pays poivrés et détrempés ! - au service des plus monstrueuses exploitations industrielles ou militaires. Au revoir ici, n'importe où. Conscrits du bon vouloir, nous aurons la philosophie féroce ; ignorants pour la science, roués pour le confort ; la crevaison pour le monde qui va. C'est la vraie marche. En avant, route ! »</h3>"
+            },
+            "type" : "text"
+        },
+        {
+            "data" : {
+                "text" : "<p><p>Publié le mercredi 1 mars 2017</p>",
+                "link" : "+",
+                "target" : "_blank",
+                "href" : "http://quefaire.paris.fr/16015/des-places-pour-le-cirque-electrique",
+                "dates" : "Publié le mercredi 1 mars 2017",
+                "subtitle" : "Jeu",
+                "title" : "Des places pour le Cirque Electrique",
+                "image" : "http://quefaire-api.paris.fr/images/9273",
+                "modifiers" : [
+                    "is-article"
+                ],
+                "isArticle" : true,
+                "id" : "16015"
+            },
+            "type" : "content"
+        }
+    ],
+    "__v" : 0
+}
+]

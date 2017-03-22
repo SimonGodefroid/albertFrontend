@@ -1,3 +1,13 @@
+import {
+ Platform,
+} from 'react-native';
+
+const screen = {
+ flex: 1,
+ paddingTop: Platform.OS === 'ios' ? 64 : 54,
+ backgroundColor: '#FFFFFF ',
+};
+
 /* colors */
 const mainColor = '#5bbcb2';
 const secondColor = '#FFFFFF';
@@ -7,21 +17,11 @@ const fifthColor = '#26766B';
 const sixthColor = '#2B4A46';
 
 /* fonts */
-const montserratBold = 'Montserrat-Bold';
-const montserratRegular = 'Montserrat-Regular';
-const nunitoBold = 'Nunito-Bold';
-const nunitoSemiBold = 'Nunito-SemiBold';
-const nunitoRegular = 'Nunito-Regular';
-const nunitoLight = 'Nunito-Light';
-
-/* sizes */
-const ten= 10;
-const fifteen= 15;
-const twenty= 20;
-const thirty= 30;
-const fourty= 40;
-const fifty= 50;
-const sixty= 60;
+const mainFontBold = 'Nunito-Bold';
+const mainFont = 'Nunito-Regular';
+const mainFontLight = 'Nunito-Light';
+const secondFontBold = 'Montserrat-Bold';
+const secondFont= 'Montserrat-Regular';
 
 export default {
   mainColor: mainColor,
@@ -31,18 +31,10 @@ export default {
   fifthColor: fifthColor,
   sixthColor: sixthColor,
 
-  montserratBold: montserratBold,
-  montserratRegular: montserratRegular,
-  nunitoBold: nunitoBold,
-  nunitoSemiBold: nunitoSemiBold,
-  nunitoRegular:nunitoRegular,
-  nunitoLight:nunitoLight,
+  mainFontBold: mainFontBold,
+  mainFont:  mainFont,
+  mainFontLight: mainFontLight,
+  secondFontBold: secondFontBold,
+  secondFont: secondFont,
 
-  ten:ten,
-  fifteen:fifteen,
-  twenty:twenty,
-  thirty:thirty,
-  fourty:fourty,
-  fifty:fifty,
-  sixty:sixty,
 };
