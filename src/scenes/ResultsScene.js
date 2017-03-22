@@ -28,7 +28,7 @@ class ResultsScene extends React.Component {
 
     componentDidMount() {
       console.log('didmount');
-        Api.getEvents(4, (eventsList) => {
+        Api.getEvents(this.props.cat, (eventsList) => {
           console.log('Results#getEvents: ', eventsList.events[0]);
             this.setState({events: this.state.events.cloneWithRows(eventsList.events)});
         });
@@ -57,6 +57,7 @@ class ResultsScene extends React.Component {
 
     render() {
         if (this.state.events.getRowCount() === 0) {
+          console.log(this.props.cat);
             return (
                 <View style={{paddingTop:80}}>
                     <ActivityIndicator color={'#FF5A5F'}/>
@@ -76,7 +77,7 @@ class ResultsScene extends React.Component {
     const styles = StyleSheet.create({
         container: {
             padding: 15,
-            paddingTop: 70
+            paddingTop: 15
         }
     });
 

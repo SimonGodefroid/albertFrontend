@@ -3,6 +3,7 @@ import Config from './Config';
 class Api {
 
 getEvents(cat, callback) {
+  console.log('getEvents cat is : ',cat);
   fetch(`${Config.host}/api/events/?category=${cat}`)
     .then(res => res.json())
     .then(events => {

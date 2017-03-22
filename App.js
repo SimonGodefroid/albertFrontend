@@ -37,50 +37,35 @@ class App extends React.Component {
         <Scene
           key={'signup'}
           component={SignupScene}
-          title={'Sign Up'}/>
-        <Scene
-          key={'login'}
-          component={LoginScene}
-          title={'Login'}/>
-        <Scene
-          key={'profile'}
-          component={ProfileScene}
-          title={'Profile'}/>
-        <Scene
-          key={'editProfile'}
-          component={EditProfileScene}
-          title={'Edit Profile'}/>
-        <Scene
-          key={'search'}
-          component={SearchScene}
           hideNavBar={true}/>
         <Scene
+          key={'login'}
+          component={LoginScene}/>
+        <Scene
+          key={'profile'}
+          component={ProfileScene}/>
+        <Scene
+          key={'editProfile'}
+          component={EditProfileScene}/>
+        <Scene
+          key={'search'}
+          component={SearchScene}/>
+        <Scene
           key={'results'}
-          component={ResultsScene}
-          title={'Results'}
-          initial={true}
-          />
+          component={ResultsScene}/>
         <Scene
           key={'product'}
-          component={ProductScene}
-          hideNavBar={true}
-          />
+          component={ProductScene}/>
         <Scene
           key={'menu'}
-          component={MenuScene}
-          title={'Menu'}/>
+          component={MenuScene}/>
         <Scene
           key={'filter'}
-          component={FilterScene}
-          title={'Filter'}/>
+          component={FilterScene}/>
       </Router>
     );
   }
 
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;

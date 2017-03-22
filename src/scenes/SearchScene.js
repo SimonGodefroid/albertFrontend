@@ -68,7 +68,7 @@ class SearchScene extends React.Component {
       <ScrollView style={styles.scrollview}>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:1})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
@@ -85,7 +85,7 @@ class SearchScene extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:2})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
@@ -102,7 +102,7 @@ class SearchScene extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:3})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
@@ -119,7 +119,7 @@ class SearchScene extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:4})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
@@ -136,7 +136,7 @@ class SearchScene extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:5})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
@@ -153,7 +153,7 @@ class SearchScene extends React.Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => Actions.results()}>
+            onPress={() => Actions.results({cat:6})}>
             <View style={styles.viewCard}>
               <Image
                 style={styles.image}
