@@ -49,10 +49,14 @@ class App extends React.Component {
           component={EditProfileScene}/>
         <Scene
           key={'search'}
-          component={SearchScene}/>
+          component={SearchScene}
+          initial={true}
+          hideNavBar={true}
+        />
         <Scene
           key={'results'}
-          component={ResultsScene}/>
+          component={ResultsScene}
+        hideNavBar={true}/>
         <Scene
           key={'product'}
           component={ProductScene}/>
