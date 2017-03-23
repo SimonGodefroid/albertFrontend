@@ -1,21 +1,21 @@
 import React from 'react';
 
 import {
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  ScrollView,
-  ActivityIndicator,
-  ListView,
-  TouchableOpacity,
+	Platform,
+	StatusBar,
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	ActivityIndicator,
+	ListView,
+	TouchableOpacity
 } from 'react-native';
 
 import {
-  Router,
-  Scene,
+	Router,
+	Scene
 } from 'react-native-router-flux';
 
 import SignupScene from './src/scenes/SignupScene';
@@ -29,6 +29,7 @@ import MenuScene from './src/scenes/MenuScene';
 import FilterScene from './src/scenes/FilterScene';
 
 class App extends React.Component {
+<<<<<<< HEAD
   render() {
     return(
       <Router
@@ -68,7 +69,6 @@ class App extends React.Component {
       </Router>
     );
   }
-
 }
 
 export default App;
