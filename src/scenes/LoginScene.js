@@ -10,7 +10,8 @@ import {
 	ListView,
 	TouchableOpacity,
 	Alert,
-	TextInput
+	TextInput,
+  Dimensions,
 } from 'react-native';
 
 import {
@@ -37,7 +38,7 @@ export default class LoginScene extends React.Component {
 			password: this.state.password
 		};
 		console.log(user);
-		// ajouter requête API
+		Actions.search({})
 	}
 
 	render() {
@@ -67,13 +68,16 @@ export default class LoginScene extends React.Component {
 	}
 }
 
+const PADDING = 60;
+const inputWidth = Dimensions.get('window').width - (PADDING * 2);
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'space-around',
+		justifyContent: 'center',
 		alignItems: 'center',
-		height: '100%',
-		width: '100%',
+		//height: '100%',
+		//width: '100%',
 		backgroundColor: '#59BDB2',
 		paddingTop: 60,
 		paddingBottom: 60
@@ -90,7 +94,8 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		backgroundColor: 'transparent',
 		color: 'white',
-		width: '60%',
+		//width: '60%',
+    width: inputWidth,
 		borderRadius: 25,
 		borderColor: 'white',
 		borderWidth: 3,

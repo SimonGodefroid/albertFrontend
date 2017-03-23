@@ -37,10 +37,10 @@ class App extends React.Component {
 				backgroundColor: '#5bbcb2'
 			}} hideNavBar={true}>
 				<Scene key={'signup'} component={SignupScene}/>
-				<Scene key={'login'} component={LoginScene}/>
+				<Scene key={'login'} component={LoginScene} initial={true}/>
 				<Scene key={'profile'} component={ProfileScene}/>
 				<Scene key={'editProfile'} component={EditProfileScene}/>
-				<Scene key={'search'} component={SearchScene} hideNavBar={true} initial={true}/>
+				<Scene key={'search'} component={SearchScene} hideNavBar={true}/>
 				<Scene key={'results'} component={ResultsScene} hideNavBar={true}/>
 				<Scene key={'product'} component={ProductScene}/>
 				<Scene key={'menu'} component={MenuScene}/>
