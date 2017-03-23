@@ -1,3 +1,3 @@
 export default {
-  host: 'http://localhost:3002',
+  host: 'http://' + process.env.host + ':3002',
 };
