@@ -50,13 +50,12 @@ class App extends React.Component {
         <Scene
           key={'search'}
           component={SearchScene}
-          initial={true}
           hideNavBar={true}
-        />
+          initial={true}/>
         <Scene
           key={'results'}
           component={ResultsScene}
-        hideNavBar={true}/>
+          hideNavBar={true}/>
         <Scene
           key={'product'}
           component={ProductScene}/>

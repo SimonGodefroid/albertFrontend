@@ -2,51 +2,43 @@ import React from 'react';
 
 import {
   StyleSheet,
-  Text,
-  Image,
-  View,
   ScrollView,
-  ActivityIndicator,
-  ListView,
-  TouchableOpacity,
-  Dimensions,
 } from 'react-native';
 
 import {
   Actions,
 } from 'react-native-router-flux';
 
-import events from '../../albert.events.json'
 import ImagesProduct from '../components/products/ImagesProduct';
 import InfoProduct from '../components/products/InfoProduct';
 import Favorites from '../components/user/Favorites';
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop:70,
-  },
-  image:{
-    width: (Dimensions.get('window').width),
-    height: (Dimensions.get('window').height),
-  },
+
 });
 
 class ProductScene extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     const {
+      image,
       title,
+      leadText,
+      evenements,
+      place,
     } = this.props.product;
 
-    console.log('product#rowdata is:', this.props);
+    console.log('product#rowdata is:', this.props.product);
     return(
-      <ScrollView style={styles.container}>
-        <Text>salut</Text>
-        <Text>{title}</Text>
+      <ScrollView>
+        <ImagesProduct
+          image={image.url}/>
+        <InfoProduct
+          title={title}
+          category={evenements.category.lvl1}
+          place={place.name}
+          address={place.address}
+          city={place.city}
+          description={leadText}/>
       </ScrollView>
     );
   }
