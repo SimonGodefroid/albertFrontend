@@ -1,3 +1,5 @@
+import env from '../env.json';
+
 export default {
-  host: 'http://' + process.env.host + ':3002',
+  host: env.host,
 };
