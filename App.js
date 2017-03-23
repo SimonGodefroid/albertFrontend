@@ -1,21 +1,21 @@
 import React from 'react';
 
 import {
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  ScrollView,
-  ActivityIndicator,
-  ListView,
-  TouchableOpacity,
+	Platform,
+	StatusBar,
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	ActivityIndicator,
+	ListView,
+	TouchableOpacity
 } from 'react-native';
 
 import {
-  Router,
-  Scene,
+	Router,
+	Scene
 } from 'react-native-router-flux';
 
 import SignupScene from './src/scenes/SignupScene';
@@ -29,46 +29,25 @@ import MenuScene from './src/scenes/MenuScene';
 import FilterScene from './src/scenes/FilterScene';
 
 class App extends React.Component {
-  render() {
-    return(
-      <Router
-        leftButtonIconStyle={{ tintColor: 'white' }}
-        navigationBarStyle={{ backgroundColor: '#5bbcb2'}}
-        hideNavBar={true}>
-        <Scene
-          key={'signup'}
-          component={SignupScene}/>
-        <Scene
-          key={'login'}
-          component={LoginScene}/>
-        <Scene
-          key={'profile'}
-          component={ProfileScene}/>
-        <Scene
-          key={'editProfile'}
-          component={EditProfileScene}/>
-        <Scene
-          key={'search'}
-          component={SearchScene}
-          initial={true}
-          hideNavBar={true}
-        />
-        <Scene
-          key={'results'}
-          component={ResultsScene}
-        hideNavBar={true}/>
-        <Scene
-          key={'product'}
-          component={ProductScene}/>
-        <Scene
-          key={'menu'}
-          component={MenuScene}/>
-        <Scene
-          key={'filter'}
-          component={FilterScene}/>
-      </Router>
-    );
-  }
+	render() {
+		return (
+			<Router leftButtonIconStyle={{
+				tintColor: 'white'
+			}} navigationBarStyle={{
+				backgroundColor: '#5bbcb2'
+			}} hideNavBar={true}>
+				<Scene key={'signup'} component={SignupScene}/>
+				<Scene key={'login'} component={LoginScene}/>
+				<Scene key={'profile'} component={ProfileScene}/>
+				<Scene key={'editProfile'} component={EditProfileScene}/>
+				<Scene key={'search'} component={SearchScene} hideNavBar={true} initial={true}/>
+				<Scene key={'results'} component={ResultsScene} hideNavBar={true}/>
+				<Scene key={'product'} component={ProductScene}/>
+				<Scene key={'menu'} component={MenuScene}/>
+				<Scene key={'filter'} component={FilterScene}/>
+			</Router>
+		);
+	}
 
 }
 
