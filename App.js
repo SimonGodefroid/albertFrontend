@@ -40,7 +40,8 @@ class App extends React.Component {
           component={SignupScene}/>
         <Scene
           key={'login'}
-          component={LoginScene}/>
+          component={LoginScene}
+          initial={true}/>
         <Scene
           key={'profile'}
           component={ProfileScene}/>
@@ -50,8 +51,7 @@ class App extends React.Component {
         <Scene
           key={'search'}
           component={SearchScene}
-          hideNavBar={true}
-          initial={true}/>
+          hideNavBar={true}/>
         <Scene
           key={'results'}
           component={ResultsScene}
