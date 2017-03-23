@@ -25,6 +25,7 @@ class ProductScene extends React.Component {
       leadText,
       evenements,
       place,
+      modality
     } = this.props.product;
 
     console.log('product#rowdata is:', this.props.product);
@@ -35,10 +36,15 @@ class ProductScene extends React.Component {
         <InfoProduct
           title={title}
           category={evenements.category.lvl1}
+          date={evenements.realDateStart.slice(8,10)}
+          month={evenements.realDateStart.slice(5,7)}
           place={place.name}
           address={place.address}
           city={place.city}
-          description={leadText}/>
+          description={leadText}
+          hourStart={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
+          hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
+          price={modality.priceDetail}/>
       </ScrollView>
     );
   }
