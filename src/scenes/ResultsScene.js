@@ -14,6 +14,7 @@ import Global from '../Global';
 import Api from '../Api';
 import events from '../albert.events.json';
 import EventsCard from '../components/products/EventsCard';
+import AlbertTab from '../components/core/AlbertTab';
 
 class ResultsScene extends React.Component {
     constructor(props) {
@@ -50,8 +51,8 @@ class ResultsScene extends React.Component {
             title={rowData.title}
             date={rowData.evenements.realDateStart.slice(8,10)}
             month={rowData.evenements.realDateStart.slice(5,7)}
-            hourStart={rowData.evenements.periodes[0] !== undefined ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
-            hourEnd={rowData.evenements.periodes[0] !== undefined ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
+            hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
+            hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
             zipCode={rowData.place.zipCode}
             place={rowData.place.name}
             city={rowData.place.city}
@@ -64,15 +65,18 @@ class ResultsScene extends React.Component {
         if (this.state.events.getRowCount() === 0) {
           console.log(this.props.cat);
             return (
-                <View style={{paddingTop:80}}>
+                <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
                     <ActivityIndicator color={'#FF5A5F'}/>
-                </View>
+                </Image>
             );
         } else {
             return (
-                <View style={styles.container}>
+                <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
+                  <View style={styles.eventsHolder}>
                     <ListView dataSource={this.state.events} renderRow={this.renderEvents}/>
-                </View>
+                    </View>
+                    <AlbertTab style={{flex:1}}/>
+                </Image>
             );
         }
 
@@ -81,9 +85,19 @@ class ResultsScene extends React.Component {
 
     const styles = StyleSheet.create({
         container: {
-            padding: 15,
-            paddingTop: 15
-        }
+          flex: 1,
+          resizeMode: 'cover',
+          width: null,
+        },
+        eventsHolder : {
+          flex:9,
+          paddingTop:5,
+          paddingLeft:5,
+          paddingRight:5,
+          alignItems: 'center',
+          justifyContent:'center',
+        },
+
     });
 
     export default ResultsScene;

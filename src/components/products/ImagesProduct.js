@@ -1,35 +1,29 @@
 import React from 'react';
 import {
     StyleSheet,
-    Text,
     Image,
-    View,
-    ScrollView,
-    ActivityIndicator,
-    ListView,
-    TouchableOpacity,
+    Dimensions,
 } from 'react-native';
 import Global from '../../Global';
 
+const styles = StyleSheet.create({
+  image:{
+    width: (Dimensions.get('window').width),
+    height: (Dimensions.get('window').height)*0.38,
+  },
+});
 
 class ImagesProduct extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
+    console.log('image component', this.props);
     return(
-      <View>
-        <Text>ImagesProduct</Text>
-      </View>
+      <Image
+        source={{ uri: this.props.image }}
+        style={styles.image}/>
     );
   }
 
 }
-
-
-const styles = StyleSheet.create({
-
-});
 
 export default ImagesProduct;

@@ -1,21 +1,21 @@
 import React from 'react';
 
 import {
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  Image,
-  View,
-  ScrollView,
-  ActivityIndicator,
-  ListView,
-  TouchableOpacity,
+	Platform,
+	StatusBar,
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	ScrollView,
+	ActivityIndicator,
+	ListView,
+	TouchableOpacity
 } from 'react-native';
 
 import {
-  Router,
-  Scene,
+	Router,
+	Scene
 } from 'react-native-router-flux';
 
 import SignupScene from './src/scenes/SignupScene';
@@ -27,6 +27,8 @@ import ResultsScene from './src/scenes/ResultsScene';
 import ProductScene from './src/scenes/ProductScene';
 import MenuScene from './src/scenes/MenuScene';
 import FilterScene from './src/scenes/FilterScene';
+import TabIcon from './src/components/core/TabIcon';
+// import AlbertIcon from './src/components/core/AlbertIcon';
 
 class App extends React.Component {
   render() {
@@ -40,36 +42,32 @@ class App extends React.Component {
           component={SignupScene}/>
         <Scene
           key={'login'}
-          component={LoginScene}/>
-        <Scene
+          component={LoginScene}
+          initial={true}/>
+				<Scene
+          key={'menu'}
+          component={MenuScene}/>
+				<Scene
+          key={'search'}
+          component={SearchScene} />
+				<Scene
+					key={'filter'}
+					component={FilterScene}/>
+				<Scene
           key={'profile'}
-          component={ProfileScene}/>
+          component={ProfileScene} />
         <Scene
           key={'editProfile'}
           component={EditProfileScene}/>
         <Scene
-          key={'search'}
-          component={SearchScene}
-          initial={true}
-          hideNavBar={true}
-        />
-        <Scene
           key={'results'}
-          component={ResultsScene}
-        hideNavBar={true}/>
+          component={ResultsScene}/>
         <Scene
           key={'product'}
           component={ProductScene}/>
-        <Scene
-          key={'menu'}
-          component={MenuScene}/>
-        <Scene
-          key={'filter'}
-          component={FilterScene}/>
       </Router>
     );
   }
-
 }
 
 export default App;
