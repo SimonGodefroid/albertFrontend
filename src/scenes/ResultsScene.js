@@ -44,7 +44,6 @@ class ResultsScene extends React.Component {
 
     renderEvents(rowData) {
         return (
-          <View>
           <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
             <EventsCard
             photo={rowData.image.url}
@@ -58,10 +57,6 @@ class ResultsScene extends React.Component {
             city={rowData.place.city}
             category={rowData.evenements.category.lvl1}/>
           </TouchableOpacity>
-          <Text>
-            {rowData.evenements.periodes[0].seances.length}
-          </Text>
-        </View>
           );
     }
 
