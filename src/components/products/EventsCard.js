@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     },
     category: {
         color: '#000',
-        fontFamily: Global.secondFont,
+        fontFamily: Global.fourthFont,
         fontSize:12,
         marginTop: 5,
         marginBottom: 5

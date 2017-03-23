@@ -27,6 +27,8 @@ import ResultsScene from './src/scenes/ResultsScene';
 import ProductScene from './src/scenes/ProductScene';
 import MenuScene from './src/scenes/MenuScene';
 import FilterScene from './src/scenes/FilterScene';
+import TabIcon from './src/components/core/TabIcon';
+// import AlbertIcon from './src/components/core/AlbertIcon';
 
 class App extends React.Component {
   render() {
@@ -42,29 +44,27 @@ class App extends React.Component {
           key={'login'}
           component={LoginScene}
           initial={true}/>
-        <Scene
+				<Scene
+          key={'menu'}
+          component={MenuScene}/>
+				<Scene
+          key={'search'}
+          component={SearchScene} />
+				<Scene
+					key={'filter'}
+					component={FilterScene}/>
+				<Scene
           key={'profile'}
-          component={ProfileScene}/>
+          component={ProfileScene} />
         <Scene
           key={'editProfile'}
           component={EditProfileScene}/>
         <Scene
-          key={'search'}
-          component={SearchScene}
-          hideNavBar={true}/>
-        <Scene
           key={'results'}
-          component={ResultsScene}
-          hideNavBar={true}/>
+          component={ResultsScene}/>
         <Scene
           key={'product'}
           component={ProductScene}/>
-        <Scene
-          key={'menu'}
-          component={MenuScene}/>
-        <Scene
-          key={'filter'}
-          component={FilterScene}/>
       </Router>
     );
   }
