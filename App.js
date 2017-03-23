@@ -29,7 +29,6 @@ import MenuScene from './src/scenes/MenuScene';
 import FilterScene from './src/scenes/FilterScene';
 
 class App extends React.Component {
-<<<<<<< HEAD
   render() {
     return(
       <Router
