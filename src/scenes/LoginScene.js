@@ -44,10 +44,14 @@ export default class LoginScene extends React.Component {
                     <Animatable.Image animation="bounceIn" delay={200} duration={1100} source={require('../../assets/img/logo.png')} style={styles.logo}/>
                     <Animatable.Text style={styles.title} animation="fadeIn" delay={300} duration={1500}>ALBERT</Animatable.Text>
                 </View>
-                <Animatable.View animation="fadeIn" delay={400} >
+                <Animatable.View animation="fadeInLeft" delay={400} >
                     <TextInput autoCorrect={false} underlineColorAndroid={'transparent'} style={styles.input} placeholder="E-mail" onChangeText={(email) => this.setState({email})} value={this.state.email}/>
-                    <TextInput autoCorrect={false} underlineColorAndroid={'transparent'} style={styles.input} placeholder="Password" secureTextEntry={true} onChangeText={(password) => this.setState({password})} value={this.state.password}/>
-                    <TouchableOpacity onPress={this.onSubmitPress} style={styles.login_button}>
+                </Animatable.View>
+                <Animatable.View animation="fadeInRight" delay={450} >
+                  <TextInput autoCorrect={false} underlineColorAndroid={'transparent'} style={styles.input} placeholder="Password" secureTextEntry={true} onChangeText={(password) => this.setState({password})} value={this.state.password}/>
+                </Animatable.View>
+                <Animatable.View animation="fadeInLeft" delay={500} >
+                  <TouchableOpacity onPress={this.onSubmitPress} style={styles.login_button}>
                         <Text style={styles.login_text}>
                             CONNEXION
                         </Text>
@@ -82,7 +86,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: 'transparent',
         color: 'white',
-        //width: '60%',
         width: inputWidth,
         borderRadius: 25,
         borderColor: 'white',
@@ -105,12 +108,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 12,
         borderRadius: 25,
-        alignItems: 'center'
+        alignItems: 'center',
+        width: inputWidth,
     },
     login_text: {
         color: '#59BDB2',
         alignItems: 'center',
         fontFamily: Global.mainFont,
-        fontSize: 20
+        fontSize: 20,
     }
 });
