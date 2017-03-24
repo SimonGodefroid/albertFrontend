@@ -90,9 +90,6 @@ class ResultsScene extends React.Component {
         },
         eventsHolder : {
           flex:9,
-          paddingTop:5,
-          paddingLeft:5,
-          paddingRight:5,
           alignItems: 'center',
           justifyContent:'center',
         },
