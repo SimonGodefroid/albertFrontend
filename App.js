@@ -26,7 +26,6 @@ import SearchScene from './src/scenes/SearchScene';
 import ResultsScene from './src/scenes/ResultsScene';
 import ProductScene from './src/scenes/ProductScene';
 import TabIcon from './src/components/core/TabIcon';
-// import AlbertIcon from './src/components/core/AlbertIcon';
 
 class App extends React.Component {
   render() {

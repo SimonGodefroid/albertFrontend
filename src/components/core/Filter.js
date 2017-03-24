@@ -19,7 +19,7 @@ export default class Filter extends React.Component {
       <View style={styles.modalHolder}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.close} onPress={this.props.onCloseFn}>
-            <Icon name={'ios-close'} size={60} color={Global.mainColor}/>
+            <Icon name={'ios-close-circle-outline'} size={50} color={Global.mainColor}/>
         </TouchableOpacity>
         <Text>Salut</Text>
       </View>
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
       padding:15,
     },
     container: {
-        backgroundColor: Global.secondColor,
-        width:'95%',
-        height: '90%',
+        backgroundColor: 'rgba(255, 255, 255, 0.94)',
+        flex:1,
+        width:'100%',
         paddingLeft:20,
         paddingTop:5,
         paddingRight:20,

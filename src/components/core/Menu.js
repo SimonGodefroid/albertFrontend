@@ -12,16 +12,27 @@ import {
 } from 'react-native';
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {Actions} from 'react-native-router-flux';
+
 
 export default class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.goToProfile = this.goToProfile.bind(this);
+  }
+
+  goToProfile() {
+    Actions.profile({});
+  }
+
   render() {
     return(
       <View style={styles.modalHolder}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.close} onPress={this.props.onCloseFn}>
-            <Icon name={'ios-close'} size={60} color={Global.secondColor}/>
+            <Icon name={'ios-close-circle-outline'} size={50} color={Global.secondColor}/>
         </TouchableOpacity>
-        <Text style={styles.titleSection}>Faites une recherche <Icon name={'ios-search'} size={25}/></Text>
+        <Text style={styles.titleSection}>Faites une recherche <Icon name={'ios-search'} size={22}/></Text>
         <TouchableOpacity>
             <Text style={styles.menuEntries}><Icon name={'ios-restaurant-outline'} size={20}/> Manger</Text>
         </TouchableOpacity>
@@ -47,6 +58,13 @@ export default class Menu extends React.Component {
             <Text style={styles.menuEntries}><Icon name={'ios-clipboard-outline'} size={20}/> Travailler</Text>
         </TouchableOpacity>
         <View style={styles.separator}></View>
+        <Text style={styles.titleSection}>Bonjour XXX ! <Icon name={'ios-happy-outline'} size={22}/></Text>
+          <TouchableOpacity onPress={this.goToProfile}>
+              <Text style={styles.menuEntries}><Icon name={'ios-contact-outline'} size={20}/> Voir mon profil</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+              <Text style={styles.menuEntries}><Icon name={'ios-log-out-outline'} size={20}/> Déconnexion</Text>
+          </TouchableOpacity>
       </View>
       </View>
     );
@@ -59,14 +77,14 @@ const styles = StyleSheet.create({
       backgroundColor:'rgba(0, 0, 0, 0.3)',
       justifyContent: 'center',
       alignItems: 'center',
-      padding:15,
+      padding:0
     },
     container: {
-        backgroundColor: Global.mainColor,
-        width:'95%',
-        height: '90%',
-        paddingLeft:20,
-        paddingTop:5,
+        backgroundColor: 'rgba(92, 190, 180, 0.93)',
+        flex:1,
+        width:'100%',
+        paddingLeft:30,
+        paddingTop:10,
         paddingRight:20,
         paddingBottom: 15,
         elevation:10,
@@ -78,7 +96,11 @@ const styles = StyleSheet.create({
     titleSection: {
         fontSize: 26,
         fontFamily: Global.FifthFont,
-        color: Global.secondColor
+        color: Global.secondColor,
+        borderBottomColor: '#fff',
+        borderBottomWidth: 1,
+        paddingBottom:10,
+        marginBottom:10,
     },
     menuEntries: {
         fontSize: 16,
@@ -87,11 +109,10 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         fontFamily: Global.secondFont,
         color: Global.secondColor,
-        borderBottomColor: '#fff',
-        borderBottomWidth: StyleSheet.hairlineWidth
+
     },
     separator: {
-        width: 100,
+        width:270,
         backgroundColor: Global.secondColor,
         height: 3,
         marginTop:10,

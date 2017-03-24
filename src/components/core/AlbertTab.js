@@ -15,6 +15,7 @@ import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menu from './Menu';
 import Filter from './Filter';
+import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
     tabContainer: {
@@ -92,7 +93,7 @@ export default class AlbertTab extends React.Component {
                     <Icon name={'ios-menu'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.goToSearch}>
-                    <Image source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                    <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
                 <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
                     <Filter onCloseFn={this.onCloseFilterFn} />
