@@ -66,7 +66,6 @@ class ProductScene extends React.Component {
       </ScrollView>
     );
   }
-
 }
 
 export default ProductScene;
