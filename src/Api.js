@@ -66,6 +66,12 @@ class Api {
 		});
 	}
 
+	getStore(callback) {
+		Store.get('user').then((user) => {
+			callback(user)
+		});
+	}
+
 }
 
 export default new Api();
