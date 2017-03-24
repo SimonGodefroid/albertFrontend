@@ -20,7 +20,6 @@ class ResultsScene extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
             events: new ListView.DataSource({
                 rowHasChanged: (r1, r2) => r1 !== r2
             })
@@ -75,7 +74,7 @@ class ResultsScene extends React.Component {
                   <View style={styles.eventsHolder}>
                     <ListView dataSource={this.state.events} renderRow={this.renderEvents}/>
                     </View>
-                    <AlbertTab style={{flex:1}}/>
+                    <AlbertTab cat={this.props.cat} filter={true} style={{flex:1}}/>
                 </Image>
             );
         }
