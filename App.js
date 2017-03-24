@@ -25,10 +25,7 @@ import EditProfileScene from './src/scenes/EditProfileScene';
 import SearchScene from './src/scenes/SearchScene';
 import ResultsScene from './src/scenes/ResultsScene';
 import ProductScene from './src/scenes/ProductScene';
-import MenuScene from './src/scenes/MenuScene';
-import FilterScene from './src/scenes/FilterScene';
 import TabIcon from './src/components/core/TabIcon';
-// import AlbertIcon from './src/components/core/AlbertIcon';
 
 class App extends React.Component {
   render() {
@@ -45,14 +42,8 @@ class App extends React.Component {
           component={LoginScene}
           initial={true}/>
 				<Scene
-          key={'menu'}
-          component={MenuScene}/>
-				<Scene
           key={'search'}
           component={SearchScene} />
-				<Scene
-					key={'filter'}
-					component={FilterScene}/>
 				<Scene
           key={'profile'}
           component={ProfileScene} />

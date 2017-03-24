@@ -13,7 +13,9 @@ import {
 import Global from '../../Global';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Menu from './Menu';
 import Filter from './Filter';
+import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
     tabContainer: {
@@ -46,26 +48,37 @@ export default class AlbertTab extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false
+            menuVisible: false,
+            filterVisible: false,
         }
         this.goToSearch = this.goToSearch.bind(this);
-        this.goToMenu = this.goToMenu.bind(this);
-        this.setModalVisible = this.setModalVisible.bind(this);
-        this.onCloseFn = this.onCloseFn.bind(this);
+        this.setMenuVisible = this.setMenuVisible.bind(this);
+        this.onCloseMenuFn = this.onCloseMenuFn.bind(this);
+        this.onCloseFilterFn = this.onCloseFilterFn.bind(this);
+        this.setFilterVisible = this.setFilterVisible.bind(this);
+    }
+    /* Gestion de la modal Menu */
+    setMenuVisible(visible) {
+        this.setState({menuVisible: visible});
+    }
+    onCloseMenuFn(close) {
+      this.setState({
+        menuVisible: false,
+      });
     }
 
+    /* Gestion du bouton Albert-search*/
     goToSearch() {
         Actions.search({})
     }
-    setModalVisible(visible) {
-        this.setState({modalVisible: visible});
+
+    /* Gestion de la modal Filter */
+    setFilterVisible(visible) {
+        this.setState({filterVisible: visible});
     }
-    goToMenu() {
-        Actions.menu({})
-    }
-    onCloseFn(close) {
+    onCloseFilterFn(close) {
       this.setState({
-        modalVisible: false,
+        filterVisible: false,
       });
     }
 
@@ -73,16 +86,19 @@ export default class AlbertTab extends React.Component {
         return (
             <View style={styles.tabContainer}>
                 <View style={styles.bottomColor}/>
-                <TouchableOpacity onPress={this.goToMenu}>
+                  <Modal animationType={"slide"} transparent={true} visible={this.state.menuVisible} onRequestClose={() => { }}>
+                      <Menu onCloseFn={this.onCloseMenuFn} />
+                  </Modal>
+                <TouchableOpacity onPress={() => { this.setMenuVisible(true) }}>
                     <Icon name={'ios-menu'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.goToSearch}>
-                    <Image source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                    <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
-                <Modal animationType={"slide"} transparent={true} visible={this.state.modalVisible} onRequestClose={() => { }}>
-                    <Filter onCloseFn={this.onCloseFn} />
+                <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
+                    <Filter onCloseFn={this.onCloseFilterFn} />
                 </Modal>
-                <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
+                <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
                     <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
             </View>

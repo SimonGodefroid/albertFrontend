@@ -17,8 +17,6 @@ import Images from '../components/core/Images';
 import CatTab from '../components/core/CatTab';
 import Global from '../Global';
 
-const widthimage = (Dimensions.get('window').width) / 2 * 0.985;
-const heightimage = (Dimensions.get('window').height - 88) / 4;
 
 class SearchScene extends React.Component {
 	render() {
@@ -57,31 +55,4 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		flexWrap: 'wrap'
 	},
-	image: {
-		width: widthimage,
-		height: heightimage,
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	viewCard: {
-		height: heightimage,
-		borderWidth: 1,
-		borderColor: Global.secondColor
-	},
-	textView: {
-		flex: 1,
-		justifyContent: 'center'
-	},
-	text: {
-		color: Global.secondColor,
-		fontFamily: Global.secondFontBold,
-		fontSize: 21,
-		textAlign: 'center'
-	},
-	overlay: {
-		backgroundColor: 'rgba(0,0,0, 0.35)',
-		height: heightimage,
-		width: widthimage
-	}
 });
