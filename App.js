@@ -40,6 +40,7 @@ class App extends React.Component {
 			this.setState({
 				user: user
 			});
+			Api.setUser(user);
 			console.log(this.state.user);
 		})
 	}

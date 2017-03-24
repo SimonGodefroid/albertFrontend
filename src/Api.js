@@ -35,7 +35,14 @@ class Api {
 	authenticate(user) {
 		Store.save('user', user).then(() => {
 			console.log('Saved');
+      this.setUser(user);
 		});
+	}
+
+
+	setUser(user) {
+		this.user = user;
+		console.log('user is', this.user);
 	}
 
 	logIn(user = {}, callback) {
