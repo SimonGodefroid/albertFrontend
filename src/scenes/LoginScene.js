@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
     StyleSheet,
     Text,
@@ -13,12 +12,11 @@ import {
     TextInput,
     Dimensions
 } from 'react-native';
-
 import {Actions} from 'react-native-router-flux';
-
 import Api from '../Api';
 import Global from '../Global';
 import Button from '../components/core/Button';
+import * as Animatable from 'react-native-animatable';
 
 export default class LoginScene extends React.Component {
     constructor(props) {
@@ -43,12 +41,10 @@ export default class LoginScene extends React.Component {
         return (
             <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
                 <View style={styles.logo_container}>
-                    <Image source={require('../../assets/img/logo.png')} style={styles.logo}/>
-                    <Text style={styles.title}>
-                        ALBERT
-                    </Text>
+                    <Animatable.Image animation="bounceIn" delay={200} duration={1100} source={require('../../assets/img/logo.png')} style={styles.logo}/>
+                    <Animatable.Text style={styles.title} animation="fadeIn" delay={300} duration={1500}>ALBERT</Animatable.Text>
                 </View>
-                <View>
+                <Animatable.View animation="fadeIn" delay={400} >
                     <TextInput autoCorrect={false} underlineColorAndroid={'transparent'} style={styles.input} placeholder="E-mail" onChangeText={(email) => this.setState({email})} value={this.state.email}/>
                     <TextInput autoCorrect={false} underlineColorAndroid={'transparent'} style={styles.input} placeholder="Password" secureTextEntry={true} onChangeText={(password) => this.setState({password})} value={this.state.password}/>
                     <TouchableOpacity onPress={this.onSubmitPress} style={styles.login_button}>
@@ -56,7 +52,7 @@ export default class LoginScene extends React.Component {
                             CONNEXION
                         </Text>
                     </TouchableOpacity>
-                </View>
+                </Animatable.View>
             </Image>
         );
     }
@@ -68,10 +64,9 @@ const inputWidth = Dimensions.get('window').width - (PADDING * 2);
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 70,
+        paddingTop: 60,
         alignItems: 'center',
-        width: '100%',
-        height: '100%',
+        width:null,
         resizeMode: 'cover',
         padding: 20
     },
@@ -79,11 +74,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logo: {
-        width: 150,
-        height: 160
+        width: 170,
+        height: 180
     },
     input: {
-        height: 60,
+        height: 50,
         borderWidth: 1,
         backgroundColor: 'transparent',
         color: 'white',
@@ -95,7 +90,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: Global.secondFont,
         fontSize: 20,
-        padding: 20,
+        padding: 16,
         textAlign: 'center'
     },
     title: {
@@ -104,11 +99,11 @@ const styles = StyleSheet.create({
         color: 'white',
         borderBottomColor: '#59BDB2',
         borderBottomWidth: 5,
-        marginBottom: 10
+        marginBottom: 30
     },
     login_button: {
         backgroundColor: 'white',
-        padding: 15,
+        padding: 12,
         borderRadius: 25,
         alignItems: 'center'
     },
@@ -116,6 +111,6 @@ const styles = StyleSheet.create({
         color: '#59BDB2',
         alignItems: 'center',
         fontFamily: Global.mainFont,
-        fontSize: 30
+        fontSize: 20
     }
 });

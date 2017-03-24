@@ -7,11 +7,13 @@ import {
     ScrollView,
     ActivityIndicator,
     ListView,
-    TouchableOpacity
+    TouchableOpacity,
+    Modal
 } from 'react-native';
 import Global from '../../Global';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Filter from './Filter';
 
 const styles = StyleSheet.create({
     tabContainer: {
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         position: 'relative',
         height: 80,
-        paddingBottom: 10,
+        paddingBottom: 10
     },
     albertHolder: {
         alignItems: 'flex-start',
@@ -40,36 +42,48 @@ const styles = StyleSheet.create({
     }
 });
 
-
 export default class AlbertTab extends React.Component {
     constructor(props) {
-      super(props);
-      this.goToSearch = this.goToSearch.bind(this);
-      this.goToFilter = this.goToFilter.bind(this);
-      this.goToMenu = this.goToMenu.bind(this);
+        super(props);
+        this.state = {
+            modalVisible: false
+        }
+        this.goToSearch = this.goToSearch.bind(this);
+        this.goToMenu = this.goToMenu.bind(this);
+        this.setModalVisible = this.setModalVisible.bind(this);
+        this.onCloseFn = this.onCloseFn.bind(this);
     }
 
     goToSearch() {
-      Actions.search({})
+        Actions.search({})
     }
-    goToFilter() {
-      Actions.filter({})
+    setModalVisible(visible) {
+        this.setState({modalVisible: visible});
     }
     goToMenu() {
-      Actions.menu({})
+        Actions.menu({})
     }
+    onCloseFn(close) {
+      this.setState({
+        modalVisible: false,
+      });
+    }
+
     render() {
         return (
             <View style={styles.tabContainer}>
                 <View style={styles.bottomColor}/>
                 <TouchableOpacity onPress={this.goToMenu}>
-                <Icon name={'ios-menu'} size={40} color={'#fff'}/>
+                    <Icon name={'ios-menu'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.goToSearch}>
-                  <Image source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                    <Image source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.goToFilter}>
-                <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
+                <Modal animationType={"slide"} transparent={true} visible={this.state.modalVisible} onRequestClose={() => { }}>
+                    <Filter onCloseFn={this.onCloseFn} />
+                </Modal>
+                <TouchableOpacity onPress={() => { this.setModalVisible(true) }}>
+                    <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
             </View>
 
