@@ -36,7 +36,8 @@ export default class CatTab extends React.Component {
 					</Image>
 				</View>
 			</TouchableOpacity>
-	)};
+		)
+	};
 }
 
 const styles = StyleSheet.create({
