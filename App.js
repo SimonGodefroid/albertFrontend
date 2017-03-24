@@ -41,7 +41,6 @@ class App extends React.Component {
 				user: user
 			});
 			Api.setUser(user);
-			console.log(this.state.user);
 		})
 	}
 	render() {
