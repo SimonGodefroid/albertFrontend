@@ -12,6 +12,7 @@ import {
 import ImagesProduct from '../components/products/ImagesProduct';
 import InfoProduct from '../components/products/InfoProduct';
 import ContactProduct from '../components/products/ContactProduct';
+import MapProduct from '../components/products/MapProduct';
 import Favorites from '../components/user/Favorites';
 
 const styles = StyleSheet.create({
@@ -49,6 +50,11 @@ class ProductScene extends React.Component {
           hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
           price={modality.priceDetail}
           tags={tags}
+          />
+        <MapProduct
+          title={title}
+          longitude={place.lon}
+          latitude={place.lat}
           />
         <ContactProduct
           reservation={modality.accessLink}

@@ -53,6 +53,7 @@
     </dict>
     <key>UIAppFonts</key>
     <array>
+      <string>Abel-Regular.ttf</string>
       <string>Montserrat-Bold.ttf</string>
       <string>Montserrat-Regular.ttf</string>
       <string>Nunito-Black.ttf</string>
@@ -63,6 +64,8 @@
       <string>Nunito-Medium.ttf</string>
       <string>Nunito-Regular.ttf</string>
       <string>Nunito-SemiBold.ttf</string>
+      <string>RobotoMono-Regular.ttf</string>
+      <string>SpaceMono-Regular.ttf</string>
       <string>Entypo.ttf</string>
       <string>EvilIcons.ttf</string>
       <string>FontAwesome.ttf</string>
@@ -73,9 +76,6 @@
       <string>Octicons.ttf</string>
       <string>SimpleLineIcons.ttf</string>
       <string>Zocial.ttf</string>
-      <string>Abel-Regular.ttf</string>
-      <string>RobotoMono-Regular.ttf</string>
-      <string>SpaceMono-Regular.ttf</string>
     </array>
   </dict>
 </plist>
