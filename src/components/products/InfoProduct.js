@@ -12,6 +12,15 @@ import Global from '../../Global';
 
 class InfoProduct extends React.Component {
 
+  // renderTags(tags) {
+  //   var str="";
+  //   for (var i = 0; i < tags.length; i++) {
+  //     str + `#${tags[i]} `
+  //   }
+  //   return str;
+  //   console.log("str", str);
+  // }
+
   render() {
     console.log('info component', this.props);
     const {
@@ -26,6 +35,7 @@ class InfoProduct extends React.Component {
       hourStart,
       hourEnd,
       price,
+      tags
     } = this.props;
 
     var month = null;
@@ -88,12 +98,14 @@ class InfoProduct extends React.Component {
             <Icon name={'ios-pin-outline'} size={24}/>   {place}
           </Text>
           <Text style={styles.placeSuite}>{address} - {city}</Text>
-          <Text style={styles.price}><Icon name={'ios-mi-euro-symbol'} size={20}/>{price}</Text>
+          <Text style={styles.price}><Icon name={'ios-cash-outline'} size={20}/>  {price}</Text>
         </View>
         <View style={styles.descriptionHolder}>
           <Text style={styles.details}>Détails</Text>
           <Text style={styles.description}>{description}</Text>
+          <Text style={styles.tags}>#{tags[0]} #{tags[1]}</Text>
         </View>
+        <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
     );
   }
@@ -101,7 +113,7 @@ class InfoProduct extends React.Component {
 
 const styles = StyleSheet.create({
   eventPresentation:{
-    // backgroundColor: 'yellow',
+    backgroundColor: 'yellow',
     flexDirection: 'row',
   },
       dateHolder:{
@@ -129,7 +141,7 @@ const styles = StyleSheet.create({
             fontFamily: Global.secondFont,
           },
   placetimeHolder:{
-    // backgroundColor: Global.fourthColor,
+    backgroundColor: Global.fourthColor,
     paddingTop: 20,
     paddingLeft: 20,
     paddingBottom: 15,
@@ -156,21 +168,37 @@ const styles = StyleSheet.create({
         fontFamily: Global.secondFont,
         fontSize: 14,
         paddingLeft: 32,
+        paddingBottom: 10,
       },
       price: {
-
+        fontFamily: Global.secondFont,
+        fontSize: 16,
+        paddingLeft: 5,
       },
   descriptionHolder:{
-    // backgroundColor: Global.thirdColor,
+    backgroundColor: Global.thirdColor,
     paddingLeft: 20,
     paddingTop: 10,
     paddingRight: 10,
+    paddingBottom: 15,
   },
       description:{
         fontFamily: Global.secondFont,
         fontSize: 15,
         textAlign: 'justify',
+        paddingBottom: 10,
       },
+      tags:{
+        fontFamily: Global.secondFont,
+        fontSize: 15,
+      },
+  lieu:{
+    fontFamily: Global.secondFont,
+    paddingTop: 10,
+    paddingLeft: 20,
+    paddingBottom: 10,
+    textDecorationLine: 'underline',
+  },
 });
 
 export default InfoProduct;

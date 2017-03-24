@@ -59,6 +59,9 @@
 		C1A2532C01AC441EB93D48BC /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7358C1D9C8EF417BBB35D284 /* Zocial.ttf */; };
 		4FBA1D38218D4E27B682657F /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC73A846F7A14ABEBF28664A /* libReactNativeConfig.a */; };
 		248B572626294014B47A5DBD /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F75FD153E13D4070A3C0839B /* libRNSVG.a */; };
+		ED814828E6CE4AD587E1C39E /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 998CEB85B45149958E8FC83B /* Abel-Regular.ttf */; };
+		132C8AF493BB4D06AAF9B2BE /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DCD60B3A8634452B283830C /* RobotoMono-Regular.ttf */; };
+		C8FA3CBAB66F40BA9B2D88BF /* SpaceMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9E9F7DB8CE64658B91FEADE /* SpaceMono-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +309,9 @@
 		FC73A846F7A14ABEBF28664A /* libReactNativeConfig.a */ = {isa = PBXFileReference; name = "libReactNativeConfig.a"; path = "libReactNativeConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		13AE8C6EAD3D4708ACA2DE21 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; name = "RNSVG.xcodeproj"; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		F75FD153E13D4070A3C0839B /* libRNSVG.a */ = {isa = PBXFileReference; name = "libRNSVG.a"; path = "libRNSVG.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		998CEB85B45149958E8FC83B /* Abel-Regular.ttf */ = {isa = PBXFileReference; name = "Abel-Regular.ttf"; path = "../assets/fonts/Abel-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3DCD60B3A8634452B283830C /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; name = "RobotoMono-Regular.ttf"; path = "../assets/fonts/RobotoMono-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C9E9F7DB8CE64658B91FEADE /* SpaceMono-Regular.ttf */ = {isa = PBXFileReference; name = "SpaceMono-Regular.ttf"; path = "../assets/fonts/SpaceMono-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +572,9 @@
 				05EDAA17E64949FF9F194597 /* Octicons.ttf */,
 				CCF76264B5914D86AD45C30E /* SimpleLineIcons.ttf */,
 				7358C1D9C8EF417BBB35D284 /* Zocial.ttf */,
+				998CEB85B45149958E8FC83B /* Abel-Regular.ttf */,
+				3DCD60B3A8634452B283830C /* RobotoMono-Regular.ttf */,
+				C9E9F7DB8CE64658B91FEADE /* SpaceMono-Regular.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -949,6 +958,9 @@
 				673CAA4B09774093938CC9F6 /* Octicons.ttf in Resources */,
 				99EC4E86CC1844D0B27D0583 /* SimpleLineIcons.ttf in Resources */,
 				C1A2532C01AC441EB93D48BC /* Zocial.ttf in Resources */,
+				ED814828E6CE4AD587E1C39E /* Abel-Regular.ttf in Resources */,
+				132C8AF493BB4D06AAF9B2BE /* RobotoMono-Regular.ttf in Resources */,
+				C8FA3CBAB66F40BA9B2D88BF /* SpaceMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

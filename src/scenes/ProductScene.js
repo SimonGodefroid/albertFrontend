@@ -11,6 +11,7 @@ import {
 
 import ImagesProduct from '../components/products/ImagesProduct';
 import InfoProduct from '../components/products/InfoProduct';
+import ContactProduct from '../components/products/ContactProduct';
 import Favorites from '../components/user/Favorites';
 
 const styles = StyleSheet.create({
@@ -25,7 +26,9 @@ class ProductScene extends React.Component {
       leadText,
       evenements,
       place,
-      modality
+      modality,
+      tags,
+      contact,
     } = this.props.product;
 
     console.log('product#rowdata is:', this.props.product);
@@ -44,7 +47,16 @@ class ProductScene extends React.Component {
           description={leadText}
           hourStart={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
           hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
-          price={modality.priceDetail}/>
+          price={modality.priceDetail}
+          tags={tags}
+          />
+        <ContactProduct
+          reservation={modality.accessLink}
+          webSite={contact.url}
+          mail={modality.accessMail}
+          phone={modality.accessPhone}
+          facebook={contact.facebook}
+          twitter={contact.twitter}/>
       </ScrollView>
     );
   }
