@@ -1,12 +1,12 @@
 import Config from './Config';
 import Store from 'react-native-simple-store';
 import {
-    Alert,
+	Alert
 } from 'react-native';
 
 class Api {
 
-  constructor() {
+	constructor() {
 		// La classe Api.js conservera un objet `user`, qui contiendra des valeurs null par défaut
 		this.user = Object.assign({}, this.defaultUser); // Création d'un clone de l'objet this.defaultUser
 		// Note: Object.assign() n'est pas disponible en ES5
@@ -38,7 +38,6 @@ class Api {
 		});
 	}
 
-
 	logIn(user = {}, callback) {
 		fetch(`${Config.host}/api/users/log_in`, {
 			method: "POST",
@@ -58,6 +57,12 @@ class Api {
 				console.log(json);
 			}
 
+		});
+	}
+	logOut(callback) {
+		Store.delete('user').then(() => {
+			console.log('Deleted');
+			callback();
 		});
 	}
 

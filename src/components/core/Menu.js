@@ -11,6 +11,7 @@ import {
     Modal,
 } from 'react-native';
 import Global from '../../Global';
+import Api from '../../Api'
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
 
@@ -62,7 +63,7 @@ export default class Menu extends React.Component {
           <TouchableOpacity onPress={this.goToProfile}>
               <Text style={styles.menuEntries}><Icon name={'ios-contact-outline'} size={20}/> Voir mon profil</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => Api.logOut(() => Actions.login({}))}>
               <Text style={styles.menuEntries}><Icon name={'ios-log-out-outline'} size={20}/> Déconnexion</Text>
           </TouchableOpacity>
       </View>
