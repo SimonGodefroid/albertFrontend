@@ -51,6 +51,9 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9b63e74c5278b51936be7a4ee57d81fa612050f
 .env
 env.json

@@ -10,8 +10,6 @@ import Map from 'react-native-maps';
 
 class MapProduct extends React.Component {
   render() {
-    console.log(this.props.title);
-    console.log(this.props.longitude);
     return (
       <View>
         <Map
