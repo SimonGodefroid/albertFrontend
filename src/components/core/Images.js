@@ -7,4 +7,5 @@ export default {
   searchEcouter: require('../../../assets/img/search-ecouter.jpg'),
   searchSeDetendre: require('../../../assets/img/search-se-detendre.jpg'),
   searchTravailler: require('../../../assets/img/search-travailler.jpg'),
+  albertLoad: require('../../../assets/img/albert-wait.gif'),
 }

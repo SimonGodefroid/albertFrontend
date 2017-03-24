@@ -15,6 +15,7 @@ import Api from '../Api';
 import events from '../albert.events.json';
 import EventsCard from '../components/products/EventsCard';
 import AlbertTab from '../components/core/AlbertTab';
+import Loading from '../components/core/Loading';
 
 class ResultsScene extends React.Component {
     constructor(props) {
@@ -64,9 +65,7 @@ class ResultsScene extends React.Component {
         if (this.state.events.getRowCount() === 0) {
           console.log(this.props.cat);
             return (
-                <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
-                    <ActivityIndicator color={'#FF5A5F'}/>
-                </Image>
+                <Loading />
             );
         } else {
             return (
