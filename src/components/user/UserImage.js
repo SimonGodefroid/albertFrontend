@@ -19,13 +19,22 @@ class UserImage extends React.Component {
 
   render() {
     return(
-      <View>
-        <Text>UserImage</Text>
+      <View style={{paddingTop:20}}>
+        <Image
+          style={[{width: 50, height: 50},this.props.style]}
+          source={{uri: this.props.image}}
+        />
       </View>
     );
   }
 
 }
+
+UserImage.defaultProps = {
+  image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAxsAAAAJDIwODUzYzk5LTA2MGItNDE0ZS04YTFkLWU0OTA3NWJiYjk4Zg.jpg'
+};
+
+
 
 
 const styles = StyleSheet.create({

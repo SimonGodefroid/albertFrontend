@@ -6,6 +6,14 @@ import {
   Dimensions,
 } from 'react-native';
 
+
+let {
+  height,
+  width,
+} = Dimensions.get('window');
+
+
+
 import Map from 'react-native-maps';
 
 class MapProduct extends React.Component {
@@ -14,7 +22,7 @@ class MapProduct extends React.Component {
       <View>
         <Map
           style={{
-            width: (Dimensions.get('window').width),
+            width: width,
             height: 200,
           }}
           initialRegion={{

@@ -22,8 +22,9 @@ export default class Menu extends React.Component {
     this.goToProfile = this.goToProfile.bind(this);
   }
 
-  goToProfile() {
+  goToProfile(callback) {
     Actions.profile({});
+    callback();
   }
 
   render() {
@@ -60,7 +61,7 @@ export default class Menu extends React.Component {
         </TouchableOpacity>
         <View style={styles.separator}></View>
         <Text style={styles.titleSection}>Bonjour XXX ! <Icon name={'ios-happy-outline'} size={22}/></Text>
-          <TouchableOpacity onPress={this.goToProfile}>
+          <TouchableOpacity onPress={()=>this.goToProfile(this.props.onCloseFn)}>
               <Text style={styles.menuEntries}><Icon name={'ios-contact-outline'} size={20}/> Voir mon profil</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Api.logOut(() => Actions.login({}))}>
