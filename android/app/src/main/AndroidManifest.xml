@@ -31,5 +31,4 @@
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyAOouloW54q4FDKuFbZuW5hXcQUoqTF1as"/>
     </application>
-
 </manifest>

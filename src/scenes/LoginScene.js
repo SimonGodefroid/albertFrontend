@@ -22,7 +22,7 @@ export default class LoginScene extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'user',
+            email: 'albert@albert.com',
             password: 'password01'
         }
         this.onSubmitPress = this.onSubmitPress.bind(this);
@@ -34,7 +34,8 @@ export default class LoginScene extends React.Component {
             password: this.state.password
         };
         console.log(user);
-        Actions.search({})
+        Api.logIn(user, () => Actions.search({}))
+
     }
 
     render() {
