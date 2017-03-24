@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Global from '../../Global';
 
@@ -26,12 +27,16 @@ class ContactProduct extends React.Component {
     return(
       <View style={styles.contactHolder}>
         <Text style={styles.details}>Contacts</Text>
-        <Text>{reservation}</Text>
-        <Text>{mail}</Text>
-        <Text>{phone}</Text>
-        <Text>{webSite}</Text>
-        <Text>{facebook}</Text>
-        <Text>{twitter}</Text>
+        <View>
+          <Text>{reservation}</Text>
+          <Text>{phone}</Text>
+        </View>
+        <View>
+          <Icon name="logo-facebook"></Icon><Text>{facebook}</Text>
+          <Icon name="logo-twitter"></Icon><Text>{twitter}</Text>
+          <Icon name="ios-mail"></Icon><Text>{mail}</Text>
+          <Icon2 name="web"></Icon2><Text>{webSite}</Text>
+        </View>
       </View>
     );
   }
