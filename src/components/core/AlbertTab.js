@@ -45,21 +45,32 @@ export default class AlbertTab extends React.Component {
     constructor(props) {
       super(props);
       this.goToSearch = this.goToSearch.bind(this);
+      this.goToFilter = this.goToFilter.bind(this);
+      this.goToMenu = this.goToMenu.bind(this);
     }
 
     goToSearch() {
       Actions.search({})
     }
-
+    goToFilter() {
+      Actions.filter({})
+    }
+    goToMenu() {
+      Actions.menu({})
+    }
     render() {
         return (
             <View style={styles.tabContainer}>
                 <View style={styles.bottomColor}/>
+                <TouchableOpacity onPress={this.goToMenu}>
                 <Icon name={'ios-menu'} size={40} color={'#fff'}/>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={this.goToSearch}>
                   <Image source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={this.goToFilter}>
                 <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
+                </TouchableOpacity>
             </View>
 
         );
