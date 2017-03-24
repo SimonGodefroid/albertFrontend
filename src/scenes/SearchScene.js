@@ -6,7 +6,8 @@ import {
 	View,
 	ScrollView,
 	TouchableOpacity,
-	Dimensions
+	Dimensions,
+  Alert
 } from 'react-native';
 import {
 	Actions
