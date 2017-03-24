@@ -36,7 +36,7 @@ class SearchScene extends React.Component {
 				</View>
 				<AlbertTab style={{
 					flex: 1
-				}}/>
+				}} filter={false}/>
 			</View>
 
 		);

@@ -12,8 +12,14 @@ import {
 } from 'react-native';
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import Api from '../../Api';
 export default class Filter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      cat: this.props.cat,
+    }
+  }
   render() {
     return(
       <View style={styles.modalHolder}>

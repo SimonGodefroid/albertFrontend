@@ -56,6 +56,7 @@ export default class AlbertTab extends React.Component {
         this.onCloseMenuFn = this.onCloseMenuFn.bind(this);
         this.onCloseFilterFn = this.onCloseFilterFn.bind(this);
         this.setFilterVisible = this.setFilterVisible.bind(this);
+        this.renderFilter = this.renderFilter.bind(this);
     }
     /* Gestion de la modal Menu */
     setMenuVisible(visible) {
@@ -82,6 +83,26 @@ export default class AlbertTab extends React.Component {
       });
     }
 
+    renderFilter() {
+      if (this.props.filter === true) {
+        return (
+          <View>
+          <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
+              <Filter cat={this.props.cat} onCloseFn={this.onCloseFilterFn}  />
+          </Modal>
+        <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
+            <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
+        </TouchableOpacity>
+      </View>
+        );
+      } else {
+        return(
+              <Icon name={'ios-options-outline'} size={40} color={'#619B91'}/>
+        );
+      }
+    }
+
+
     render() {
         return (
             <View style={styles.tabContainer}>
@@ -95,12 +116,7 @@ export default class AlbertTab extends React.Component {
                 <TouchableOpacity onPress={this.goToSearch}>
                     <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
-                <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
-                    <Filter onCloseFn={this.onCloseFilterFn} />
-                </Modal>
-                <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
-                    <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
-                </TouchableOpacity>
+                 {this.renderFilter()}
             </View>
 
         );
