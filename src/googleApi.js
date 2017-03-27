@@ -1,34 +1,37 @@
 import Config from './Config';
-import Store from 'react-native-simple-store';
-import {
-	Alert
-} from 'react-native';
 
 class googleApi {
-  getFood(callback) {
-		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8860323,2.3877194&radius=100&types=restaurant|meal_takeaway|food`)
-		.then(res => res.json()).then(foodPlaces => {
-			console.log("foodPlaces", foodPlaces);
-			callback(foodPlaces)
+	getPlaces(category, callback) {
+		let types = "";
+		switch (category) {
+			case 1:
+				types = "restaurant|meal_takeaway|food";
+				break;
+			case 2:
+				types = "bar|cafe";
+				break;
+			case 5:
+				types = "museum";
+				break;
+			case 6:
+				types = "clothing_store|department_store|furniture_store|home_goods_store|shoe_store|shopping_mall";
+				break;
+			case 7:
+				types = "amusement_park|aquarium|bowling_alley|hindu_temple|movie_theater|park|spa|zoo";
+				break;
+			case 8:
+				types = "university|library";
+				break;
+		}
+		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8860323,2.3877194&radius=1000&types=${types}`)
+    .then(res => res.json())
+    .then(Places => {
+			console.log("Places", Places);
+			callback(Places)
 		}).catch(error => {
 			console.log(error);
 		})
-  }
-
-  getDrinks() {
-  }
-
-  getShops() {
-  }
-
-  getRest() {
-  }
-
-  getWork() {
-  }
-
-
-
+	}
 }
 
 export default new googleApi();

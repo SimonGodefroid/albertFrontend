@@ -17,6 +17,7 @@ import {
 	Router,
 	Scene
 } from 'react-native-router-flux';
+console.log('app');
 
 import SignupScene from './src/scenes/SignupScene';
 import LoginScene from './src/scenes/LoginScene';

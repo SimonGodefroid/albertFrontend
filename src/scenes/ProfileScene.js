@@ -30,58 +30,64 @@ let {
 } = Dimensions.get('window');
 
 
-
 class ProfileScene extends React.Component {
   render() {
     return(
-      <View 
-        style={
-          {flex:1,
-          alignItems:'center'}
-        }>
-        <View>
+      <ScrollView>
+      <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
+        <View style={styles.profile_container}>
           <UserImage
             image={this.props.image}
-            style={{borderRadius:25}}
+            style={styles.user_image}
           />
+          <View style={styles.name_desc}>
+            <Text>{this.props.user.account.username.toUpperCase()}</Text>
+            <Text> 28 ans - Homme - albert@albert.com</Text>
+          </View>
         </View>
-        <View>
-          <Text> Coucou </Text>
+      </Image>
+      <View style={{flexDirection:'row',flex:1}}>
+        <View style={styles.profile_elements}>
+          <Text>Tags:</Text>
         </View>
-        <View 
-          style={
-            {
-              height:100,
-              width:width-20,
-              borderColor:'black',
-              borderWidth:2,
-              flexDirection:'row',
-              justifyContent:'space-between'
-            }
-        }>
-          <View>
-            <Text>
-              Clément{'\n'}
-            </Text>
-          </View>
-          <View>
-            <Text>
-              Clément
-            </Text>
-          </View>
-          <View>
-            <Text>
-              Clément
-            </Text>
-          </View>
+         <View style={styles.profile_elements}>
+          <Text>Favoris:</Text>
         </View>
       </View>
+      </ScrollView>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+      flex: 1,
+      paddingTop: 60,
+      alignItems: 'center',
+      width:null,
+      resizeMode: 'cover',
+      padding: 20,
+      height:300
+    },
+    profile_container: {
+      alignItems: 'center'
+    },
+    name_desc: {
+      paddingTop:10,
+      alignItems: 'center', 
+      backgroundColor: 'transparent'
+    },
+    user_image: {
+      borderRadius:75,
+      width:150,
+      height:150,
+    },
+    profile_elements:{
+      flex:1,
+      padding:10
+    }
 });
+
 
 export default ProfileScene;
