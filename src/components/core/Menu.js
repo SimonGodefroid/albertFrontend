@@ -61,7 +61,7 @@ export default class Menu extends React.Component {
 						<Text style={styles.menuEntries}>Travailler</Text>
 					</TouchableOpacity>
 					<View style={styles.separator}></View>
-					<Text style={styles.titleSection}>Bonjour ! <Icon name={'ios-happy-outline'} size={25}/></Text>
+					<Text style={styles.titleSection}>Bonjour {!Api.getUser().account.username ? "Albert" : Api.getUser().account.username } ! <Icon name={'ios-happy-outline'} size={25}/></Text>
 					<TouchableOpacity onPress={() => this.goToProfile(this.props.onCloseFn)}>
 						<Text style={styles.menuEntries}>Voir mon profil</Text>
 					</TouchableOpacity>
