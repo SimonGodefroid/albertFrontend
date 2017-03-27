@@ -33,85 +33,60 @@ let {
 class ProfileScene extends React.Component {
   render() {
     return(
+      <ScrollView>
       <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
-        <View style={styles.logo_container}>
+        <View style={styles.profile_container}>
           <UserImage
             image={this.props.image}
-            style={
-              {
-                borderRadius:75,
-                width:150,
-                height:150,
-              }
-            }
+            style={styles.user_image}
           />
-          <View style={
-            {
-              paddingTop:10,
-              alignItems: 'center', 
-            }
-          }>
+          <View style={styles.name_desc}>
             <Text>{this.props.user.account.username.toUpperCase()}</Text>
             <Text> 28 ans - Homme - albert@albert.com</Text>
           </View>
         </View>
       </Image>
+      <View style={{flexDirection:'row',flex:1}}>
+        <View style={styles.profile_elements}>
+          <Text>Tags:</Text>
+        </View>
+         <View style={styles.profile_elements}>
+          <Text>Favoris:</Text>
+        </View>
+      </View>
+      </ScrollView>
 
-
-
-/*      
-      <View 
-        style={
-          {
-            alignItems:'center',
-            marginTop:20,
-          }
-      }>
-        <Image source={require('../../assets/img/bg-v.png')} style={{height:300}}>
-        <View
-          style={{zIndex:999}}>
-          <UserImage
-            image={this.props.image}
-            style={
-              {
-                borderRadius:75,
-                width:150,
-                height:150,
-              }
-            }
-          />
-          </View>
-          <View style={
-            {
-              paddingTop:10,
-              alignItems: 'center', 
-            }
-          }>
-            <Text>{this.props.user.account.username.toUpperCase()}</Text>
-            <Text> 28 ans - Homme - albert@albert.com</Text>
-          </View>
-        </Image>
-      </View>*/
     );
   }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 60,
-        alignItems: 'center',
-        width:null,
-        resizeMode: 'cover',
-        padding: 20
+      flex: 1,
+      paddingTop: 60,
+      alignItems: 'center',
+      width:null,
+      resizeMode: 'cover',
+      padding: 20,
+      height:300
     },
-    logo_container: {
-        alignItems: 'center'
+    profile_container: {
+      alignItems: 'center'
     },
-    logo: {
-        width: 170,
-        height: 180
+    name_desc: {
+      paddingTop:10,
+      alignItems: 'center', 
+      backgroundColor: 'transparent'
     },
+    user_image: {
+      borderRadius:75,
+      width:150,
+      height:150,
+    },
+    profile_elements:{
+      flex:1,
+      padding:10
+    }
 });
 
 
