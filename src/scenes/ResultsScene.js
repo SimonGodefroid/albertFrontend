@@ -7,7 +7,8 @@ import {
     ScrollView,
     ActivityIndicator,
     ListView,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Global from '../Global';
@@ -112,6 +113,7 @@ class ResultsScene extends React.Component {
           flex: 1,
           resizeMode: 'cover',
           width: null,
+          paddingTop: (Platform.OS === 'ios') ? 20 : 0,
         },
         eventsHolder : {
           flex:9,

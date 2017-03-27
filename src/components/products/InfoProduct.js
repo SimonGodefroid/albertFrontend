@@ -82,7 +82,7 @@ class InfoProduct extends React.Component {
     }
 
     return(
-      <View>
+      <View style={styles.iphone}>
         <View style={styles.eventPresentation}>
           <View style={styles.dateHolder}>
             <Text style={styles.date}>{date}{"\n"}{month}</Text>
