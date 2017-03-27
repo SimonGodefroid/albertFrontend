@@ -8,13 +8,14 @@ import {
     ActivityIndicator,
     ListView,
     TouchableOpacity,
-    Modal
+    Modal,
 } from 'react-native';
 import Global from '../../Global';
 import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menu from './Menu';
 import Filter from './Filter';
+import Gratuit from './Gratuit';
 import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
@@ -28,8 +29,8 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
     albertHolder: {
-        alignItems: 'flex-start',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems:'center',
     },
     bottomColor: {
         position: 'absolute',
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     },
     albert: {
         width: 70,
-        height: 70
-    }
+        height: 70,
+    },
 });
 
 export default class AlbertTab extends React.Component {
@@ -116,7 +117,7 @@ export default class AlbertTab extends React.Component {
                 <TouchableOpacity onPress={this.goToSearch}>
                     <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                 </TouchableOpacity>
-                 {this.renderFilter()}
+                 <Gratuit />
             </View>
 
         );

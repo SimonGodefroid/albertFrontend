@@ -9,7 +9,7 @@ import Global from '../../Global';
 const styles = StyleSheet.create({
   image:{
     width: (Dimensions.get('window').width),
-    height: (Dimensions.get('window').height)*0.38,
+    height: (Dimensions.get('window').height)*0.32,
   },
 });
 

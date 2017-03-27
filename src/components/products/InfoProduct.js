@@ -85,7 +85,7 @@ class InfoProduct extends React.Component {
       <View>
         <View style={styles.eventPresentation}>
           <View style={styles.dateHolder}>
-            <Text style={styles.date}>{date} {month}</Text>
+            <Text style={styles.date}>{date}{"\n"}{month}</Text>
           </View>
           <View style={styles.infosHolder}>
             <Text style={styles.title}>{title}</Text>
@@ -94,17 +94,17 @@ class InfoProduct extends React.Component {
         </View>
         <View style={styles.placetimeHolder}>
           <Text style={styles.details}>Infos</Text>
-          <Text style={styles.hours}><Icon name={'ios-time-outline'} size={20}/>  {hourStart} - {hourEnd}</Text>
-          <Text style={styles.place}>
-            <Icon name={'ios-pin-outline'} size={24}/>   {place}
-          </Text>
+          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.hours}>{hourStart} - {hourEnd}</Text></View></View>
+          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/></View><View style={styles.textHolder}><Text style={styles.place}>{place}</Text></View></View>
           <Text style={styles.placeSuite}>{address} - {city}</Text>
-          <Text style={styles.price}><Icon name={'ios-cash-outline'} size={20}/>  {(price === null ? "Prix non disponible" : price)}</Text>
+          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-cash-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.price}>{(price === null ? "Prix indisponible" : price)}</Text></View></View>
         </View>
         <View style={styles.descriptionHolder}>
           <Text style={styles.details}>Détails</Text>
           <Text style={styles.description}>{description}</Text>
-          <Text style={styles.tags}>#{tags[0]} #{tags[1]}</Text>
+        </View>
+        <View style={styles.tagsHolder}>
+        <Text style={styles.tags}>#{tags[0]} #{tags[1]}</Text>
         </View>
         <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
@@ -116,16 +116,30 @@ const styles = StyleSheet.create({
   eventPresentation:{
     backgroundColor: 'white',
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 2,
+  },
+  listHolder :{
+    flexDirection: 'row',
+  },
+  iconHolder: {
+    flex:1,
+  },
+  textHolder : {
+    flex:12,
+    justifyContent:'flex-start',
+
   },
       dateHolder:{
         alignItems: 'center',
         justifyContent: 'center',
         flex: 2,
+        padding:6,
       },
           date: {
             fontFamily: Global.secondFontBold,
             fontSize: 23,
+            textAlign:'center',
+            color:Global.thirdColor,
           },
       infosHolder:{
         paddingTop: 10,
@@ -136,22 +150,27 @@ const styles = StyleSheet.create({
       },
           title:{
             fontFamily: Global.secondFontBold,
+            color:'#555',
             fontSize: 25,
           },
           category:{
-            paddingTop: 10,
-            fontFamily: Global.secondFont,
+            paddingTop: 6,
+            fontFamily: Global.fourthFont,
+            fontSize:12,
           },
   placetimeHolder:{
     backgroundColor: 'white',
     paddingTop: 20,
     paddingLeft: 20,
-    paddingBottom: 15,
-    marginBottom: 10,
+    paddingRight:20,
+    paddingBottom: 20,
+    marginBottom: 2,
   },
   details:{
     fontFamily: Global.secondFont,
-    paddingBottom: 7,
+    color:Global.mainColor,
+    fontSize:20,
+    paddingBottom: 10,
     textDecorationLine: 'underline',
   },
       hours: {
@@ -181,10 +200,10 @@ const styles = StyleSheet.create({
   descriptionHolder:{
     backgroundColor: 'white',
     paddingLeft: 20,
-    paddingTop: 10,
-    paddingRight: 10,
+    paddingTop: 20,
+    paddingRight: 20,
     paddingBottom: 15,
-    marginBottom: 10,
+    marginBottom: 2,
   },
       description:{
         fontFamily: Global.secondFont,
@@ -192,15 +211,25 @@ const styles = StyleSheet.create({
         textAlign: 'justify',
         paddingBottom: 10,
       },
-      tags:{
-        fontFamily: Global.secondFont,
-        fontSize: 15,
+      tagsHolder :{
+        backgroundColor:'rgb(241, 241, 241)',
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft: 20,
+        marginBottom:2,
       },
+        tags:{
+          fontFamily: Global.secondFont,
+          fontSize: 15,
+          color:Global.thirdColor,
+        },
   lieu:{
     fontFamily: Global.secondFont,
-    paddingTop: 10,
+    color:Global.mainColor,
+    fontSize:20,
+    paddingTop: 20,
     paddingLeft: 20,
-    paddingBottom: 10,
+    paddingBottom: 20,
     textDecorationLine: 'underline',
     backgroundColor: 'white',
   },

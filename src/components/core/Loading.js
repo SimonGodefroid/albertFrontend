@@ -11,24 +11,23 @@ import Images from './Images'
 export default class Loading extends React.Component {
 	render() {
 		return (
-			<View style={styles.activity_container}>
+			<Image source={require('../../../assets/img/bg-wo.png')} style={styles.activity_container}>
         <Image
           source={Images.albertLoad}
         style={{
-          height: 150,
-          width: 150
+          height: 115,
+          width: 115
         }}/>
-<Text>
-  coucou loading
-</Text>
-			</View>
+		</Image>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
 	activity_container: {
-    flex: 1,
+		flex: 1,
+		resizeMode: 'cover',
+		width: null,
     alignItems: 'center',
     justifyContent: 'center'
 	}
