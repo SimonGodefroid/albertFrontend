@@ -3,6 +3,7 @@ import React from 'react';
 import {
   StyleSheet,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import {
@@ -16,7 +17,11 @@ import MapProduct from '../components/products/MapProduct';
 import Favorites from '../components/user/Favorites';
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    resizeMode: 'cover',
+    width: null,
+  },
 });
 
 class ProductScene extends React.Component {
@@ -33,8 +38,10 @@ class ProductScene extends React.Component {
     } = this.props.product;
 
     console.log('product#rowdata is:', this.props.product);
+    console.log('telephone contact#rowdata is:', this.props.product.contact.phone);
+    console.log('telephone modality#rowdata is:', this.props.product.modality.accessPhone);
     return(
-      <ScrollView>
+      <ScrollView style={{backgroundColor:'#E9EBEE'}}>
         <ImagesProduct
           image={image.url}/>
         <InfoProduct
@@ -52,15 +59,15 @@ class ProductScene extends React.Component {
           tags={tags}
           />
         <MapProduct
-          title={title}
+          address={place.address}
           longitude={place.lon}
           latitude={place.lat}
           />
         <ContactProduct
           reservation={modality.accessLink}
           webSite={contact.url}
-          mail={modality.accessMail}
-          phone={modality.accessPhone}
+          mail={contact.mail}
+          phone={modality.accessPhone === 'null' ? contact.phone : modality.accessPhone}
           facebook={contact.facebook}
           twitter={contact.twitter}/>
       </ScrollView>

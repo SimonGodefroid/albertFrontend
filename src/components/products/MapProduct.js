@@ -12,8 +12,6 @@ let {
   width,
 } = Dimensions.get('window');
 
-
-
 import Map from 'react-native-maps';
 
 class MapProduct extends React.Component {
@@ -24,6 +22,7 @@ class MapProduct extends React.Component {
           style={{
             width: width,
             height: 200,
+            marginBottom: 10,
           }}
           initialRegion={{
             latitude: this.props.latitude,
@@ -32,7 +31,7 @@ class MapProduct extends React.Component {
             longitudeDelta: 0.01,
           }}>
         <Map.Marker
-          title={this.props.title}
+          title={this.props.address}
           coordinate={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,

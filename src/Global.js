@@ -1,13 +1,3 @@
-import {
- Platform,
-} from 'react-native';
-
-const screen = {
- flex: 1,
- paddingTop: Platform.OS === 'ios' ? 64 : 54,
- backgroundColor: '#FFFFFF ',
-};
-
 const navBarHeight = 80;
 /* colors */
 const mainColor = '#5bbcb2';

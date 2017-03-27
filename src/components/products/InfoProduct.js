@@ -113,8 +113,9 @@ class InfoProduct extends React.Component {
 
 const styles = StyleSheet.create({
   eventPresentation:{
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     flexDirection: 'row',
+    marginBottom: 10,
   },
       dateHolder:{
         alignItems: 'center',
@@ -141,10 +142,11 @@ const styles = StyleSheet.create({
             fontFamily: Global.secondFont,
           },
   placetimeHolder:{
-    backgroundColor: Global.fourthColor,
+    backgroundColor: 'white',
     paddingTop: 20,
     paddingLeft: 20,
     paddingBottom: 15,
+    marginBottom: 10,
   },
   details:{
     fontFamily: Global.secondFont,
@@ -176,11 +178,12 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
       },
   descriptionHolder:{
-    backgroundColor: Global.thirdColor,
+    backgroundColor: 'white',
     paddingLeft: 20,
     paddingTop: 10,
     paddingRight: 10,
     paddingBottom: 15,
+    marginBottom: 10,
   },
       description:{
         fontFamily: Global.secondFont,
@@ -198,6 +201,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingBottom: 10,
     textDecorationLine: 'underline',
+    backgroundColor: 'white',
   },
 });
 
