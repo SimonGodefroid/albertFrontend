@@ -15,6 +15,7 @@ import Api from '../Api';
 import googleApi from '../googleApi';
 import events from '../albert.events.json';
 import EventsCard from '../components/products/EventsCard';
+import PlacesCard from '../components/products/PlacesCard';
 import AlbertTab from '../components/core/AlbertTab';
 import Loading from '../components/core/Loading';
 
@@ -22,10 +23,7 @@ class ResultsScene extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            events: new ListView.DataSource({
-                rowHasChanged: (r1, r2) => r1 !== r2
-            }),
-            places: new ListView.DataSource({
+            results: new ListView.DataSource({
                 rowHasChanged: (r1, r2) => r1 !== r2
             })
         }
@@ -34,19 +32,23 @@ class ResultsScene extends React.Component {
     }
 
     componentDidMount() {
-      if (this.props.cat === 3 || this.props.cat === 4 || this.props.cat === 5) {
+      let results = [];
         Api.getEvents(this.props.cat, (eventsList) => {
           console.log('Results#getEvents: ', eventsList.events[0]);
-          this.setState({events: this.state.events.cloneWithRows(eventsList.events)}, console.log("events state is", this.state.events));
+          if (eventsList.events.length > 0) {
+            eventsList.events.map(event => {
+              results.push(event);
+            });
+          }
+          googleApi.getFood(foodPlaces => {
+            console.log("google sent:", foodPlaces.results);
+            foodPlaces.results.map(place => {
+              results.push(place);
+            });
+            this.setState({results: this.state.results.cloneWithRows(results)}, console.log("results state is", this.state.results));
+          });
         });
-      } else if (this.props.cat === 1) {
-        googleApi.getFood(foodPlaces => {
-          console.log("google sent:", foodPlaces.results);
-          this.setState({places: this.state.places.cloneWithRows(foodPlaces.results)}, console.log("places state is", this.state.places))
-        }
-      );
       }
-    }
 
     goToEvent(rowData) {
       console.log('results#rowData is:', this,rowData);
@@ -55,7 +57,17 @@ class ResultsScene extends React.Component {
 
 
     renderCards(rowData) {
-        if (this.props.cat === 3 || this.props.cat === 4 || this.props.cat === 5) {
+      if (rowData.reference !== undefined) {
+        console.log("card = place");
+        return (
+          <PlacesCard
+            title={rowData.name}
+            place={rowData.vicinity}
+            category={rowData.types[0]}>
+          </PlacesCard>
+        )
+      } else {
+        console.log("card = event");
           return (
             <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
               <EventsCard
@@ -71,18 +83,12 @@ class ResultsScene extends React.Component {
               category={rowData.evenements.category.lvl1}/>
             </TouchableOpacity>
             );
-        } else {
-          return (
-            <Text>
-              {rowData.name}
-            </Text>
-            );
-        }
+          }
     }
 
     render() {
       console.log("this.state", this.state)
-        if (this.state.events.getRowCount() === 0) {
+        if (this.state.results.getRowCount() === 0) {
           console.log(this.props.cat);
             return (
                 <Loading />
@@ -91,7 +97,7 @@ class ResultsScene extends React.Component {
             return (
                 <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
                   <View style={styles.eventsHolder}>
-                    <ListView dataSource={this.state.events} renderRow={this.renderCards}/>
+                    <ListView dataSource={this.state.results} renderRow={this.renderCards}/>
                     </View>
                     <AlbertTab cat={this.props.cat} filter={true} style={{flex:1}}/>
                 </Image>
