@@ -69,7 +69,7 @@ class ResultsScene extends React.Component {
       } else {
         console.log("card = event");
           return (
-            <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
+            <TouchableOpacity onPress={() => this.goToEvent(rowData)} style={styles.touchable}>
               <EventsCard
               photo={rowData.image.url}
               title={rowData.title}
@@ -115,10 +115,11 @@ class ResultsScene extends React.Component {
         },
         eventsHolder : {
           flex:9,
+          marginBottom:-20,
           alignItems: 'center',
           justifyContent:'center',
+          position:'relative',
         },
-
     });
 
     export default ResultsScene;

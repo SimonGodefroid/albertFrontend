@@ -26,7 +26,7 @@ class Gratuit extends React.Component {
       <View style={styles.gratuit}>
           <Switch
           onValueChange={(value) => this.setState({trueSwitchIsOn: value})}
-          value={this.state.trueSwitchIsOn} />
+          value={this.state.trueSwitchIsOn} onTintColor={Global.thirdColor} thumbTintColor={Global.secondColor}/>
           <Text style={styles.title}>Payant</Text>
       </View>
     );
@@ -38,7 +38,8 @@ class Gratuit extends React.Component {
 const styles = StyleSheet.create({
   title : {
     color:Global.secondColor,
-    fontSize:10,
+    fontSize:12,
+    textAlign:'center',
   },
 });
 

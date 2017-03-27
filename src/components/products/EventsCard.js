@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 const widthimage = (Dimensions.get('window').width)/1*(1);
 const heightimage = (Dimensions.get('window').height)/1*(0.70);
 const month = "";
@@ -103,8 +102,9 @@ const styles = StyleSheet.create({
     eventsCard: {
         backgroundColor: '#333',
         flexDirection: 'row',
-        marginBottom:10,
+        marginBottom:5,
         elevation:6,
+        position:'relative',
     },
     eventsImage: {
           flexDirection: 'row',
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         elevation:3,
+        position:'relative',
     },
     title: {
         fontFamily: Global.secondFontBold,

@@ -35,41 +35,41 @@ export default class Menu extends React.Component {
 					<TouchableOpacity style={styles.close} onPress={this.props.onCloseFn}>
 						<Icon name={'ios-close-circle-outline'} size={50} color={Global.secondColor}/>
 					</TouchableOpacity>
-					<Text style={styles.titleSection}>Faites une recherche <Icon name={'ios-search'} size={22}/></Text>
+					<Text style={styles.titleSection}>Faites une recherche <Icon name={'ios-search-outline'} size={25} color={Global.secondColor}/></Text>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Manger <Icon name={'ios-restaurant-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Manger</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Boire <Icon name={'ios-beer-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Boire</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Bouger <Icon name={'ios-walk-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Bouger</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Ecouter <Icon name={'ios-musical-notes-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Ecouter</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Découvrir <Icon name={'ios-eye-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Découvrir</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Acheter <Icon name={'ios-basket-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Acheter</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Se détendre <Icon name={'ios-bicycle-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Se détendre</Text>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<Text style={styles.menuEntries}>Travailler <Icon name={'ios-clipboard-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Travailler</Text>
 					</TouchableOpacity>
 					<View style={styles.separator}></View>
-					<Text style={styles.titleSection}>Bonjour {Api.getUser().account.username} ! <Icon name={'ios-happy-outline'} size={22}/></Text>
+					<Text style={styles.titleSection}>Bonjour {Api.getUser().account.username} ! <Icon name={'ios-happy-outline'} size={25}/></Text>
 					<TouchableOpacity onPress={() => this.goToProfile(this.props.onCloseFn)}>
-						<Text style={styles.menuEntries}>Voir mon profil <Icon name={'ios-contact-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Voir mon profil</Text>
 					</TouchableOpacity>
 					<TouchableOpacity onPress={() => Api.logOut(() => {
 						Actions.login({});
 						this.props.onCloseFn();
 					})}>
-						<Text style={styles.menuEntries}>Déconnexion <Icon name={'ios-log-out-outline'} size={20}/></Text>
+						<Text style={styles.menuEntries}>Déconnexion</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 		marginBottom: 10
 	},
 	menuEntries: {
-		fontSize: 20,
+		fontSize: 18,
 		paddingBottom: 5,
 		marginTop: 5,
 		marginBottom: 5,
