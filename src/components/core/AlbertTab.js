@@ -22,11 +22,15 @@ const styles = StyleSheet.create({
     tabContainer: {
         backgroundColor: 'rgba(0, 0, 0, 0)',
         flexDirection: 'row',
-        justifyContent: 'space-around',
         alignItems: 'flex-end',
         position: 'relative',
         height: 80,
         paddingBottom: 10
+    },
+    itemHolder: {
+      flex:1,
+      justifyContent:'center',
+      alignItems:'center',
     },
     albertHolder: {
         justifyContent: 'center',
@@ -87,18 +91,16 @@ export default class AlbertTab extends React.Component {
     renderFilter() {
       if (this.props.filter === true) {
         return (
-          <View>
-          <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
-              <Filter cat={this.props.cat} onCloseFn={this.onCloseFilterFn}  />
-          </Modal>
-        <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
-            <Icon name={'ios-options-outline'} size={40} color={'#fff'}/>
-        </TouchableOpacity>
-      </View>
+          <View style={styles.itemHolder}>
+                <Gratuit />
+          </View>
         );
       } else {
         return(
-              <Icon name={'ios-options-outline'} size={40} color={'#619B91'}/>
+          <View style={styles.itemHolder}>
+            <Icon name={'ios-options-outline'} size={40} color={Global.mainColor}/>
+          </View>
+
         );
       }
     }
@@ -108,16 +110,20 @@ export default class AlbertTab extends React.Component {
         return (
             <View style={styles.tabContainer}>
                 <View style={styles.bottomColor}/>
+                <View style={styles.itemHolder}>
                   <Modal animationType={"slide"} transparent={true} visible={this.state.menuVisible} onRequestClose={() => { }}>
                       <Menu onCloseFn={this.onCloseMenuFn} />
                   </Modal>
                 <TouchableOpacity onPress={() => { this.setMenuVisible(true) }}>
-                    <Icon name={'ios-menu'} size={40} color={'#fff'}/>
+                      <Icon name={'ios-menu'} size={40} color={'#fff'}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.goToSearch}>
-                    <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
-                </TouchableOpacity>
-                 <Gratuit />
+                </View>
+                <View style={styles.itemHolder}>
+                  <TouchableOpacity onPress={this.goToSearch}>
+                      <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                  </TouchableOpacity>
+                </View>
+                {this.renderFilter()}
             </View>
 
         );

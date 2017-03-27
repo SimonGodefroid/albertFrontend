@@ -39,7 +39,7 @@ class Api {
       this.setUser(user);
 		});
 	}
-	
+
 	getUser() {
 		return this.user;
 	}
