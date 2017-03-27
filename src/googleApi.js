@@ -27,6 +27,15 @@ class googleApi {
   getWork() {
   }
 
+  getDiscover() {
+    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8860323,2.3877194&radius=10000&types=museum`)
+    .then(res => res.json()).then(discoverPlaces => {
+      console.log("discoverPlaces", discoverPlaces);
+      callback(discoverPlaces)
+    }).catch(error => {
+      console.log(error);
+    })
+  }
 
 
 }
