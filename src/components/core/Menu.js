@@ -11,7 +11,7 @@ import {
 	Modal
 } from 'react-native';
 import Global from '../../Global';
-import Api from '../../Api'
+import Api from '../../Api';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
 	Actions
