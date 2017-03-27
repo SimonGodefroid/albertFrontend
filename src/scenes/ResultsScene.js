@@ -40,9 +40,9 @@ class ResultsScene extends React.Component {
               results.push(event);
             });
           }
-          googleApi.getFood(foodPlaces => {
-            console.log("google sent:", foodPlaces.results);
-            foodPlaces.results.map(place => {
+          googleApi.getPlaces(this.props.cat, Places => {
+            console.log("google sent:", Places.results);
+            Places.results.map(place => {
               results.push(place);
             });
             this.setState({results: this.state.results.cloneWithRows(results)}, console.log("results state is", this.state.results));
