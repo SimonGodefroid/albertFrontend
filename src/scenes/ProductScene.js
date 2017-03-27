@@ -37,9 +37,6 @@ class ProductScene extends React.Component {
       contact,
     } = this.props.product;
 
-    console.log('product#rowdata is:', this.props.product);
-    console.log('telephone contact#rowdata is:', this.props.product.contact.phone);
-    console.log('telephone modality#rowdata is:', this.props.product.modality.accessPhone);
     return(
       <ScrollView style={{backgroundColor:'#E9EBEE'}}>
         <ImagesProduct
@@ -66,8 +63,8 @@ class ProductScene extends React.Component {
         <ContactProduct
           reservation={modality.accessLink}
           webSite={contact.url}
-          mail={contact.mail}
-          phone={modality.accessPhone === 'null' ? contact.phone : modality.accessPhone}
+          mail={contact.mail === null ? modality.accessMail : contact.mail}
+          phone={modality.accessPhone === null ? contact.phone : modality.accessPhone}
           facebook={contact.facebook}
           twitter={contact.twitter}/>
       </ScrollView>

@@ -19,7 +19,6 @@ import Global from '../../Global';
 class ContactProduct extends React.Component {
 
   render() {
-    console.log('contact component', this.props);
     const {
       facebook,
       twitter,
@@ -29,7 +28,6 @@ class ContactProduct extends React.Component {
       phone,
     } = this.props;
 
-    console.log(this.props.phone);
     return(
       <View style={styles.contactHolder}>
         <Text style={styles.details}>Contacts</Text>

@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Text,
     View,
+    Alert,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -98,7 +99,7 @@ class InfoProduct extends React.Component {
             <Icon name={'ios-pin-outline'} size={24}/>   {place}
           </Text>
           <Text style={styles.placeSuite}>{address} - {city}</Text>
-          <Text style={styles.price}><Icon name={'ios-cash-outline'} size={20}/>  {price}</Text>
+          <Text style={styles.price}><Icon name={'ios-cash-outline'} size={20}/>  {(price === null ? "Prix non disponible" : price)}</Text>
         </View>
         <View style={styles.descriptionHolder}>
           <Text style={styles.details}>Détails</Text>
