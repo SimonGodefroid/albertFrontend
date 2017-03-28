@@ -30,7 +30,6 @@ class EventsCard extends React.Component {
 
 	renderDate() {
 		var currentTime = new Date();
-		console.log("rendering date", currentTime.getFullYear(), this.props.year);
 		if (parseInt(this.props.year) < currentTime.getFullYear() || parseInt(this.props.year) <= currentTime.getFullYear() && parseInt(this.props.month) < (currentTime.getMonth() + 1) || parseInt(this.props.year) <= currentTime.getFullYear() && parseInt(this.props.month) <= (currentTime.getMonth() + 1) && parseInt(this.props.date) < currentTime.getDate()) {
 			return (
 				<View style={styles.dateHolder}>
