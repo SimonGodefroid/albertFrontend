@@ -69,8 +69,9 @@ class ResultsScene extends React.Component {
 	_renderHeader = (props) => {
 		return <TabBar
 			tabStyle={{backgroundColor: Global.mainColor}}
-			indicatorStyle={{borderColor:Global.thirdColor}}
 			labelStyle={{color: Global.secondColor, fontWeight:'bold',}}
+			indicatorStyle={{backgroundColor:Global.thirdColor}}
+
 			{...props}/>;
 	};
 	renderNoResults() {

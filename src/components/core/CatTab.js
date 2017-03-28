@@ -15,8 +15,8 @@ import {
 	Actions
 } from 'react-native-router-flux';
 
-const widthimage = (Dimensions.get('window').width) / 2 * 0.985;
-const heightimage = (Dimensions.get('window').height - 88) / 4;
+const widthimage = (Dimensions.get('window').width) / 2;
+const heightimage = (Dimensions.get('window').height - Global.navBarHeight) / 4;
 
 export default class CatTab extends React.Component {
 	render() {
@@ -50,8 +50,6 @@ const styles = StyleSheet.create({
 	},
 	viewCard: {
 		height: heightimage,
-		borderWidth: 1,
-		borderColor: Global.secondColor
 	},
 	textView: {
 		flex: 1,

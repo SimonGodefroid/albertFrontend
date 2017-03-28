@@ -23,7 +23,8 @@ class SearchScene extends React.Component {
 	render() {
 		return (
 			<View style={{
-				flex: 1
+				flex: 1,
+				backgroundColor:'#000',
 			}}>
 				<View style={styles.container}>
 					<CatTab cat={1} imgURL={Images.searchManger} text={'MANGER'}/>
@@ -49,7 +50,7 @@ export default SearchScene;
 
 const styles = StyleSheet.create({
 	container: {
-		paddingTop: (Platform.OS === 'ios') ? 26 : 2,
+		paddingTop: (Platform.OS === 'ios') ? 26 : 0,
 		flex: 9,
 		justifyContent: 'center',
 		alignItems: 'center',
