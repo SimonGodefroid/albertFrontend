@@ -105,10 +105,10 @@ export default class AlbertTab extends React.Component {
             <Icon name={'ios-options-outline'} size={40} color={Global.mainColor}/>
           </View>
         );
-      } else if (this.prop.back === true) {
+      } else if (this.props.back === true) {
         return(
           <View style={styles.itemHolder}>
-            <Icon name={'ios-arrow-back'} size={40} color={Global.mainColor}/>
+            <Icon name={'ios-arrow-back'} size={40} color={Global.secondColor}/>
           </View>
         );
       }

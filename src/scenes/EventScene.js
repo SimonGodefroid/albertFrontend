@@ -72,7 +72,7 @@ class EventScene extends React.Component {
           facebook={contact.facebook}
           twitter={contact.twitter}/>
       </View>
-        <AlbertTab style={{flex:1,}} filter={false} back={true}/>
+        <AlbertTab style={{flex:1,}} back={true}/>
       </ScrollView>
     );
   }

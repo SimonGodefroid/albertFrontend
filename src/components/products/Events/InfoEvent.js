@@ -85,7 +85,8 @@ class InfoProduct extends React.Component {
       <View>
         <View style={styles.eventPresentation}>
           <View style={styles.dateHolder}>
-            <Text style={styles.date}>{date}{"\n"}{month}</Text>
+            <Text style={styles.date}>{date}</Text>
+            <Text style={styles.month}>{month}</Text>
           </View>
           <View style={styles.infosHolder}>
             <Text style={styles.title}>{title}</Text>
@@ -132,21 +133,27 @@ const styles = StyleSheet.create({
       dateHolder:{
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 2,
+        flex: 1,
         padding:6,
       },
           date: {
             fontFamily: Global.secondFontBold,
-            fontSize: 23,
+            fontSize: 35,
+            textAlign:'center',
+            color:Global.thirdColor,
+          },
+          month :{
+            fontFamily: Global.secondFont,
+            fontSize: 16,
             textAlign:'center',
             color:Global.thirdColor,
           },
       infosHolder:{
-        paddingTop: 10,
+        paddingTop: 30,
         paddingRight: 5,
         paddingLeft: 15,
-        paddingBottom: 15,
-        flex: 4,
+        paddingBottom: 30,
+        flex: 3,
       },
           title:{
             fontFamily: Global.secondFontBold,
@@ -154,8 +161,9 @@ const styles = StyleSheet.create({
             fontSize: 25,
           },
           category:{
-            paddingTop: 6,
+            paddingTop: 4,
             fontFamily: Global.fourthFont,
+            color:Global.fifthColor,
             fontSize:12,
           },
   placetimeHolder:{

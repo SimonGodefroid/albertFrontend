@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row'
 	},
 	dateHolder: {
-		backgroundColor: 'rgba(65, 65, 65, 0.88)',
+		backgroundColor: 'rgba(60, 60, 60, 0.9)',
 		alignItems: 'center',
 		justifyContent: 'center',
 		flex: 2,
@@ -199,17 +199,17 @@ const styles = StyleSheet.create({
 		marginBottom: 5
 	},
 	categoryHolder: {
-		backgroundColor: Global.mainColor,
+		backgroundColor: Global.secondColor,
 		marginTop: 6,
-		paddingTop: 4,
-		paddingBottom: 4,
-		paddingLeft: 6,
-		paddingRight: 6,
+		paddingTop: 2,
+		paddingBottom: 2,
+		paddingLeft: 10,
+		paddingRight: 10,
 		borderRadius: 3,
 		elevation: 2
 	},
 	category: {
-		color: '#000',
+		color: Global.fifthColor,
 		fontFamily: Global.fourthFont,
 		fontSize: 12,
 		marginTop: 5,
