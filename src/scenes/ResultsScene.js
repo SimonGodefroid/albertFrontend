@@ -1,16 +1,18 @@
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
-    Image,
-    View,
-    ScrollView,
-    ActivityIndicator,
-    ListView,
-    TouchableOpacity,
-    Platform,
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  ScrollView,
+  ActivityIndicator,
+  ListView,
+  TouchableOpacity,
+  Platform
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import {
+  Actions
+} from 'react-native-router-flux';
 import Global from '../Global';
 import Api from '../Api';
 import googleApi from '../googleApi';
@@ -24,7 +26,8 @@ class ResultsScene extends React.Component {
         super(props);
         this.state = {
             results: new ListView.DataSource({
-                rowHasChanged: (r1, r2) => r1 !== r2
+                rowHasChanged: (r1,
+                r2) => r1 !== r2
             })
         }
         this.renderCards = this.renderCards.bind(this);
@@ -32,29 +35,32 @@ class ResultsScene extends React.Component {
     }
 
     componentDidMount() {
-      let results = [];
+        let results = [];
         Api.getEvents(this.props.cat, (eventsList) => {
-          console.log('Results#getEvents: ', eventsList.events[0]);
-          if (eventsList.events.length > 0) {
-            eventsList.events.map(event => {
-              results.push(event);
+            console.log('Results#getEvents: ', eventsList.events[0]);
+            if (eventsList.events.length > 0) {
+                eventsList.events.map(event => {
+                    results.push(event);
+                });
+            }
+            googleApi.getPlaces(this.props.cat, Places => {
+                console.log("google sent:", Places.results);
+                Places.results.map(place => {
+                    results.push(place);
+                });
+                this.setState({
+                    results: this.state.results.cloneWithRows(results)
+                });
             });
-          }
-          googleApi.getPlaces(this.props.cat, Places => {
-            console.log("google sent:", Places.results);
-            Places.results.map(place => {
-              results.push(place);
-            });
-            this.setState({results: this.state.results.cloneWithRows(results)}, console.log("results state is", this.state.results));
-          });
         });
-      }
-
-    goToEvent(rowData) {
-      console.log('results#rowData is:', this,rowData);
-      Actions.event({product: rowData});
     }
 
+    goToEvent(rowData) {
+      console.log('results#rowData is:', this, rowData);
+      Actions.event({
+          product: rowData
+      });
+    }
 
     renderCards(rowData) {
       if (rowData.reference !== undefined) {
@@ -84,45 +90,46 @@ class ResultsScene extends React.Component {
               city={rowData.place.city}
               category={rowData.evenements.category.lvl1}/>
             </TouchableOpacity>
-            );
-          }
+          );
+      }
     }
 
     render() {
-      console.log("this.state", this.state)
+        console.log("this.state", this.state)
         if (this.state.results.getRowCount() === 0) {
-          console.log(this.props.cat);
+            console.log(this.props.cat);
             return (
-                <Loading />
+                <Loading/>
             );
         } else {
             return (
                 <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
-                  <View style={styles.eventsHolder}>
-                    <ListView dataSource={this.state.results} renderRow={this.renderCards}/>
+                    <View style={styles.eventsHolder}>
+                        <ListView dataSource={this.state.results} renderRow={this.renderCards}/>
                     </View>
-                    <AlbertTab cat={this.props.cat} filter={true} style={{flex:1}}/>
+                    <AlbertTab cat={this.props.cat} filter={true} style={{
+                        flex: 1
+                    }}/>
                 </Image>
             );
         }
-
     }
-  }
+}
 
-    const styles = StyleSheet.create({
-        container: {
-          flex: 1,
-          resizeMode: 'cover',
-          width: null,
-          paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-        },
-        eventsHolder : {
-          flex:9,
-          marginBottom:-20,
-          alignItems: 'center',
-          justifyContent:'center',
-          position:'relative',
-        },
-    });
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        resizeMode: 'cover',
+        width: null,
+        paddingTop: (Platform.OS === 'ios') ? 20 : 0
+    },
+    eventsHolder: {
+        flex: 9,
+        marginBottom: -20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative'
+    }
+});
 
-    export default ResultsScene;
+export default ResultsScene;

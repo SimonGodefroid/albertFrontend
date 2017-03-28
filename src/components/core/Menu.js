@@ -23,12 +23,14 @@ export default class Menu extends React.Component {
 		this.goToProfile = this.goToProfile.bind(this);
 	}
 
-	goToProfile(callback) {
+// best practice
+	goToProfile() { 
+		this.props.onCloseFn();
 		Actions.profile({user:Api.getUser()});
-		callback();
 	}
 
 	render() {
+		console.log('render$Api.getUser().account.username',Api.getUser());
 		return (
 			<View style={styles.modalHolder}>
 				<View style={styles.container}>
@@ -61,8 +63,8 @@ export default class Menu extends React.Component {
 						<Text style={styles.menuEntries}>Travailler</Text>
 					</TouchableOpacity>
 					<View style={styles.separator}></View>
-					<Text style={styles.titleSection}>Bonjour {!Api.getUser().account.username ? "Albert" : Api.getUser().account.username } ! <Icon name={'ios-happy-outline'} size={25}/></Text>
-					<TouchableOpacity onPress={() => this.goToProfile(this.props.onCloseFn)}>
+					<Text style={styles.titleSection}>Bonjour {Api.getUsername()} ! <Icon name={'ios-happy-outline'} size={25}/></Text>
+					<TouchableOpacity onPress={this.goToProfile}>
 						<Text style={styles.menuEntries}>Voir mon profil</Text>
 					</TouchableOpacity>
 					<TouchableOpacity onPress={() => Api.logOut(() => {
