@@ -99,13 +99,20 @@ export default class AlbertTab extends React.Component {
           </TouchableOpacity>
           </View>
         );
-      } else {
+      } else if (this.props.filter === false) {
         return(
           <View style={styles.itemHolder}>
             <Icon name={'ios-options-outline'} size={40} color={Global.mainColor}/>
           </View>
         );
+      } else if (this.prop.back === true) {
+        return(
+          <View style={styles.itemHolder}>
+            <Icon name={'ios-arrow-back'} size={40} color={Global.mainColor}/>
+          </View>
+        );
       }
+
     }
 
 
@@ -123,7 +130,7 @@ export default class AlbertTab extends React.Component {
                 </View>
                 <View style={styles.itemHolder}>
                   <TouchableOpacity onPress={this.goToSearch}>
-                      <Animatable.Image animation="bounceIn" delay={100}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                      <Animatable.Image animation="bounceIn" delay={220}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
                   </TouchableOpacity>
                 </View>
                 {this.renderFilter()}
