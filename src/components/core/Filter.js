@@ -14,6 +14,8 @@ import {
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Api from '../../Api';
+import * as Animatable from 'react-native-animatable';
+
 export default class Filter extends React.Component {
   constructor(props) {
     super(props);
@@ -41,17 +43,17 @@ export default class Filter extends React.Component {
               </View>
               <Text style={styles.sectionTitle}>Plutôt fauché ou blindé ?</Text>
               <View style={styles.section}>
-                  <View style={styles.itemAlbert}>
-                    <Image source={this.state.richUser === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
-                  </View>
+                  <Animatable.View animation="bounceIn" delay={300} style={styles.itemAlbert}>
+                    <Animatable.Image source={this.state.richUser === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
+                  </Animatable.View>
                   <View style={styles.itemGratuit}>
                     <Switch
                     onValueChange={(value) => this.setState({richUser: value})}
                     value={this.state.richUser} onTintColor={Global.mainColor} thumbTintColor={Global.secondColor} />
                   </View>
-                  <View style={styles.itemAlbert}>
+                  <Animatable.View animation="bounceIn" delay={300} style={styles.itemAlbert}>
                     <Image source={this.state.richUser === true ? require('../../../assets/img/albert-blinde.png') : require('../../../assets/img/albert-blinde-nb.png')} style={styles.albert2}/>
-                  </View>
+                  </Animatable.View>
               </View>
           </View>
       </View>
