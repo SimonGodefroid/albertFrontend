@@ -15,7 +15,6 @@ import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Menu from './Menu';
 import Filter from './Filter';
-import Gratuit from './Gratuit';
 import * as Animatable from 'react-native-animatable';
 
 const styles = StyleSheet.create({
@@ -92,7 +91,12 @@ export default class AlbertTab extends React.Component {
       if (this.props.filter === true) {
         return (
           <View style={styles.itemHolder}>
-                <Gratuit />
+            <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
+                <Filter onCloseFn={this.onCloseFilterFn} />
+            </Modal>
+          <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
+                <Icon name={'ios-options-outline'} size={40} color={Global.secondColor}/>
+          </TouchableOpacity>
           </View>
         );
       } else {
@@ -100,7 +104,6 @@ export default class AlbertTab extends React.Component {
           <View style={styles.itemHolder}>
             <Icon name={'ios-options-outline'} size={40} color={Global.mainColor}/>
           </View>
-
         );
       }
     }
