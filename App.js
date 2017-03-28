@@ -36,7 +36,7 @@ class App extends React.Component {
 			user: undefined
 		};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		Api.getStore((user) => {
 			this.setState({
 				user: user

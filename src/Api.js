@@ -40,6 +40,16 @@ class Api {
 		});
 	}
 
+	getUsername(){
+		const user = this.getUser();
+		if(user.account){
+			if(user.account.username){
+				return user.account.username;
+			}
+		}
+		return "";
+	}
+
 	getUser() {
 		return this.user;
 	}
