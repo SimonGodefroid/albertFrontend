@@ -41,18 +41,22 @@ class ResultsScene extends React.Component {
 			routes: [
 				{
 					key: '1',
-					title: 'Events'
-				}, {
+					title: 'Loading'
+				},
+				{
 					key: '2',
-					title: 'Places'
+					title: 'Loading'
 				}
 			]
 		}
+
 		this.renderCards = this.renderCards.bind(this);
 		this.goToEvent = this.goToEvent.bind(this);
 		this._handleChangeTab = this._handleChangeTab.bind(this);
 		this._renderHeader = this._renderHeader.bind(this);
 	}
+
+
 
 	_handleChangeTab = (index) => {
 		this.setState({
@@ -63,6 +67,25 @@ class ResultsScene extends React.Component {
 	_renderHeader = (props) => {
 		return <TabBar {...props}/>;
 	};
+
+  renderEvents() {
+    if (eventsList.events.length > 0) {
+      return (
+        <Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
+          <View style={styles.eventsHolder}>
+            <ListView dataSource={this.state.events} renderRow={this.renderCards}/>
+          </View>
+          <AlbertTab cat={this.props.cat} filter={true} style={{
+            flex: 1
+          }}/>
+        </Image>
+      );
+    } else {
+      <Text>
+        Désolé, Albert n'a pas trouvé d'évènement
+      </Text>
+    }
+  }
 
 	_renderScene = ({
 		route
@@ -104,21 +127,32 @@ class ResultsScene extends React.Component {
 				eventsList.events.map(event => {
 					events.push(event);
 				});
-				this.setState({
-					events: this.state.events.cloneWithRows(events)
-				});
-			}
+			};
+      googleApi.getPlaces(this.props.cat, Places => {
+  			console.log("google sent:", Places.results);
+  			Places.results.map(place => {
+  				places.push(place);
+  			});
 
+        if (events.length > 0 && places.length > 0) {
+          this.setState({
+            events: this.state.events.cloneWithRows(events),
+            places: this.state.places.cloneWithRows(places),
+            routes: [
+              {
+                key: '1',
+                title: 'Events'
+              },
+              {
+                key: '2',
+                title: 'Places'
+              }
+            ]
+          });
+        }
+  		});
 		});
-		googleApi.getPlaces(this.props.cat, Places => {
-			console.log("google sent:", Places.results);
-			Places.results.map(place => {
-				places.push(place);
-			});
-			this.setState({
-				places: this.state.places.cloneWithRows(places)
-			});
-		});
+
 	}
 
 	goToEvent(rowData) {
