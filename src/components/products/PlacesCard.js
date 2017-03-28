@@ -1,42 +1,42 @@
 import React from 'react';
 
 import {
- StyleSheet,
- Text,
- Image,
- View,
- TouchableOpacity,
- Dimensions,
+StyleSheet,
+Text,
+Image,
+View,
+TouchableOpacity,
+Dimensions,
 } from 'react-native';
 
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class PlacesCard extends React.Component {
- render(){
-   return (
-     <View style={styles.eventsCard}>
-       {/* <Image
-         style={styles.eventsImage}
-         source={{
-           uri: this.props.photo
-           }}
-         resizeMode={'cover'}> */}
-         <View style={styles.overlay}>
-           <View style={styles.infosHolder}>
-             <Text numberOfLines={2} style={styles.title}>{this.props.title}</Text>
-             <Text numberOfLines={3} style={styles.place}>
-               <Icon name={'ios-pin-outline'} size={20}/> {this.props.place}
-             </Text>
-             <View style={styles.categoryHolder}>
-               <Text style={styles.category}>{this.props.category}</Text>
-             </View>
-           </View>
-         </View>
-       {/* </Image> */}
-     </View>
-   );
- }
+render(){
+  return (
+    <View style={styles.eventsCard}>
+      {/* <Image
+        style={styles.eventsImage}
+        source={{
+          uri: this.props.photo
+          }}
+        resizeMode={'cover'}> */}
+        <View style={styles.overlay}>
+          <View style={styles.infosHolder}>
+            <Text numberOfLines={2} style={styles.title}>{this.props.title}</Text>
+            <Text numberOfLines={3} style={styles.place}>
+              <Icon name={'ios-pin-outline'} size={20}/> {this.props.place}
+            </Text>
+            <View style={styles.categoryHolder}>
+              <Text style={styles.category}>{this.props.category}</Text>
+            </View>
+          </View>
+        </View>
+      {/* </Image> */}
+    </View>
+  );
+}
 }
 
 const styles = StyleSheet.create({

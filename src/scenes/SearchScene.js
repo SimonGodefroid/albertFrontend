@@ -7,7 +7,8 @@ import {
 	ScrollView,
 	TouchableOpacity,
 	Dimensions,
-  Alert
+  Alert,
+	Platform
 } from 'react-native';
 import {
 	Actions
@@ -48,7 +49,7 @@ export default SearchScene;
 
 const styles = StyleSheet.create({
 	container: {
-		paddingTop: 2,
+		paddingTop: (Platform.OS === 'ios') ? 26 : 2,
 		flex: 9,
 		justifyContent: 'center',
 		alignItems: 'center',

@@ -4,6 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   Image,
+  Platform,
 } from 'react-native';
 
 import {
@@ -38,7 +39,8 @@ class ProductScene extends React.Component {
     } = this.props.product;
 
     return(
-      <ScrollView style={{backgroundColor:'#E9EBEE'}}>
+      <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+        }}>
         <ImagesProduct
           image={image.url}/>
         <InfoProduct
