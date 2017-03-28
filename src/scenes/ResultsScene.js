@@ -7,8 +7,7 @@ import {
     ScrollView,
     ActivityIndicator,
     ListView,
-    TouchableOpacity,
-    Platform,
+    TouchableOpacity
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import Global from '../Global';
@@ -46,7 +45,7 @@ class ResultsScene extends React.Component {
             Places.results.map(place => {
               results.push(place);
             });
-            this.setState({results: this.state.results.cloneWithRows(results)}, console.log("results state is", this.state.results));
+            this.setState({results: this.state.results.cloneWithRows(results)});
           });
         });
       }
@@ -59,7 +58,6 @@ class ResultsScene extends React.Component {
 
     renderCards(rowData) {
       if (rowData.reference !== undefined) {
-        console.log("card = place");
         return (
           <PlacesCard
             title={rowData.name}
@@ -68,14 +66,14 @@ class ResultsScene extends React.Component {
           </PlacesCard>
         )
       } else {
-        console.log("card = event");
           return (
-            <TouchableOpacity onPress={() => this.goToEvent(rowData)} style={styles.touchable}>
+            <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
               <EventsCard
               photo={rowData.image.url}
               title={rowData.title}
               date={rowData.evenements.realDateStart.slice(8,10)}
               month={rowData.evenements.realDateStart.slice(5,7)}
+              year={rowData.evenements.realDateStart.slice(0,4)}
               hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
               hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
               zipCode={rowData.place.zipCode}
@@ -104,7 +102,6 @@ class ResultsScene extends React.Component {
                 </Image>
             );
         }
-
     }
   }
 
@@ -113,15 +110,13 @@ class ResultsScene extends React.Component {
           flex: 1,
           resizeMode: 'cover',
           width: null,
-          paddingTop: (Platform.OS === 'ios') ? 20 : 0,
         },
         eventsHolder : {
           flex:9,
-          marginBottom:-20,
           alignItems: 'center',
           justifyContent:'center',
-          position:'relative',
         },
+
     });
 
     export default ResultsScene;
