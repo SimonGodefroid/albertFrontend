@@ -22,7 +22,7 @@ import Global from '../Global';
 import Button from '../components/core/Button';
 import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';
-import EventsCard from '../components/products/EventsCard';
+import EventsCard from '../components/products/Events/EventsCard';
 import Swiper from 'react-native-swiper';
 
 
