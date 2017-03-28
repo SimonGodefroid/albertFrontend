@@ -14,9 +14,8 @@ import {Actions} from 'react-native-router-flux';
 import Global from '../Global';
 import Api from '../Api';
 import googleApi from '../googleApi';
-import events from '../albert.events.json';
-import EventsCard from '../components/products/EventsCard';
-import PlacesCard from '../components/products/PlacesCard';
+import EventsCard from '../components/products/Events/EventsCard';
+import PlacesCard from '../components/products/Places/PlacesCard';
 import AlbertTab from '../components/core/AlbertTab';
 import Loading from '../components/core/Loading';
 
@@ -53,7 +52,7 @@ class ResultsScene extends React.Component {
 
     goToEvent(rowData) {
       console.log('results#rowData is:', this,rowData);
-      Actions.product({product: rowData});
+      Actions.event({product: rowData});
     }
 
 
@@ -61,16 +60,18 @@ class ResultsScene extends React.Component {
       if (rowData.reference !== undefined) {
         console.log("card = place");
         return (
-          <PlacesCard
-            title={rowData.name}
-            place={rowData.vicinity}
-            category={rowData.types[0]}>
-          </PlacesCard>
+          <TouchableOpacity onPress={() => Actions.place({product: rowData})}>
+            <PlacesCard
+              title={rowData.name}
+              place={rowData.vicinity}
+              category={rowData.types[0]}>
+            </PlacesCard>
+          </TouchableOpacity>
         )
       } else {
         console.log("card = event");
           return (
-            <TouchableOpacity onPress={() => this.goToEvent(rowData)} style={styles.touchable}>
+            <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
               <EventsCard
               photo={rowData.image.url}
               title={rowData.title}

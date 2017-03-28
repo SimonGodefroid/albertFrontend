@@ -6,12 +6,6 @@ import {
   Dimensions,
 } from 'react-native';
 
-
-let {
-  height,
-  width,
-} = Dimensions.get('window');
-
 import Map from 'react-native-maps';
 
 class MapProduct extends React.Component {
@@ -19,11 +13,7 @@ class MapProduct extends React.Component {
     return (
       <View>
         <Map
-          style={{
-            width: width,
-            height: 200,
-            marginBottom: 10,
-          }}
+          style={styles.mapview}
           initialRegion={{
             latitude: this.props.latitude,
             longitude: this.props.longitude,
@@ -45,7 +35,10 @@ class MapProduct extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
+  mapview:{
+    width: (Dimensions.get('window').width),
+    height: (Dimensions.get('window').height)*0.33,
+  },
 });
 
 export default MapProduct;

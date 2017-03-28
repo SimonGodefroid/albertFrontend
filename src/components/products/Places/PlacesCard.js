@@ -9,7 +9,7 @@ TouchableOpacity,
 Dimensions,
 } from 'react-native';
 
-import Global from '../../Global';
+import Global from '../../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class PlacesCard extends React.Component {

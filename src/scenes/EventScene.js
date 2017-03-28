@@ -12,10 +12,10 @@ import {
 } from 'react-native-router-flux';
 
 import ImagesProduct from '../components/products/ImagesProduct';
-import InfoProduct from '../components/products/InfoProduct';
-import ContactProduct from '../components/products/ContactProduct';
 import MapProduct from '../components/products/MapProduct';
 import Favorites from '../components/user/Favorites';
+import InfoEvent from '../components/products/Events/InfoEvent';
+import ContactEvent from '../components/products/Events/ContactEvent';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class ProductScene extends React.Component {
+class EventScene extends React.Component {
   render() {
     const {
       image,
@@ -43,7 +43,7 @@ class ProductScene extends React.Component {
         }}>
         <ImagesProduct
           image={image.url}/>
-        <InfoProduct
+        <InfoEvent
           title={title}
           category={evenements.category.lvl1}
           date={evenements.realDateStart.slice(8,10)}
@@ -62,7 +62,7 @@ class ProductScene extends React.Component {
           longitude={place.lon}
           latitude={place.lat}
           />
-        <ContactProduct
+        <ContactEvent
           reservation={modality.accessLink}
           webSite={contact.url}
           mail={contact.mail === null ? modality.accessMail : contact.mail}
@@ -74,4 +74,4 @@ class ProductScene extends React.Component {
   }
 }
 
-export default ProductScene;
+export default EventScene;

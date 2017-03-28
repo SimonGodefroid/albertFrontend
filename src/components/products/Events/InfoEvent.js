@@ -9,7 +9,7 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Global from '../../Global';
+import Global from '../../../Global';
 
 class InfoProduct extends React.Component {
 
@@ -82,7 +82,7 @@ class InfoProduct extends React.Component {
     }
 
     return(
-      <View style={styles.iphone}>
+      <View>
         <View style={styles.eventPresentation}>
           <View style={styles.dateHolder}>
             <Text style={styles.date}>{date}{"\n"}{month}</Text>

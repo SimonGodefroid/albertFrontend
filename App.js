@@ -25,7 +25,8 @@ import ProfileScene from './src/scenes/ProfileScene';
 import EditProfileScene from './src/scenes/EditProfileScene';
 import SearchScene from './src/scenes/SearchScene';
 import ResultsScene from './src/scenes/ResultsScene';
-import ProductScene from './src/scenes/ProductScene';
+import EventScene from './src/scenes/EventScene';
+import PlaceScene from './src/scenes/PlaceScene';
 import TabIcon from './src/components/core/TabIcon';
 import Api from './src/Api';
 
@@ -57,7 +58,8 @@ class App extends React.Component {
 				<Scene key={'profile'} component={ProfileScene}/>
 				<Scene key={'editProfile'} component={EditProfileScene}/>
 				<Scene key={'results'} component={ResultsScene}/>
-				<Scene key={'product'} component={ProductScene}/>
+				<Scene key={'event'} component={EventScene}/>
+				<Scene key={'place'} component={PlaceScene}/>
 			</Router>
 		);
 	}

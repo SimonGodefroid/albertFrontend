@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
     Dimensions,
 } from 'react-native';
-import Global from '../../Global';
+import Global from '../../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 const widthimage = (Dimensions.get('window').width)/1*(1);
 const heightimage = (Dimensions.get('window').height)/1*(0.70);
