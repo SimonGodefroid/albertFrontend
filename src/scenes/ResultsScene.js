@@ -82,7 +82,7 @@ class ResultsScene extends React.Component {
 		} else {
 			return(
 				<View style={styles.noresults}>
-					<Text>Aucun résultat pour le moment... :(</Text>
+					<Text style={{textAlign:'center', fontWeight:'bold',}}>Oops !{'\n'}Albert n'a trouvé aucun résultat pour le moment... :(</Text>
 				</View>
 			);
 		}

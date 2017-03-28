@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   Platform,
+  View,
 } from 'react-native';
 
 import {
@@ -16,6 +17,7 @@ import MapProduct from '../components/products/MapProduct';
 import Favorites from '../components/user/Favorites';
 import InfoEvent from '../components/products/Events/InfoEvent';
 import ContactEvent from '../components/products/Events/ContactEvent';
+import AlbertTab from '../components/core/AlbertTab';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,8 +41,8 @@ class EventScene extends React.Component {
     } = this.props.product;
 
     return(
-      <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-        }}>
+      <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0, flex:1,}}>
+        <View style={{flex:9,}}>
         <ImagesProduct
           image={image.url}/>
         <InfoEvent
@@ -69,6 +71,8 @@ class EventScene extends React.Component {
           phone={modality.accessPhone === null ? contact.phone : modality.accessPhone}
           facebook={contact.facebook}
           twitter={contact.twitter}/>
+      </View>
+        <AlbertTab style={{flex:1,}} filter={false} back={true}/>
       </ScrollView>
     );
   }
