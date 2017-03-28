@@ -23,11 +23,11 @@ class googleApi {
 				types = "university|library";
 				break;
 		}
-		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8860323,2.3877194&radius=1000&types=${types}`)
+		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8860323,2.3877194&rankBy=distance&radius=1000&types=${types}`)
     .then(res => res.json())
-    .then(Places => {
-			console.log("Places", Places);
-			callback(Places)
+    .then(places => {
+			console.log("Places", places);
+			callback(places)
 		}).catch(error => {
 			console.log(error);
 		})

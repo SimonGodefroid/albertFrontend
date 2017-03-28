@@ -33,10 +33,10 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: undefined
+			user: null
 		};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		Api.getStore((user) => {
 			this.setState({
 				user: user
