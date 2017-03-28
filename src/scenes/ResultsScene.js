@@ -41,21 +41,19 @@ class ResultsScene extends React.Component {
 			routes: [
 				{
 					key: '1',
-					title: 'Loading..'
+					title: 'Loading'
 				},
 				{
 					key: '2',
-					title: 'Loading..'
+					title: 'Loading'
 				}
-			],
-			fetching: true,
+			]
 		}
 
 		this.renderCards = this.renderCards.bind(this);
 		this.goToEvent = this.goToEvent.bind(this);
 		this._handleChangeTab = this._handleChangeTab.bind(this);
 		this._renderHeader = this._renderHeader.bind(this);
-		this.renderNoResults = this.renderNoResults.bind(this);
 	}
 
 
@@ -67,27 +65,9 @@ class ResultsScene extends React.Component {
 	};
 
 	_renderHeader = (props) => {
-		return <TabBar
-			tabStyle={{backgroundColor: Global.mainColor}}
-			labelStyle={{color: Global.secondColor, fontWeight:'bold',}}
-			indicatorStyle={{backgroundColor:Global.thirdColor}}
-
-			{...props}/>;
+		return <TabBar {...props}/>;
 	};
-	renderNoResults() {
-		if (this.state.fetching === true) {
-			return(
-				<Loading/>
-			);
-		} else {
-			return(
-				<View style={styles.noresults}>
-					<Text>Aucun résultat pour le moment... :(</Text>
-				</View>
-			);
-		}
 
-	}
   renderEvents() {
     if (eventsList.events.length > 0) {
       return (
@@ -102,7 +82,7 @@ class ResultsScene extends React.Component {
       );
     } else {
       <Text>
-        Désolé, Albert n'a pas trouvé d'évènement :(
+        Désolé, Albert n'a pas trouvé d'évènement
       </Text>
     }
   }
@@ -112,49 +92,27 @@ class ResultsScene extends React.Component {
 	}) => {
 		switch (route.key) {
 			case '1':
-			if (this.state.events.getRowCount() === 0) {
-				return(
-					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
-						{this.renderNoResults()}
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
-					</Image>
-				);
-			} else {
 				return (
 					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
 						<View style={styles.eventsHolder}>
-							<ListView dataSource={this.state.events} enableEmptySections={true} renderRow={this.renderCards}/>
+							<ListView dataSource={this.state.events} renderRow={this.renderCards}/>
 						</View>
 						<AlbertTab cat={this.props.cat} filter={true} style={{
 							flex: 1
 						}}/>
 					</Image>
 				);
-			}
 			case '2':
-			if (this.state.places.getRowCount() === 0) {
-				return(
-					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
-						{this.renderNoResults()}
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
-					</Image>
-				);
-			} else {
 				return (
 					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
 						<View style={styles.eventsHolder}>
-							<ListView dataSource={this.state.places} enableEmptySections={true} renderRow={this.renderCards}/>
+							<ListView dataSource={this.state.places} renderRow={this.renderCards}/>
 						</View>
 						<AlbertTab cat={this.props.cat} filter={true} style={{
 							flex: 1
 						}}/>
 					</Image>
 				);
-			}
 			default:
 				return null;
 		}
@@ -175,14 +133,11 @@ class ResultsScene extends React.Component {
   			Places.results.map(place => {
   				places.push(place);
   			});
-				this.setState({
-					events: this.state.events.cloneWithRows(events),
-					places: this.state.places.cloneWithRows(places),
-					fetching: false,
-				});
+
         if (events.length > 0 && places.length > 0) {
           this.setState({
-						fetching: false,
+            events: this.state.events.cloneWithRows(events),
+            places: this.state.places.cloneWithRows(places),
             routes: [
               {
                 key: '1',
@@ -194,52 +149,9 @@ class ResultsScene extends React.Component {
               }
             ]
           });
-        } else if (events.length === 0 && places.length > 0) {
-					this.setState({
-						fetching: false,
-						index:1,
-						routes: [
-							{
-								key: '1',
-								title: 'Events'
-							},
-							{
-								key: '2',
-								title: 'Places'
-							}
-						]
-					});
-				} else if (events.length > 0 && places.length === 0) {
-					this.setState({
-						fetching: false,
-						index:0,
-						routes: [
-							{
-								key: '1',
-								title: 'Events'
-							},
-							{
-								key: '2',
-								title: 'Places'
-							}
-						]
-					});
-				} else if (events.length === 0 && places.length === 0) {
-					this.setState({
-						fetching: false,
-						index:0,
-						routes: [
-							{
-								key: '1',
-								title: 'Events'
-							},
-							{
-								key: '2',
-								title: 'Places'
-							}
-						]
-					});
-				}
+        } else {
+
+        }
   		});
 		});
 
@@ -266,7 +178,7 @@ class ResultsScene extends React.Component {
 			console.log("card = event");
 			return (
 				<TouchableOpacity onPress={() => this.goToEvent(rowData)}>
-					<EventsCard photo={rowData.image.url} title={rowData.title} date={rowData.evenements.realDateStart.slice(8, 10)} month={rowData.evenements.realDateStart.slice(5, 7)} hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'} hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00'} zipCode={rowData.place.zipCode} place={rowData.place.name} city={rowData.place.city} category={rowData.evenements.category.lvl1}/>
+					<EventsCard photo={rowData.image.url} title={rowData.title} date={rowData.evenements.realDateStart.slice(8, 10)} month={rowData.evenements.realDateStart.slice(5, 7)} year={rowData.evenements.realDateStart.slice(0, 4)}hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'} hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00'} zipCode={rowData.place.zipCode} place={rowData.place.name} city={rowData.place.city} category={rowData.evenements.category.lvl1}/>
 				</TouchableOpacity>
 			);
 		}
@@ -296,23 +208,12 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-	tab: {
-		backgroundColor:Global.secondColor,
-	},
-	tabTitle: {
-		color:Global.mainColor,
-	},
 	eventsHolder: {
 		flex: 9,
 		marginBottom: -20,
 		alignItems: 'center',
 		justifyContent: 'center',
 		position: 'relative'
-	},
-	noresults:{
-		flex:1,
-		alignItems:'center',
-		justifyContent:'center',
 	}
 });
 
