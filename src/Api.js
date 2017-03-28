@@ -33,6 +33,23 @@ class Api {
 		})
 	}
 
+	getFavoriteEvents(id, callback) {
+		console.log('getFavorite id is : ', id);
+		console.log(Config.host)
+		fetch(`${Config.host}/api/event/${id}`)
+		.then(res => res.json()).then(event => {
+			console.log("favorite event fetched", event.event.title);
+			callback(event)
+		}).catch(error => {
+			console.log(error);
+		})
+	}
+
+
+
+
+
+
 	authenticate(user) {
 		Store.save('user', user).then(() => {
 			console.log('Saved');

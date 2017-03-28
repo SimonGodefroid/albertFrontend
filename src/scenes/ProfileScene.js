@@ -22,6 +22,7 @@ import Global from '../Global';
 import Button from '../components/core/Button';
 import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';
+import EventsCard from '../components/products/EventsCard';
 import Swiper from 'react-native-swiper';
 
 
@@ -31,9 +32,50 @@ let {
   width,
 } = Dimensions.get('window');
 
-
 class ProfileScene extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      favoritesResults:[],
+    }
+  }
+  
+  componentDidMount(){
+    let results=[];
+    for (var i = 0;i<this.props.user.account.favorites.length;i++){
+
+      Api.getFavoriteEvents(this.props.user.account.favorites[i],(favoritesList) => {
+      console.log("getFavoriteEvents",results);   
+        results.push(favoritesList);
+        if(results.length===this.props.user.account.favorites.length){
+          this.setState({
+            favoritesResults: results,
+          });
+        }
+      });
+    }
+  }
+
+  renderSlides(){
+    console.log(this.state.favoritesResults);
+    return this.state.favoritesResults.map((result,
+        index) => <View key={index}>
+        <EventsCard
+          photo={result.event.image.url}
+          title={result.event.title}
+          place={result.event.place.name}
+          category={result.event.evenements.category.lvl1}/>
+            <Text>
+                {result.event.title}</Text>
+        </View>)
+  }
+
   render() {
+   if(this.state.favoritesResults.length===0){
+    return <Text>Chargement...</Text>
+   }
+   console.log(this.state);
     return(
       <ScrollView>
       <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
@@ -44,24 +86,15 @@ class ProfileScene extends React.Component {
           />
           <View style={styles.name_desc}>
             <Text>{this.props.user.account.username.toUpperCase()}</Text>
-            <Text> 28 ans - Homme - albert@albert.com</Text>
+            <Text> 26 ans - Homme - albert@albert.com</Text>
           </View>
         </View>
       </Image>
-      <View style={{flexDirection:'row',flex:1}}>
-        
+      <View style={styles.swiper_container}>
+        <Swiper height={200} showsButtons={false} showsPagination={false}>
+          {this.renderSlides()}
+        </Swiper>
         </View>
-      <Swiper style={styles.wrapper} showsButtons={true}>
-        <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Beautiful</Text>
-        </View>
-        <View style={styles.slide3}>
-          <Text style={styles.text}>And simple</Text>
-        </View>
-      </Swiper>
       </ScrollView>
     );
   }
@@ -70,7 +103,7 @@ class ProfileScene extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
+    paddingTop: 40,
     alignItems: 'center',
     width:null,
     resizeMode: 'cover',
@@ -96,28 +129,13 @@ const styles = StyleSheet.create({
   },  
   wrapper: {
   },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5',
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
-  },
   text: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: 12,
     fontWeight: 'bold',
+  },
+  swiper_container:{
+    marginTop:20,
   }
 });
 
