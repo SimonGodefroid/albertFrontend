@@ -14,7 +14,6 @@ import {
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Api from '../../Api';
-import Gratuit from './Gratuit';
 export default class Filter extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +43,7 @@ export default class Filter extends React.Component {
               <View style={styles.section}>
                   <View style={styles.itemAlbert}>
                     <Image source={this.state.richUser === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
-                </View>
+                  </View>
                   <View style={styles.itemGratuit}>
                     <Switch
                     onValueChange={(value) => this.setState({richUser: value})}
