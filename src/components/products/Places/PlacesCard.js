@@ -10,33 +10,42 @@ Dimensions,
 } from 'react-native';
 
 import Global from '../../../Global';
+import Config from '../../../Config';
+import Images from '../../core/Images';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class PlacesCard extends React.Component {
-render(){
-  return (
-    <View style={styles.eventsCard}>
-      {/* <Image
-        style={styles.eventsImage}
-        source={{
-          uri: this.props.photo
-          }}
-        resizeMode={'cover'}> */}
-        <View style={styles.overlay}>
-          <View style={styles.infosHolder}>
-            <Text numberOfLines={2} style={styles.title}>{this.props.title}</Text>
-            <Text numberOfLines={3} style={styles.place}>
-              <Icon name={'ios-pin-outline'} size={20}/> {this.props.place}
-            </Text>
-            <View style={styles.categoryHolder}>
-              <Text style={styles.category}>{this.props.category}</Text>
+  render(){
+    console.log(this.props.photos);
+    let photo = Images.searchManger;
+    if (this.props.photos.length > 0) {
+      if (this.props.photos[0].photo_reference) {
+        photo = {
+          uri : `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${this.props.photos[0].photo_reference}&key=${Config.apiKey}`
+        }
+      }
+    }
+    return (
+      <View style={styles.eventsCard}>
+        <Image
+          style={styles.eventsImage}
+          source={photo}
+          resizeMode={'cover'}>
+          <View style={styles.overlay}>
+            <View style={styles.infosHolder}>
+              <Text numberOfLines={2} style={styles.title}>{this.props.title}</Text>
+              <Text numberOfLines={3} style={styles.place}>
+                <Icon name={'ios-pin-outline'} size={20}/> {this.props.place}
+              </Text>
+              <View style={styles.categoryHolder}>
+                <Text style={styles.category}>{this.props.category}</Text>
+              </View>
             </View>
           </View>
-        </View>
-      {/* </Image> */}
-    </View>
-  );
-}
+        </Image>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

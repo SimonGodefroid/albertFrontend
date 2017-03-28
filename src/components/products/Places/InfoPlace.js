@@ -46,6 +46,7 @@ class InfoProduct extends React.Component {
           <Text style={styles.details}>Note:</Text>
           <Text style={styles.description}>{rating}</Text>
         </View>
+        <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
     );
   }
@@ -125,6 +126,16 @@ const styles = StyleSheet.create({
         textAlign: 'justify',
         paddingBottom: 10,
       },
+  lieu:{
+    fontFamily: Global.secondFont,
+    color:Global.mainColor,
+    fontSize:20,
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingBottom: 20,
+    textDecorationLine: 'underline',
+    backgroundColor: 'white',
+  },
 });
 
 export default InfoProduct;

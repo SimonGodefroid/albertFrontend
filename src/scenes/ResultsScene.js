@@ -65,9 +65,15 @@ class ResultsScene extends React.Component {
     renderCards(rowData) {
       if (rowData.reference !== undefined) {
         console.log("card = place");
+        console.log('results#rowData is:', this);
+        console.log('results#rowData.photos.length is:', rowData.photos);
+
+        const photos = rowData.photos || [];
+        console.log('results#rowData.photos.length is:', photos);
         return (
           <TouchableOpacity onPress={() => Actions.place({product: rowData})}>
             <PlacesCard
+              photos={photos}
               title={rowData.name}
               place={rowData.vicinity}
               category={rowData.types[0]}>
