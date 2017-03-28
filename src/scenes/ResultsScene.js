@@ -266,7 +266,7 @@ class ResultsScene extends React.Component {
 			console.log("card = event");
 			return (
 				<TouchableOpacity onPress={() => this.goToEvent(rowData)}>
-					<EventsCard photo={rowData.image.url} title={rowData.title} date={rowData.evenements.realDateStart.slice(8, 10)} month={rowData.evenements.realDateStart.slice(5, 7)} hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'} hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00'} zipCode={rowData.place.zipCode} place={rowData.place.name} city={rowData.place.city} category={rowData.evenements.category.lvl1}/>
+					<EventsCard photo={rowData.image.url} title={rowData.title} year={rowData.evenements.realDateStart.slice(0, 4)} date={rowData.evenements.realDateStart.slice(8, 10)} month={rowData.evenements.realDateStart.slice(5, 7)} hourStart={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'} hourEnd={rowData.evenements.periodes[0].seances.length > 0 ? rowData.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00'} zipCode={rowData.place.zipCode} place={rowData.place.name} city={rowData.place.city} category={rowData.evenements.category.lvl1}/>
 				</TouchableOpacity>
 			);
 		}
