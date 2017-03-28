@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
  eventsCard: {
    backgroundColor: '#333',
    flexDirection: 'row',
-   marginBottom:10,
+   marginBottom:5,
    elevation:6,
  },
      eventsImage: {
@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
            flexDirection: 'row',
          },
              infosHolder: {
-               paddingTop: 15,
+               paddingTop: 30,
                paddingLeft: 13,
                paddingRight: 15,
-               paddingBottom: 10,
+               paddingBottom:30,
                flex: 6,
                flexDirection: 'column',
                justifyContent: 'center',
