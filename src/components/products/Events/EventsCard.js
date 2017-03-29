@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(60, 60, 60, 0.9)',
 		alignItems: 'center',
 		justifyContent: 'center',
-		flex: 2,
+		flex: 2.2,
 		padding: 7
 	},
 	day: {

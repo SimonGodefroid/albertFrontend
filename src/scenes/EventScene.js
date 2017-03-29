@@ -44,7 +44,8 @@ class EventScene extends React.Component {
       <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0, flex:1,}}>
         <View style={{flex:9,}}>
         <ImagesProduct
-          image={image.url}/>
+          image={image.url}
+        />
         <InfoEvent
           title={title}
           category={evenements.category.lvl1}
