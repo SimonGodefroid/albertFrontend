@@ -40,13 +40,13 @@ class ProfileScene extends React.Component {
       favoritesResults:[],
     }
   }
-  
+
   componentDidMount(){
     let results=[];
     for (var i = 0;i<this.props.user.account.favorites.length;i++){
 
       Api.getFavoriteEvents(this.props.user.account.favorites[i],(favoritesList) => {
-      console.log("getFavoriteEvents",results);   
+      console.log("getFavoriteEvents",results);
         results.push(favoritesList);
         if(results.length===this.props.user.account.favorites.length){
           this.setState({
@@ -58,9 +58,9 @@ class ProfileScene extends React.Component {
   }
 
   renderSlides(){
-    if(this.state.favoritesResults.length===0){
+    if(this.state.favoritesResults.length < 0){
       return <Text>Chargement...</Text>
-    }    
+    }
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
         <EventsCard
@@ -78,7 +78,7 @@ class ProfileScene extends React.Component {
           </Swiper>
         </View>
       );
-        
+
   }
 
   render() {
@@ -97,7 +97,7 @@ class ProfileScene extends React.Component {
         </View>
       </Image>
  {this.renderSlides()}
-      
+
       </ScrollView>
     );
   }
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   name_desc: {
     paddingTop:10,
-    alignItems: 'center', 
+    alignItems: 'center',
     backgroundColor: 'transparent'
   },
   user_image: {
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   profile_elements:{
     flex:1,
     padding:10
-  },  
+  },
   wrapper: {
   },
   text: {

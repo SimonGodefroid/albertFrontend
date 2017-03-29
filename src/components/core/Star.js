@@ -16,7 +16,7 @@ class Star extends React.Component {
 		return (
       <View>
       <StarRating
-        disabled={false}
+        disabled={true}
         emptyStar={'ios-star-outline'}
         fullStar={'ios-star'}
         halfStar={'ios-star-half'}
