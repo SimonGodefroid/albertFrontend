@@ -45,7 +45,7 @@ class ProfileScene extends React.Component {
     console.log('componentDidMount$profileScene')
     console.log('componentDidMount$Api.getUser()',Api.getUser()._id);
       Api.getFavoriteEvents(Api.getUser()._id,(favoritesList) => {
-      console.log("getFavoriteEvents",favoritesList);   
+      console.log("getFavoriteEvents",favoritesList);
       this.setState({
         favoritesResults: favoritesList,
       });
@@ -56,8 +56,8 @@ class ProfileScene extends React.Component {
   renderSlides(){
     if(this.state.favoritesResults.length < 0){
       return <Text>Chargement...</Text>
-    }    
-    console.log('coucou$renderSlides');
+    }
+
     console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
@@ -65,8 +65,13 @@ class ProfileScene extends React.Component {
           photo={result.image.url}
           title={result.title}
           place={result.place.name}
+          date={result.evenements.realDateStart.slice(8,10)}
+          month={result.evenements.realDateStart.slice(5,7)}
+          hourStart={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
+          hourEnd={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
           category={result.evenements.category.lvl1}/>
         </View>)
+
       return (
         <View style={styles.swiper_container}>
           <Swiper height={200} showsButtons={false} showsPagination={false}>
