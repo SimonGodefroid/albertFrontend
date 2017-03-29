@@ -57,7 +57,7 @@ class ProfileScene extends React.Component {
 
     if(this.state.favoritesResults.length === 0){
       return <Text>Vous n'avez pas de favoris</Text>
-    }    
+    }
 
     console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,

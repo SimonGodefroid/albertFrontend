@@ -11,14 +11,58 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
+import Api from '../../Api';
+import Config from '../../Config';
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class Fav extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+      star : false,
+    }
+    console.log('constructor star', this.state.star);
+  }
+
+  componentDidMount() {
+    if (Api.getUser().account.favorites.indexOf(this.props.idEvent) !== -1) {
+      this.setState({
+        star: true
+      })
+    }
+    console.log('componentDidMount star', this.state.star);
+    console.log('componentDidMount star', Api.getUser().account.favorites.indexOf(this.props._id));
+  }
+
+  addToFav(userId, eventId, callback){
+    console.log("coucou addFav");
+    fetch(`${Config.host}/api/user/${userId}/toggleFavorite/${eventId}`, {
+      method: "POST"
+    })
+    this.setState({
+      star: !this.state.star,
+    })
+    // if (!this.state.star) {
+    //   this.setState({
+    //     star : true
+    //   });
+    // } else {
+    //   this.setState({
+    //     star : false
+    //   });
+    // }
+  }
+
   render() {
+    console.log('fav userId', Api.getUser()._id);
+    console.log('fav userId', Api.getUser().account.favorites);
+    console.log('fav idevent', this.props.idEvent);
+    console.log('fav thisprops', this.props);
+    console.log('render star', this.state.star);
     return(
-      <TouchableOpacity>
-        <Icon name={'ios-star-outline'} size={35} color={Global.thirdColor} />
+      <TouchableOpacity  onPress={() =>this.addToFav(Api.getUser()._id, this.props.idEvent)}>
+        <Icon name={this.state.star ? 'ios-star' : 'ios-star-outline'} size={35} style={{backgroundColor: 'transparent'}} color={Global.thirdColor} />
       </TouchableOpacity>
     );
   }

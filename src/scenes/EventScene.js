@@ -12,6 +12,7 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
+import Api from '../Api';
 import ImagesProduct from '../components/products/ImagesProduct';
 import MapProduct from '../components/products/MapProduct';
 import Favorites from '../components/user/Favorites';
@@ -38,13 +39,17 @@ class EventScene extends React.Component {
       modality,
       tags,
       contact,
+      _id,
     } = this.props.product;
 
+    console.log('EventScene# product', this.props.product);
+    console.log('EventScene# userid', Api.getUser()._id);
     return(
       <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0, flex:1,}}>
         <View style={{flex:9,}}>
         <ImagesProduct
           image={image.url}
+          idEvent={_id}
         />
         <InfoEvent
           title={title}
