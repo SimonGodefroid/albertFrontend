@@ -158,7 +158,7 @@ class ResultsScene extends React.Component {
 		}
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 		let events = [];
 		let places = [];
 		Api.getEvents(this.props.cat, (eventsList) => {
