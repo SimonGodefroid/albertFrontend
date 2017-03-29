@@ -10,6 +10,12 @@ class googleApi {
 			case 2:
 				types = "bar|cafe";
 				break;
+			case 3:
+				types = "gym";
+				break;
+			case 4:
+				types = "night_club";
+				break;
 			case 5:
 				types = "museum";
 				break;

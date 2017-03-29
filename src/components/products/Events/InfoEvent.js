@@ -35,9 +35,10 @@ class InfoProduct extends React.Component {
       date,
       hourStart,
       hourEnd,
-      price,
-      tags
+      tags,
     } = this.props;
+
+
 
     var month = null;
     switch (this.props.month) {
@@ -81,6 +82,21 @@ class InfoProduct extends React.Component {
         break;
     }
 
+    let tag = "";
+    for (var i = 0; i < tags.length; i++) {
+      tag = tag + `#${tags[i]} `
+    }
+
+    if (this.props.price === null) {
+      if (this.props.priceType === "gratuit") {
+        price = "gratos"
+      } else if (this.props.priceType === "payant") {
+        price = "prix indisponible"
+      }
+    } else {
+      price = this.props.price
+    }
+
     return(
       <View>
         <View style={styles.eventPresentation}>
@@ -95,17 +111,38 @@ class InfoProduct extends React.Component {
         </View>
         <View style={styles.placetimeHolder}>
           <Text style={styles.details}>Infos</Text>
-          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.hours}>{hourStart} - {hourEnd}</Text></View></View>
-          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/></View><View style={styles.textHolder}><Text style={styles.place}>{place}</Text></View></View>
+          <View style={styles.listHolder}>
+            <View style={styles.iconHolder}>
+              <Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/>
+            </View>
+            <View style={styles.textHolder}>
+              <Text style={styles.hours}>{hourStart} - {hourEnd}</Text>
+            </View>
+          </View>
+          <View style={styles.listHolder}>
+            <View style={styles.iconHolder}>
+              <Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/>
+            </View>
+            <View style={styles.textHolder}>
+              <Text style={styles.place}>{place}</Text>
+            </View>
+          </View>
           <Text style={styles.placeSuite}>{address} - {city}</Text>
-          <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-cash-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.price}>{(price === null ? "Prix indisponible" : price)}</Text></View></View>
+          <View style={styles.listHolder}>
+            <View style={styles.iconHolder}>
+              <Icon name={'ios-cash-outline'} size={24} style={{color:Global.mainColor}}/>
+            </View>
+            <View style={styles.textHolder}>
+              <Text style={styles.price}>{price}</Text>
+            </View>
+          </View>
         </View>
         <View style={styles.descriptionHolder}>
           <Text style={styles.details}>Détails</Text>
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.tagsHolder}>
-        <Text style={styles.tags}>#{tags[0]} #{tags[1]}</Text>
+        <Text style={styles.tags}>{tag}</Text>
         </View>
         <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
