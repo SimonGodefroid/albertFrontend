@@ -36,8 +36,10 @@ class InfoProduct extends React.Component {
       hourStart,
       hourEnd,
       price,
-      tags
+      tags,
     } = this.props;
+
+
 
     var month = null;
     switch (this.props.month) {
@@ -81,6 +83,11 @@ class InfoProduct extends React.Component {
         break;
     }
 
+    let tag = "";
+    for (var i = 0; i < tags.length; i++) {
+      tag = tag + `#${tags[i]} `
+    }
+
     return(
       <View>
         <View style={styles.eventPresentation}>
@@ -105,7 +112,7 @@ class InfoProduct extends React.Component {
           <Text style={styles.description}>{description}</Text>
         </View>
         <View style={styles.tagsHolder}>
-        <Text style={styles.tags}>#{tags[0]} #{tags[1]}</Text>
+        <Text style={styles.tags}>{tag}</Text>
         </View>
         <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
