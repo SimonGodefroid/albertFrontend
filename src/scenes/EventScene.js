@@ -57,6 +57,7 @@ class EventScene extends React.Component {
           hourStart={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
           hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
           price={modality.priceDetail}
+          priceType={modality.priceType}
           tags={tags}
           />
         <MapProduct
