@@ -2914,6 +2914,14 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-animatable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.1.1.tgz#00ddc72985f62f62a11a505abb1a06e77a92cd8a"
+
+react-native-communications@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-communications/-/react-native-communications-2.2.1.tgz#7883b56b20a002eeb790c113f8616ea8692ca795"
+
 react-native-config@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.3.1.tgz#981d98eee2c4e467397cd9306f5b6958c501c6e8"
@@ -2946,6 +2954,14 @@ react-native-simple-store@^1.1.0:
   resolved "https://registry.yarnpkg.com/react-native-simple-store/-/react-native-simple-store-1.1.0.tgz#69e91d6b91d362cd4ea12b0486df3eaf2f628b04"
   dependencies:
     lodash.merge "^4.6.0"
+
+react-native-swiper@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.4.tgz#a85535b5374ef8d605a7a720e447ac46816ac448"
+
+react-native-tab-view@0.0.58:
+  version "0.0.58"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.58.tgz#f61633fb1e515a45a684fb4bb8526a4936c3c480"
 
 react-native-tabs@^1.0.9:
   version "1.0.9"
