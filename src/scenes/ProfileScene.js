@@ -58,8 +58,10 @@ class ProfileScene extends React.Component {
   }
 
   renderSlides(){
-    console.log(this.state.favoritesResults);
-    return this.state.favoritesResults.map((result,
+    if(this.state.favoritesResults.length===0){
+      return <Text>Chargement...</Text>
+    }    
+    const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
         <EventsCard
           photo={result.event.image.url}
@@ -69,13 +71,17 @@ class ProfileScene extends React.Component {
             <Text>
                 {result.event.title}</Text>
         </View>)
+      return (
+        <View style={styles.swiper_container}>
+          <Swiper height={200} showsButtons={false} showsPagination={false}>
+            {slides}
+          </Swiper>
+        </View>
+      );
+        
   }
 
   render() {
-   if(this.state.favoritesResults.length===0){
-    return <Text>Chargement...</Text>
-   }
-   console.log(this.state);
     return(
       <ScrollView>
       <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
@@ -90,11 +96,8 @@ class ProfileScene extends React.Component {
           </View>
         </View>
       </Image>
-      <View style={styles.swiper_container}>
-        <Swiper height={200} showsButtons={false} showsPagination={false}>
-          {this.renderSlides()}
-        </Swiper>
-        </View>
+ {this.renderSlides()}
+      
       </ScrollView>
     );
   }
