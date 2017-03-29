@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 	},
 	infosHolder: {
 		paddingTop: 30,
-		paddingLeft: 13,
+		paddingLeft: 25,
 		paddingRight: 15,
 		paddingBottom: 30,
 		flex: 6,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 		marginBottom: 5
 	},
 	categoryHolder: {
-		backgroundColor: Global.mainColor,
+		backgroundColor: Global.secondColor,
 		marginTop: 6,
 		paddingTop: 4,
 		paddingBottom: 4,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 		elevation: 2
 	},
 	category: {
-		color: '#000',
+		color: Global.sixthColor,
 		fontFamily: Global.fourthFont,
 		fontSize: 12,
 		marginTop: 5,

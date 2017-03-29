@@ -81,10 +81,11 @@ export default class AlbertTab extends React.Component {
     setFilterVisible(visible) {
         this.setState({filterVisible: visible});
     }
-    onCloseFilterFn(close) {
+    onCloseFilterFn(isPaidEvents) {
       this.setState({
         filterVisible: false,
       });
+      this.props.onChangeFilterFn(isPaidEvents);
     }
 
     renderFilter() {
@@ -92,7 +93,9 @@ export default class AlbertTab extends React.Component {
         return (
           <View style={styles.itemHolder}>
             <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
-                <Filter onCloseFn={this.onCloseFilterFn} />
+                <Filter
+                  onCloseFn={this.onCloseFilterFn}
+                  isPaidEvents={this.props.isPaidEvents} />
             </Modal>
           <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
                 <Icon name={'ios-options-outline'} size={40} color={Global.secondColor}/>
