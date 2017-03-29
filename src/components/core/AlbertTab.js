@@ -61,6 +61,7 @@ export default class AlbertTab extends React.Component {
         this.onCloseFilterFn = this.onCloseFilterFn.bind(this);
         this.setFilterVisible = this.setFilterVisible.bind(this);
         this.renderFilter = this.renderFilter.bind(this);
+        this.onValidateFilterFn = this.onValidateFilterFn.bind(this);
     }
     /* Gestion de la modal Menu */
     setMenuVisible(visible) {
@@ -81,7 +82,12 @@ export default class AlbertTab extends React.Component {
     setFilterVisible(visible) {
         this.setState({filterVisible: visible});
     }
-    onCloseFilterFn(isPaidEvents) {
+    onCloseFilterFn() {
+      this.setState({
+        filterVisible: false,
+      });
+    }
+    onValidateFilterFn(isPaidEvents) {
       this.setState({
         filterVisible: false,
       });
@@ -94,8 +100,13 @@ export default class AlbertTab extends React.Component {
           <View style={styles.itemHolder}>
             <Modal animationType={"slide"} transparent={true} visible={this.state.filterVisible} onRequestClose={() => { }}>
                 <Filter
-                  onCloseFn={this.onCloseFilterFn}
-                  isPaidEvents={this.props.isPaidEvents} />
+                  onCloseFilterFn={this.onCloseFilterFn}
+                  onValidateFilterFn={this.onValidateFilterFn}
+                  isPaidEvents={this.props.isPaidEvents}
+                  isCurrent={this.props.isCurrent}
+                  isToday={this.props.isToday}
+                  isFuture={this.props.isFuture}
+                   />
             </Modal>
           <TouchableOpacity onPress={() => { this.setFilterVisible(true) }}>
                 <Icon name={'ios-options-outline'} size={40} color={Global.secondColor}/>

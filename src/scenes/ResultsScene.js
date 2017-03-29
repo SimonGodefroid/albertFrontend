@@ -49,6 +49,9 @@ class ResultsScene extends React.Component {
 			],
 			fetching: true,
 			paidEvents: true,
+			current:true,
+			today:true,
+			future:true,
 		}
 
 		this.renderCards = this.renderCards.bind(this);
@@ -70,36 +73,40 @@ class ResultsScene extends React.Component {
 			tabStyle={{backgroundColor: Global.mainColor}}
 			labelStyle={{color: Global.secondColor, fontWeight:'bold',}}
 			indicatorStyle={{backgroundColor:Global.thirdColor}}
-
 			{...props}/>;
 	};
 
-	changeFilter(isPaidEvents) {
-		const filteredEvents = this.getFilteredEvents(isPaidEvents);
+	changeFilter(isPaidEvents, isCurrent, isToday, isFuture) {
+		const filteredEvents = this.getFilteredEvents(isPaidEvents, isCurrent, isToday, isFuture);
+		console.log("changing ")
 		this.setState({
 			paidEvents: isPaidEvents,
+			current: isCurrent,
+			today: isToday,
+			future: isFuture,
 			events: this.state.events.cloneWithRows(filteredEvents),
 		});
 	}
 
-	getFilteredEvents(isPaidEvents) {
+	getFilteredEvents(isPaidEvents, isCurrent, isToday, isFuture) {
 		const {
 			eventsData,
 		} = this.state;
-
+		// le nouvel array d evenements filtres
 		const filteredEvents = [];
 
+		// NO filter
 		if (isPaidEvents === true) {
 			return eventsData;
 		}
-
+		// FILTERS
 		eventsData.forEach((event) => {
-			if (isPaidEvents === false) {
+			if (isPaidEvents === false) { // events gratuits
 				if (event.modality.priceType === 'gratuit') {
-					filteredEvents.push(event);
+						filteredEvents.push(event);
+					}
 				}
-			}
-		});
+			});
 		return filteredEvents;
 	}
 
@@ -125,9 +132,7 @@ class ResultsScene extends React.Component {
           <View style={styles.eventsHolder}>
             <ListView dataSource={this.state.events} renderRow={this.renderCards}/>
           </View>
-          <AlbertTab cat={this.props.cat} filter={true} style={{
-            flex: 1
-          }}/>
+      		{this.renderAlbertTab()}
         </Image>
       );
     } else {
@@ -143,6 +148,9 @@ class ResultsScene extends React.Component {
 				cat={this.props.cat}
 				filter={true}
 				isPaidEvents={this.state.paidEvents}
+				isCurrent={this.state.current}
+				isToday={this.state.today}
+				isFuture={this.state.future}
 				onChangeFilterFn={this.changeFilter}
 				style={{
 					flex: 1

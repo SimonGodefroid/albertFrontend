@@ -23,10 +23,10 @@ export default class Filter extends React.Component {
         super(props);
         this.state = {
             cat: props.cat,
-            paidEvents: props.isPaidEvents,
-            currentEvents: true,
-            todayEvents: true,
-            futureEvents: true
+            isPaidEvents: props.isPaidEvents,
+            currentEvents: props.isCurrent,
+            todayEvents: props.isToday,
+            futureEvents: props.isFuture
         }
         this.renderCurrentEvents = this.renderCurrentEvents.bind(this);
         this.renderTodayEvents = this.renderTodayEvents.bind(this);
@@ -37,16 +37,14 @@ export default class Filter extends React.Component {
     renderPlacesFilter() {}
     renderCurrentEvents() {
         if (this.state.currentEvents === true) {
-            this.setState({currentEvents: false, todayEvents:true, futureEvents:true,})
-            this.props.onCloseFn();
+            this.setState({currentEvents: false})
         } else {
             this.setState({currentEvents: true,})
         }
     }
     renderTodayEvents() {
       if (this.state.todayEvents === true) {
-          this.setState({todayEvents: false, currentEvents:true, futureEvents:true,})
-          this.props.onCloseFn();
+          this.setState({todayEvents: false,})
       } else {
           this.setState({todayEvents: true})
       }
@@ -54,8 +52,7 @@ export default class Filter extends React.Component {
 
     renderFutureEvents() {
       if (this.state.futureEvents === true) {
-          this.setState({futureEvents: false, currentEvents:true, todayEvents:true})
-          this.props.onCloseFn();
+          this.setState({futureEvents: false})
       } else {
           this.setState({futureEvents: true})
       }
@@ -66,27 +63,26 @@ export default class Filter extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.section}>
                         <Text style={styles.head}>Tu veux filtrer ta recherche ?</Text>
-                        <TouchableOpacity style={styles.close} onPress={() => this.props.onCloseFn(this.state.paidEvents)}>
+                        <TouchableOpacity style={styles.close} onPress={() => this.props.onCloseFilterFn()}>
                             <Icon name={'ios-close-circle-outline'} size={45} color={Global.mainColor}/>
                         </TouchableOpacity>
                     </View>
                     <Animatable.Text animation="fadeInUp" delay={100}style={styles.sectionTitle}>Plutôt fauché ou blindé ?</Animatable.Text>
                     <View style={styles.section}>
                         <Animatable.View animation="bounceIn" delay={300} style={styles.itemAlbert}>
-                            <Animatable.Image source={this.state.paidEvents === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
+                            <Animatable.Image source={this.state.isPaidEvents === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
                         </Animatable.View>
                         <View style={styles.itemGratuit}>
                             <Switch
                               onValueChange={(value) => {
-                                this.setState({paidEvents: value});
-
+                                this.setState({isPaidEvents: value});
                               }}
-                              value={this.state.paidEvents}
+                              value={this.state.isPaidEvents}
                               onTintColor={Global.mainColor}
                               thumbTintColor={Global.secondColor}/>
                         </View>
                         <Animatable.View animation="bounceIn" delay={300} style={styles.itemAlbert}>
-                            <Image source={this.state.paidEvents === true ? require('../../../assets/img/albert-blinde.png') : require('../../../assets/img/albert-blinde-nb.png')} style={styles.albert2}/>
+                            <Image source={this.state.isPaidEvents === true ? require('../../../assets/img/albert-blinde.png') : require('../../../assets/img/albert-blinde-nb.png')} style={styles.albert2}/>
                         </Animatable.View>
                     </View>
                     <Animatable.Text animation="fadeInUp" delay={500} style={styles.sectionTitle}>Quand ?</Animatable.Text>
@@ -107,6 +103,11 @@ export default class Filter extends React.Component {
                             </TouchableOpacity>
                         </Animatable.View>
                     </View>
+                    <View style={styles.section}>
+                    <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}} style={styles.validate}>
+                      <Text onPress={() => this.props.onValidateFilterFn(this.state.isPaidEvents, this.state.currentEvents, this.state.todayEvents, this.state.futureEvents)}>Valider</Text>
+                    </Animatable.View>
+                  </View>
                 </View>
             </View>
         );
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     },
     container: {
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        height:350,
+        height:450,
         paddingLeft: 20,
         paddingTop: 5,
         paddingRight: 20,
@@ -200,5 +201,9 @@ const styles = StyleSheet.create({
         paddingBottom: 9,
         paddingLeft: 10,
         paddingRight: 10
+    },
+    validate :{
+      backgroundColor:Global.thirdColor,
+      padding:8,
     }
 });
