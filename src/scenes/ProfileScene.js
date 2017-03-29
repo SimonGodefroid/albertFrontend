@@ -62,15 +62,17 @@ class ProfileScene extends React.Component {
     console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
-        <EventsCard
-          photo={result.image.url}
-          title={result.title}
-          place={result.place.name}
-          date={result.evenements.realDateStart.slice(8,10)}
-          month={result.evenements.realDateStart.slice(5,7)}
-          hourStart={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
-          hourEnd={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
-          category={result.evenements.category.lvl1}/>
+        <TouchableOpacity onPress={() => Actions.event({product: result})}>
+          <EventsCard
+            photo={result.image.url}
+            title={result.title}
+            place={result.place.name}
+            date={result.evenements.realDateStart.slice(8,10)}
+            month={result.evenements.realDateStart.slice(5,7)}
+            hourStart={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
+            hourEnd={result.evenements.periodes[0].seances.length > 0 ? result.evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
+            category={result.evenements.category.lvl1}/>
+        </TouchableOpacity>
         </View>)
 
       return (
