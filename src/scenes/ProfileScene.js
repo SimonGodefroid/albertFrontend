@@ -42,34 +42,30 @@ class ProfileScene extends React.Component {
   }
   
   componentDidMount(){
-    let results=[];
-    for (var i = 0;i<this.props.user.account.favorites.length;i++){
-
-      Api.getFavoriteEvents(this.props.user.account.favorites[i],(favoritesList) => {
-      console.log("getFavoriteEvents",results);   
-        results.push(favoritesList);
-        if(results.length===this.props.user.account.favorites.length){
-          this.setState({
-            favoritesResults: results,
-          });
-        }
+    console.log('componentDidMount$profileScene')
+    console.log('componentDidMount$Api.getUser()',Api.getUser()._id);
+      Api.getFavoriteEvents(Api.getUser()._id,(favoritesList) => {
+      console.log("getFavoriteEvents",favoritesList);   
+      this.setState({
+        favoritesResults: favoritesList,
       });
-    }
+      console.log('this.state.favoritesList',this.state.favoritesList);
+    });
   }
 
   renderSlides(){
     if(this.state.favoritesResults.length===0){
       return <Text>Chargement...</Text>
     }    
+    console.log('coucou$renderSlides');
+    console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
         <EventsCard
-          photo={result.event.image.url}
-          title={result.event.title}
-          place={result.event.place.name}
-          category={result.event.evenements.category.lvl1}/>
-            <Text>
-                {result.event.title}</Text>
+          photo={result.image.url}
+          title={result.title}
+          place={result.place.name}
+          category={result.evenements.category.lvl1}/>
         </View>)
       return (
         <View style={styles.swiper_container}>

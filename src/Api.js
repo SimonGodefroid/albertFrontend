@@ -33,13 +33,13 @@ class Api {
 		})
 	}
 
-	getFavoriteEvents(id, callback) {
-		console.log('getFavorite id is : ', id);
+	getFavoriteEvents(userId, callback) {
+		console.log('getFavorite userId is : ', userId);
 		console.log(Config.host)
-		fetch(`${Config.host}/api/event/${id}`)
-		.then(res => res.json()).then(event => {
-			console.log("favorite event fetched", event.event.title);
-			callback(event)
+		fetch(`${Config.host}/api/user/${userId}/favorites`)
+		.then(res => res.json()).then(favorites => {
+			console.log("favorite event fetched", favorites);
+			callback(favorites)
 		}).catch(error => {
 			console.log(error);
 		})
