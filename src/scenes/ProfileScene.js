@@ -20,6 +20,7 @@ import {
 import Api from '../Api';
 import Global from '../Global';
 import Button from '../components/core/Button';
+import Loading from '../components/core/Loading';
 import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';
 import EventsCard from '../components/products/Events/EventsCard';
@@ -49,15 +50,13 @@ class ProfileScene extends React.Component {
       this.setState({
         favoritesResults: favoritesList,
       });
-      console.log('this.state.favoritesList',this.state.favoritesList);
     });
   }
 
   renderSlides(){
-    if(this.state.favoritesResults.length < 0){
-      return <Text>Chargement...</Text>
+    if(this.state.favoritesResults.length === 0){
+      return <Text>Vous n'avez pas de favoris</Text>
     }    
-    console.log('coucou$renderSlides');
     console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
@@ -92,6 +91,9 @@ class ProfileScene extends React.Component {
           </View>
         </View>
       </Image>
+      <View>
+        <Text>Voici vos favoris:</Text>
+      </View>
  {this.renderSlides()}
 
       </ScrollView>
