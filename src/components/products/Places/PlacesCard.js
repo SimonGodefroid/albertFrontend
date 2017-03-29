@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 class PlacesCard extends React.Component {
   render(){
-    console.log(this.props.photos);
+    // console.log(this.props.photos);
     let photo = Images.searchManger;
     if (this.props.photos.length > 0) {
       if (this.props.photos[0].photo_reference) {

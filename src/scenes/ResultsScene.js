@@ -80,7 +80,7 @@ class ResultsScene extends React.Component {
 		} else {
 			return(
 				<View style={styles.noresults}>
-					<Text style={{textAlign:'center', fontWeight:''}}>Oops !{'\n'}Albert n'a trouvé aucun résultat pour le moment... :(</Text>
+					<Text style={{textAlign:'center'}}>Oops !{'\n'}Albert n'a trouvé aucun résultat pour le moment... :(</Text>
 				</View>
 			);
 		}
@@ -158,7 +158,7 @@ class ResultsScene extends React.Component {
 		}
 	};
 
-	componentDidMount() {
+	componentWillMount() {
 		let events = [];
 		let places = [];
 		Api.getEvents(this.props.cat, (eventsList) => {
@@ -167,19 +167,18 @@ class ResultsScene extends React.Component {
 				eventsList.events.map(event => {
 					events.push(event);
 				});
+				console.log("fetched events")
 			};
       googleApi.getPlaces(this.props.cat, Places => {
   			console.log("google sent:", Places.results);
   			Places.results.map(place => {
   				places.push(place);
+					console.log("fetched places")
   			});
-				this.setState({
-					events: this.state.events.cloneWithRows(events),
-					places: this.state.places.cloneWithRows(places),
-					fetching: false,
-				});
         if (events.length > 0 && places.length > 0) {
           this.setState({
+						events: this.state.events.cloneWithRows(events),
+						places: this.state.places.cloneWithRows(places),
 						fetching: false,
             routes: [
               {
@@ -194,6 +193,8 @@ class ResultsScene extends React.Component {
           });
         } else if (events.length === 0 && places.length > 0) {
 					this.setState({
+						events: this.state.events.cloneWithRows(events),
+						places: this.state.places.cloneWithRows(places),
 						fetching: false,
 						index:1,
 						routes: [
@@ -209,6 +210,8 @@ class ResultsScene extends React.Component {
 					});
 				} else if (events.length > 0 && places.length === 0) {
 					this.setState({
+						events: this.state.events.cloneWithRows(events),
+						places: this.state.places.cloneWithRows(places),
 						fetching: false,
 						index:0,
 						routes: [
@@ -224,6 +227,8 @@ class ResultsScene extends React.Component {
 					});
 				} else if (events.length === 0 && places.length === 0) {
 					this.setState({
+						events: this.state.events.cloneWithRows(events),
+						places: this.state.places.cloneWithRows(places),
 						fetching: false,
 						index:0,
 						routes: [
@@ -252,12 +257,11 @@ class ResultsScene extends React.Component {
 
 	renderCards(rowData) {
     if (rowData.reference !== undefined) {
-      console.log("card = place");
-      console.log('results#rowData is:', this);
-      console.log('results#rowData.photos.length is:', rowData.photos);
+      // console.log('results#rowData is:', this);
+      // console.log('results#rowData.photos.length is:', rowData.photos);
 
       const photos = rowData.photos || [];
-      console.log('results#rowData.photos.length is:', photos);
+      // console.log('results#rowData.photos.length is:', photos);
       return (
         <TouchableOpacity onPress={() => Actions.place({product: rowData})}>
           <PlacesCard
@@ -269,7 +273,6 @@ class ResultsScene extends React.Component {
         </TouchableOpacity>
       )
     } else {
-      console.log("card = event");
         return (
           <TouchableOpacity onPress={() => this.goToEvent(rowData)}>
             <EventsCard
