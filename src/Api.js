@@ -46,10 +46,6 @@ class Api {
 	}
 
 
-
-
-
-
 	authenticate(user) {
 		Store.save('user', user).then(() => {
 			console.log('Saved');

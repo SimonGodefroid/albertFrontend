@@ -40,7 +40,7 @@ class ProfileScene extends React.Component {
       favoritesResults:[],
     }
   }
-  
+
   componentDidMount(){
     console.log('componentDidMount$profileScene')
     console.log('componentDidMount$Api.getUser()',Api.getUser()._id);
@@ -54,7 +54,7 @@ class ProfileScene extends React.Component {
   }
 
   renderSlides(){
-    if(this.state.favoritesResults.length===0){
+    if(this.state.favoritesResults.length < 0){
       return <Text>Chargement...</Text>
     }    
     console.log('coucou$renderSlides');
@@ -74,7 +74,7 @@ class ProfileScene extends React.Component {
           </Swiper>
         </View>
       );
-        
+
   }
 
   render() {
@@ -93,7 +93,7 @@ class ProfileScene extends React.Component {
         </View>
       </Image>
  {this.renderSlides()}
-      
+
       </ScrollView>
     );
   }
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   name_desc: {
     paddingTop:10,
-    alignItems: 'center', 
+    alignItems: 'center',
     backgroundColor: 'transparent'
   },
   user_image: {
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   profile_elements:{
     flex:1,
     padding:10
-  },  
+  },
   wrapper: {
   },
   text: {

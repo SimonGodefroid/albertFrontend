@@ -13,31 +13,31 @@ import Global from '../../Global';
 class Button extends React.Component {
   render() {
     return(
-      <TouchableOpacity
-        style={styles.container}>
+      <View
+        style={[styles.container, {backgroundColor: this.props.color, borderWidth:this.props.borderWidth, borderColor:this.props.borderColor,}] }>
         <Text
-          style={styles.text}>
+          style={[styles.text, {fontSize:this.props.size}]}>
           {this.props.text}
         </Text>
-      </TouchableOpacity>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 44,
-    backgroundColor: '#008489',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 22,
   },
   text: {
     color: '#fff',
-    fontSize: 20,
+    textAlign:'center',
     fontFamily: Global.mainFont,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingTop:8,
+    paddingBottom:9,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
 });
 

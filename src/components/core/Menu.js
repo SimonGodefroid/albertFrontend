@@ -24,7 +24,7 @@ export default class Menu extends React.Component {
 	}
 
 // best practice
-	goToProfile() { 
+	goToProfile() {
 		this.props.onCloseFn();
 		Actions.profile({user:Api.getUser()});
 	}
@@ -71,7 +71,7 @@ export default class Menu extends React.Component {
 						Actions.login({});
 						this.props.onCloseFn();
 					})}>
-						<Text style={styles.menuEntries}>Déconnexion</Text>
+						<Text style={styles.disconnect}>Déconnexion</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -82,13 +82,13 @@ export default class Menu extends React.Component {
 const styles = StyleSheet.create({
 	modalHolder: {
 		flex: 1,
-		backgroundColor: 'rgba(0, 0, 0, 0.3)',
+		backgroundColor: 'rgba(0, 0, 0, 0.4)',
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: 0
 	},
 	container: {
-		backgroundColor: 'rgba(92, 190, 180, 0.93)',
+		backgroundColor: 'rgba(92, 190, 180, 0.94)',
 		flex: 1,
 		width: '100%',
 		paddingLeft: 30,
@@ -117,6 +117,15 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 		fontFamily: Global.secondFont,
 		color: Global.secondColor
+	},
+	disconnect:{
+		backgroundColor:Global.secondColor,
+		color:Global.mainColor,
+		fontFamily: Global.secondFont,
+		fontSize: 18,
+		padding:8,
+		marginTop: 5,
+		marginBottom: 5,
 	},
 	separator: {
 		width: 270,

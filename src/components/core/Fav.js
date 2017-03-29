@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     StyleSheet,
     Text,
@@ -9,17 +10,18 @@ import {
     ListView,
     TouchableOpacity,
 } from 'react-native';
+
 import Global from '../../Global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class Fav extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Fav extends React.Component {
   render() {
     return(
-      <Icon name={'ios-star-outline'} size={35} color={Global.thirdColor} />
+      <TouchableOpacity>
+        <Icon name={'ios-star-outline'} size={35} color={Global.thirdColor} />
+      </TouchableOpacity>
     );
   }
 }
+
+export default Fav;

@@ -29,13 +29,12 @@ class ResultsScene extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			eventsData: [],
 			events: new ListView.DataSource({
-				rowHasChanged: (r1,
-				r2) => r1 !== r2
+				rowHasChanged: (r1, r2) => r1 !== r2
 			}),
 			places: new ListView.DataSource({
-				rowHasChanged: (r1,
-				r2) => r1 !== r2
+				rowHasChanged: (r1, r2) => r1 !== r2
 			}),
 			index: 0,
 			routes: [
@@ -49,6 +48,7 @@ class ResultsScene extends React.Component {
 				}
 			],
 			fetching: true,
+			paidEvents: true,
 		}
 
 		this.renderCards = this.renderCards.bind(this);
@@ -56,6 +56,7 @@ class ResultsScene extends React.Component {
 		this._handleChangeTab = this._handleChangeTab.bind(this);
 		this._renderHeader = this._renderHeader.bind(this);
 		this.renderNoResults = this.renderNoResults.bind(this);
+		this.changeFilter = this.changeFilter.bind(this);
 	}
 
 	_handleChangeTab = (index) => {
@@ -72,6 +73,36 @@ class ResultsScene extends React.Component {
 
 			{...props}/>;
 	};
+
+	changeFilter(isPaidEvents) {
+		const filteredEvents = this.getFilteredEvents(isPaidEvents);
+		this.setState({
+			paidEvents: isPaidEvents,
+			events: this.state.events.cloneWithRows(filteredEvents),
+		});
+	}
+
+	getFilteredEvents(isPaidEvents) {
+		const {
+			eventsData,
+		} = this.state;
+
+		const filteredEvents = [];
+
+		if (isPaidEvents === true) {
+			return eventsData;
+		}
+
+		eventsData.forEach((event) => {
+			if (isPaidEvents === false) {
+				if (event.modality.priceType === 'gratuit') {
+					filteredEvents.push(event);
+				}
+			}
+		});
+		return filteredEvents;
+	}
+
 	renderNoResults() {
 		if (this.state.fetching === true) {
 			return(
@@ -80,12 +111,13 @@ class ResultsScene extends React.Component {
 		} else {
 			return(
 				<View style={styles.noresults}>
-					<Text style={{textAlign:'center'}}>Oops !{'\n'}Albert n'a trouvé aucun résultat pour le moment... :(</Text>
+					<Text style={styles.notfound}>Oops !{'\n'}Albert n'a trouvé aucun résultat pour le moment... :(</Text>
 				</View>
 			);
 		}
 
 	}
+
   renderEvents() {
     if (eventsList.events.length > 0) {
       return (
@@ -105,6 +137,19 @@ class ResultsScene extends React.Component {
     }
   }
 
+	renderAlbertTab() {
+		return (
+			<AlbertTab
+				cat={this.props.cat}
+				filter={true}
+				isPaidEvents={this.state.paidEvents}
+				onChangeFilterFn={this.changeFilter}
+				style={{
+					flex: 1
+				}} />
+		);
+	}
+
 	_renderScene = ({
 		route
 	}) => {
@@ -114,9 +159,7 @@ class ResultsScene extends React.Component {
 				return(
 					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
 						{this.renderNoResults()}
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
+						{this.renderAlbertTab()}
 					</Image>
 				);
 			} else {
@@ -125,9 +168,7 @@ class ResultsScene extends React.Component {
 						<View style={styles.eventsHolder}>
 							<ListView dataSource={this.state.events} enableEmptySections={true} renderRow={this.renderCards}/>
 						</View>
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
+						{this.renderAlbertTab()}
 					</Image>
 				);
 			}
@@ -136,9 +177,7 @@ class ResultsScene extends React.Component {
 				return(
 					<Image source={require('../../assets/img/bg-wv.png')} style={styles.container}>
 						{this.renderNoResults()}
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
+						{this.renderAlbertTab()}
 					</Image>
 				);
 			} else {
@@ -147,9 +186,7 @@ class ResultsScene extends React.Component {
 						<View style={styles.eventsHolder}>
 							<ListView dataSource={this.state.places} enableEmptySections={true} renderRow={this.renderCards}/>
 						</View>
-						<AlbertTab cat={this.props.cat} filter={true} style={{
-							flex: 1
-						}}/>
+						{this.renderAlbertTab()}
 					</Image>
 				);
 			}
@@ -158,14 +195,26 @@ class ResultsScene extends React.Component {
 		}
 	};
 
+	// componentWillMount() {
+	// 	this.setState({
+	// 		paidEvents: this.props.paidEvents
+	// 	})
+	// }
+
 	componentDidMount() {
+		console.log("result scene props paid", this.props.paidEvents);
 		let events = [];
 		let places = [];
+
 		Api.getEvents(this.props.cat, (eventsList) => {
 			console.log('Results#getEvents: ', eventsList.events);
 			if (eventsList.events.length > 0) {
 				eventsList.events.map(event => {
-					events.push(event);
+					if (this.state.paidEvents === false && event.modality.priceType === "gratuit") {
+						events.push(event);
+					} else if (this.state.paidEvents === true) {
+						events.push(event);
+					}
 				});
 				console.log("fetched events")
 			};
@@ -177,6 +226,8 @@ class ResultsScene extends React.Component {
   			});
         if (events.length > 0 && places.length > 0) {
           this.setState({
+						eventsData: events,
+						placesData: places,
 						events: this.state.events.cloneWithRows(events),
 						places: this.state.places.cloneWithRows(places),
 						fetching: false,
@@ -193,6 +244,8 @@ class ResultsScene extends React.Component {
           });
         } else if (events.length === 0 && places.length > 0) {
 					this.setState({
+						eventsData: events,
+						placesData: places,
 						events: this.state.events.cloneWithRows(events),
 						places: this.state.places.cloneWithRows(places),
 						fetching: false,
@@ -210,6 +263,8 @@ class ResultsScene extends React.Component {
 					});
 				} else if (events.length > 0 && places.length === 0) {
 					this.setState({
+						eventsData: events,
+						placesData: places,
 						events: this.state.events.cloneWithRows(events),
 						places: this.state.places.cloneWithRows(places),
 						fetching: false,
@@ -227,6 +282,8 @@ class ResultsScene extends React.Component {
 					});
 				} else if (events.length === 0 && places.length === 0) {
 					this.setState({
+						eventsData: events,
+						placesData: places,
 						events: this.state.events.cloneWithRows(events),
 						places: this.state.places.cloneWithRows(places),
 						fetching: false,
@@ -330,6 +387,10 @@ const styles = StyleSheet.create({
 		flex:1,
 		alignItems:'center',
 		justifyContent:'center',
+	},
+	notfound:{
+		textAlign:'center',
+		fontSize:20,
 	}
 });
 
