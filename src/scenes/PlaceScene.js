@@ -6,6 +6,7 @@ import {
   Image,
   Platform,
   Text,
+  Dimensions,
 } from 'react-native';
 
 import {
@@ -13,17 +14,19 @@ import {
 } from 'react-native-router-flux';
 
 import Config from '../Config';
-import ImagesProduct from '../components/products/ImagesProduct';
+import Images from '../components/core/Images';
 import MapProduct from '../components/products/MapProduct';
-import Favorites from '../components/user/Favorites';
 import InfoPlace from '../components/products/Places/InfoPlace';
-import ContactPlace from '../components/products/Places/ContactPlace';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     resizeMode: 'cover',
     width: null,
+  },
+  image:{
+    width: (Dimensions.get('window').width),
+    height: (Dimensions.get('window').height)*0.32,
   },
 });
 
@@ -33,21 +36,66 @@ class PlaceScene extends React.Component {
       vicinity,
       geometry,
       name,
-      opening_hours,
       rating,
       types,
-      photos,
     } = this.props.product;
 
-    console.log(this.props.product);
+    const opening_hours = this.props.product.opening_hours || [] ;
+    let opening = "";
+    if (opening_hours.length === 0) {
+      opening = "Horaires d'ouverture non renseignés";
+    } else {
+      if (opening_hours.open_now) {
+        opening = "ouvert"
+      } else {
+        opening = "fermé"
+      }
+    }
+
+    const photos = this.props.product.photos || [] ;
+    let photo = 0;
+    if (photos.length === 0) {
+      if (this.props.cat === 1) {
+        photo = Images.searchManger
+      }
+      else if (this.props.cat === 2) {
+        photo = Images.searchBoire
+      }
+      else if (this.props.cat === 3) {
+        photo = Images.searchBouger
+      }
+      else if (this.props.cat === 4) {
+        photo = Images.searchAcheter
+      }
+      else if (this.props.cat === 5) {
+        photo = Images.searchDecouvrir
+      }
+      else if (this.props.cat === 6) {
+        photo = Images.searchEcouter
+      }
+      else if (this.props.cat === 7) {
+        photo = Images.searchSeDetendre
+      }
+      else if (this.props.cat === 8) {
+        photo = Images.searchTravailler
+      }
+    } else {
+      if (photos[0].photo_reference) {
+        photo = {
+          uri : `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photos[0].photo_reference}&key=${Config.apiKey}`
+        }
+      }
+    }
+
     return(
       <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0,
         }}>
-        <ImagesProduct
-          image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photos[0].photo_reference}&key=${Config.apiKey}`}/>
+        <Image
+          style={styles.image}
+          source={photo}/>
         <InfoPlace
           name={name}
-          openingHours={opening_hours.open_now === false ? "fermé" : "ouvert"}
+          openingHours={opening}
           address={vicinity}
           rating={rating}
           category={types[0]}

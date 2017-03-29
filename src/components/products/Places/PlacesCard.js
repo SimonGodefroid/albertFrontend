@@ -16,19 +16,45 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 class PlacesCard extends React.Component {
   render(){
-    // console.log(this.props.photos);
-    let photo = Images.searchManger;
-    if (this.props.photos.length > 0) {
+    let photo = 0;
+		if (this.props.photos.length === 0) {
+			if (this.props.cat === 1) {
+				photo = Images.searchManger
+			}
+			else if (this.props.cat === 2) {
+				photo = Images.searchBoire
+			}
+			else if (this.props.cat === 3) {
+				photo = Images.searchBouger
+			}
+			else if (this.props.cat === 4) {
+				photo = Images.searchEcouter
+			}
+			else if (this.props.cat === 5) {
+				photo = Images.searchDecouvrir
+			}
+			else if (this.props.cat === 6) {
+				photo = Images.searchAcheter
+			}
+			else if (this.props.cat === 7) {
+				photo = Images.searchSeDetendre
+			}
+			else if (this.props.cat === 8) {
+				photo = Images.searchTravailler
+			}
+		}
+    else if (this.props.photos.length > 0) {
       if (this.props.photos[0].photo_reference) {
         photo = {
           uri : `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${this.props.photos[0].photo_reference}&key=${Config.apiKey}`
         }
       }
     }
+
     return (
-      <View style={styles.eventsCard}>
+      <View style={styles.placesCard}>
         <Image
-          style={styles.eventsImage}
+          style={styles.placesImage}
           source={photo}
           resizeMode={'cover'}>
           <View style={styles.overlay}>
@@ -49,13 +75,13 @@ class PlacesCard extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	eventsCard: {
+	placesCard: {
 		backgroundColor: '#333',
 		flexDirection: 'row',
 		marginBottom: 5,
 		elevation: 6
 	},
-	eventsImage: {
+	placesImage: {
 		flexDirection: 'row',
 		width: (Dimensions.get('window').width) / 1 *(1),
 		height: 200
