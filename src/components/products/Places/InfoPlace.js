@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Global from '../../../Global';
+import Star from '../../core/Star';
 
 class InfoProduct extends React.Component {
 
@@ -42,9 +43,12 @@ class InfoProduct extends React.Component {
           <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.opening}>{openingHours}</Text></View></View>
           <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/></View><View style={styles.textHolder}><Text style={styles.place}>{address}</Text></View></View>
         </View>
-        <View style={styles.descriptionHolder}>
+        <View style={styles.ratingHolder}>
           <Text style={styles.details}>Note:</Text>
-          <Text style={styles.description}>{rating}</Text>
+          <View style={styles.starview}>
+            <Star
+              rating={rating}/>
+          </View>
         </View>
         <Text style={styles.lieu}>A propos du lieu</Text>
       </View>
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 20,
     paddingRight:20,
-    paddingBottom: 20,
+    paddingBottom: 10,
     marginBottom: 2,
   },
   details:{
@@ -110,21 +114,17 @@ const styles = StyleSheet.create({
         fontFamily: Global.secondFont,
         fontSize: 17,
         paddingLeft: 5,
-        paddingBottom: 5,
       },
-  descriptionHolder:{
+  ratingHolder:{
     backgroundColor: 'white',
     paddingLeft: 20,
     paddingTop: 20,
     paddingRight: 20,
-    paddingBottom: 15,
     marginBottom: 2,
   },
-      description:{
-        fontFamily: Global.secondFont,
-        fontSize: 15,
-        textAlign: 'justify',
+      starview:{
         paddingBottom: 10,
+        marginRight: 190,
       },
   lieu:{
     fontFamily: Global.secondFont,
