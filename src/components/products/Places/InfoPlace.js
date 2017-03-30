@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     color:Global.mainColor,
     fontSize:20,
     paddingBottom: 10,
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
   },
       opening: {
         paddingTop: 5,
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
       starview:{
-        paddingBottom: 10,
-        marginRight: 190,
+        paddingBottom: 15,
+        marginRight: 250,
       },
   lieu:{
     fontFamily: Global.secondFont,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 20,
     paddingBottom: 20,
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
     backgroundColor: 'white',
   },
 });
