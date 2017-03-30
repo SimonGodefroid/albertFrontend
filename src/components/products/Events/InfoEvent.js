@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import * as Animatable from 'react-native-animatable';
 import Global from '../../../Global';
 
 class InfoProduct extends React.Component {
@@ -113,7 +113,9 @@ class InfoProduct extends React.Component {
           <Text style={styles.details}>Infos</Text>
           <View style={styles.listHolder}>
             <View style={styles.iconHolder}>
+              <Animatable.View animation="bounceIn" delay={200} >
               <Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/>
+            </Animatable.View>
             </View>
             <View style={styles.textHolder}>
               <Text style={styles.hours}>{hourStart} - {hourEnd}</Text>
@@ -121,7 +123,9 @@ class InfoProduct extends React.Component {
           </View>
           <View style={styles.listHolder}>
             <View style={styles.iconHolder}>
+              <Animatable.View animation="bounceIn" delay={400} >
               <Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/>
+            </Animatable.View>
             </View>
             <View style={styles.textHolder}>
               <Text style={styles.place}>{place}</Text>
@@ -130,7 +134,9 @@ class InfoProduct extends React.Component {
           <Text style={styles.placeSuite}>{address} - {city}</Text>
           <View style={styles.listHolder}>
             <View style={styles.iconHolder}>
+              <Animatable.View animation="bounceIn" delay={600} >
               <Icon name={'ios-cash-outline'} size={24} style={{color:Global.mainColor}}/>
+            </Animatable.View>
             </View>
             <View style={styles.textHolder}>
               <Text style={styles.price}>{price}</Text>

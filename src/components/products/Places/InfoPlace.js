@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Global from '../../../Global';
 import Star from '../../core/Star';
-
+import * as Animatable from 'react-native-animatable';
 class InfoProduct extends React.Component {
 
   // renderTags(tags) {
@@ -40,8 +40,12 @@ class InfoProduct extends React.Component {
         </View>
         <View style={styles.placetimeHolder}>
           <Text style={styles.details}>Infos</Text>
+          <Animatable.View animation="bounceIn" delay={200} >
           <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-time-outline'} size={24} style={{color:Global.mainColor}}/></View><View style={styles.textHolder}><Text style={styles.opening}>{openingHours}</Text></View></View>
+        </Animatable.View>
+        <Animatable.View animation="bounceIn" delay={400} >
           <View style={styles.listHolder}><View style={styles.iconHolder}><Icon name={'ios-pin-outline'} size={26} style={{color:Global.mainColor, paddingLeft:3,}}/></View><View style={styles.textHolder}><Text style={styles.place}>{address}</Text></View></View>
+        </Animatable.View>
         </View>
         <View style={styles.ratingHolder}>
           <Text style={styles.details}>Note:</Text>

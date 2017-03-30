@@ -27,7 +27,7 @@ import UserImage from '../components/user/UserImage';
 import EventsCard from '../components/products/Events/EventsCard';
 import Swiper from 'react-native-swiper';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import * as Animatable from 'react-native-animatable';
 
 let {
   height,
@@ -59,8 +59,10 @@ class ProfileScene extends React.Component {
     if(this.state.favoritesResults.length === 0){
       return (
         <View style={styles.notfound}>
+          <Animatable.View animation="bounceIn" delay={200} >
           <Icon name={'ios-star-outline'} size={65} color={'#888'}/>
           <Text style={styles.notfoundText}>Vous n avez pas de favoris</Text>
+        </Animatable.View>
         </View>
       );
     }
@@ -69,9 +71,6 @@ class ProfileScene extends React.Component {
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
         <TouchableOpacity onPress={() => Actions.event({product: result, idEvent:result._id})}>
-        {console.log('coucou result',result)}
-        {console.log('coucou idEvent : result._id',result._id)}
-        {console.log('coucou result',result)}
           <EventsCard
             photo={result.image.url}
             title={result.title}
@@ -108,13 +107,15 @@ class ProfileScene extends React.Component {
          <View style={{height: 500, paddingTop: (Platform.OS === 'ios') ? 20 : 0}}>
            <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
              <View style={styles.profile_container}>
+               <Animatable.View animation="bounceIn" delay={200} >
                <UserImage
                  image={this.props.image}
                  style={styles.user_image}
                />
+             </Animatable.View>
                <View style={styles.name_desc}>
                  <Text style={styles.name}>{this.props.user.account.username.toUpperCase()}</Text>
-                 <Text style={styles.userInfos}> 30 ans - Homme - Farid@albert.com</Text>
+                 <Text style={styles.userInfos}> 30 ans - Homme - albert@albert.com</Text>
                </View>
              </View>
            </Image>

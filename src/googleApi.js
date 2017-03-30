@@ -29,7 +29,7 @@ class googleApi {
 				types = "university|library";
 				break;
 		}
-		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8569613,2.3687517&rankBy=distance&radius=500&types=${types}`)
+		fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${Config.apiKey}&location=48.8569613,2.3687517&rankBy=prominence&radius=500&types=${types}`)
     .then(res => res.json())
     .then(places => {
 			console.log("Places", places);

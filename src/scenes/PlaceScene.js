@@ -107,7 +107,7 @@ class PlaceScene extends React.Component {
             longitude={geometry.location.lng}
             latitude={geometry.location.lat}
             />
-          <View style={{paddingBottom: 80}}>
+          <View style={{paddingBottom: 70}}>
           </View>
         </ScrollView>
         <View style={{
@@ -115,7 +115,7 @@ class PlaceScene extends React.Component {
           bottom: 0,
           left: 0,
           right: 0,
-          backgroundColor: 'white',
+          backgroundColor: 'transparent',
         }}>
           <AlbertTab
             filter={false}/>
