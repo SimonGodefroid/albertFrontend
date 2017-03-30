@@ -26,13 +26,29 @@ class Fav extends React.Component {
   }
 
   componentDidMount() {
-    if (Api.getUser().account.favorites.indexOf(this.props.idEvent) !== -1) {
-      this.setState({
-        star: true
+    console.log('componentDidMount$profileScene')
+    console.log('componentDidMount$Api.getUser()',Api.getUser()._id);
+      Api.getFavoriteEvents(Api.getUser()._id,(favoritesList) => {
+        console.log("getFavoriteEvents object values", Object.values(favoritesList));
+        console.log('this.props.idEvent',typeof this.props.idEvent);
+        let favoriteIds=[];
+        favoritesList.map(favorite => favoriteIds.push(favorite._id));
+        console.log('favoriteIds',favoriteIds);
+
+        if(favoriteIds.indexOf(this.props.idEvent)!==-1){
+          this.setState({
+            star: true
+          })
+        }
       })
-    }
-    console.log('componentDidMount star', this.state.star);
-    console.log('componentDidMount star', Api.getUser().account.favorites.indexOf(this.props._id));
+  
+    // if (Api.getUser().account.favorites.indexOf(this.props.idEvent) !== -1) {
+    //   this.setState({
+    //     star: true
+    //   })
+    // }
+    // console.log('componentDidMount star', this.state.star);
+    // console.log('componentDidMount star', Api.getUser().account.favorites.indexOf(this.props._id));
   }
 
   addToFav(userId, eventId, callback){

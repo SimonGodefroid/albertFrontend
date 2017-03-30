@@ -62,7 +62,10 @@ class ProfileScene extends React.Component {
     console.log('this.state.favoritesResults',this.state.favoritesResults);
     const slides = this.state.favoritesResults.map((result,
         index) => <View key={index}>
-        <TouchableOpacity onPress={() => Actions.event({product: result})}>
+        <TouchableOpacity onPress={() => Actions.event({product: result, idEvent:result._id})}>
+        {console.log('coucou result',result)}
+        {console.log('coucou idEvent : result._id',result._id)}
+        {console.log('coucou result',result)}
           <EventsCard
             photo={result.image.url}
             title={result.title}
@@ -78,7 +81,12 @@ class ProfileScene extends React.Component {
       return (
         <View style={styles.swiper_container}>
           <Text>Voici vos Favoris</Text>
-          <Swiper height={200} showsButtons={false} showsPagination={false}>
+          <Swiper height={200} showsButtons={false} onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
+          dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          activeDot={<View style={{backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          paginationStyle={{
+            bottom: -23, left: null, right: 10
+          }} loop>
             {slides}
           </Swiper>
         </View>

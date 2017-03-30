@@ -41,7 +41,7 @@ class EventScene extends React.Component {
       contact,
       _id,
     } = this.props.product;
-
+    console.log('SIMON event coucou this.props',this.props.idEvent);
     console.log('EventScene# product', this.props.product);
     console.log('EventScene# userid', Api.getUser()._id);
     return(
