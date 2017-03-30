@@ -126,7 +126,6 @@ export default class AlbertTab extends React.Component {
           </View>
         );
       }
-
     }
 
 
@@ -144,7 +143,7 @@ export default class AlbertTab extends React.Component {
                 </View>
                 <View style={styles.itemHolder}>
                   <TouchableOpacity onPress={this.goToSearch}>
-                      <Animatable.Image animation="bounceIn" delay={220}  source={require('../../../assets/img/logo.png')} style={styles.albert}/>
+                      <Animatable.Image animation="bounceIn" delay={220}  source={require('../../../assets/img/albert-tab.png')} style={styles.albert}/>
                   </TouchableOpacity>
                 </View>
                 {this.renderFilter()}
