@@ -59,10 +59,8 @@ class ProfileScene extends React.Component {
     if(this.state.favoritesResults.length === 0){
       return (
         <View style={styles.notfound}>
-          <Animatable.View animation="bounceIn" delay={200} >
           <Icon name={'ios-star-outline'} size={65} color={'#888'}/>
-          <Text style={styles.notfoundText}>Vous n avez pas de favoris</Text>
-        </Animatable.View>
+          <Text style={styles.notfoundText}>Vous n'avez pas de favoris</Text>
         </View>
       );
     }
