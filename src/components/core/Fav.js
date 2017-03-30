@@ -38,18 +38,10 @@ class Fav extends React.Component {
         if(favoriteIds.indexOf(this.props.idEvent)!==-1){
           this.setState({
             star: true
-          })
+          });
         }
-      })
-  
-    // if (Api.getUser().account.favorites.indexOf(this.props.idEvent) !== -1) {
-    //   this.setState({
-    //     star: true
-    //   })
-    // }
-    // console.log('componentDidMount star', this.state.star);
-    // console.log('componentDidMount star', Api.getUser().account.favorites.indexOf(this.props._id));
-  }
+      });
+    }
 
   addToFav(userId, eventId, callback){
     console.log("coucou addFav");
@@ -59,15 +51,6 @@ class Fav extends React.Component {
     this.setState({
       star: !this.state.star,
     })
-    // if (!this.state.star) {
-    //   this.setState({
-    //     star : true
-    //   });
-    // } else {
-    //   this.setState({
-    //     star : false
-    //   });
-    // }
   }
 
   render() {
