@@ -36,33 +36,21 @@ export default class Filter extends React.Component {
     renderEventsFilter() {}
     renderPlacesFilter() {}
     renderCurrentEvents() {
-        if (this.state.currentEvents === true) {
-            this.setState({currentEvents: false})
-        } else {
-            this.setState({currentEvents: true,})
-        }
+      this.setState({currentEvents: true, todayEvents: false, futureEvents: false})
     }
     renderTodayEvents() {
-      if (this.state.todayEvents === true) {
-          this.setState({todayEvents: false,})
-      } else {
-          this.setState({todayEvents: true})
-      }
+      this.setState({currentEvents: false, todayEvents: true, futureEvents: false})
     }
 
     renderFutureEvents() {
-      if (this.state.futureEvents === true) {
-          this.setState({futureEvents: false})
-      } else {
-          this.setState({futureEvents: true})
-      }
-    }
+      this.setState({currentEvents: false, todayEvents: false, futureEvents: true})
+}
     render() {
         return (
             <View style={styles.modalHolder}>
                 <View style={styles.container}>
                     <View style={styles.section}>
-                        <Text style={styles.head}>Tu veux filtrer ta recherche ?</Text>
+                        <Text style={styles.head}>Tu veux filtrer les évènements ?</Text>
                         <TouchableOpacity style={styles.close} onPress={() => this.props.onCloseFilterFn()}>
                             <Icon name={'ios-close-circle-outline'} size={45} color={Global.mainColor}/>
                         </TouchableOpacity>
@@ -92,11 +80,11 @@ export default class Filter extends React.Component {
                                 <Text style={this.state.currentEvents ? styles.timeTextPress : styles.timeText}>À l'affiche</Text>
                             </TouchableOpacity>
                         </Animatable.View>
-                        <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}}>
+                        {/* <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}}>
                             <TouchableOpacity style={this.state.todayEvents ? styles.buttonPress : styles.button} onPress={this.renderTodayEvents}>
                                 <Text style={this.state.todayEvents ? styles.timeTextPress : styles.timeText}>Ce jour</Text>
                             </TouchableOpacity>
-                        </Animatable.View>
+                        </Animatable.View> */}
                         <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}}>
                             <TouchableOpacity style={this.state.futureEvents ? styles.buttonPress: styles.button} onPress={this.renderFutureEvents}>
                                 <Text style={this.state.futureEvents ? styles.timeTextPress : styles.timeText}>À venir</Text>
@@ -105,7 +93,7 @@ export default class Filter extends React.Component {
                     </View>
                     <View style={styles.section}>
                     <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}} style={styles.validate}>
-                      <Text onPress={() => this.props.onValidateFilterFn(this.state.isPaidEvents, this.state.currentEvents, this.state.todayEvents, this.state.futureEvents)}>Valider</Text>
+                      <Text style={styles.validateText} onPress={() => this.props.onValidateFilterFn(this.state.isPaidEvents, this.state.currentEvents, this.state.todayEvents, this.state.futureEvents)}>Valider</Text>
                     </Animatable.View>
                   </View>
                 </View>
@@ -125,9 +113,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
         height:450,
-        paddingLeft: 20,
+        paddingLeft: 30,
         paddingTop: 5,
-        paddingRight: 20,
+        paddingRight: 30,
         paddingBottom: 15,
         elevation: 6
     },
@@ -204,6 +192,15 @@ const styles = StyleSheet.create({
     },
     validate :{
       backgroundColor:Global.thirdColor,
-      padding:8,
+      paddingLeft:12,
+      paddingRight:12,
+      paddingTop:6,
+      paddingBottom:6,
+      elevation:2,
+    },
+    validateText:{
+      color:Global.secondColor,
+      fontFamily:Global.mainFontBold,
+      fontSize:18,
     }
 });

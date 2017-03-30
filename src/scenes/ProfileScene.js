@@ -81,12 +81,13 @@ class ProfileScene extends React.Component {
 
       return (
         <View style={styles.swiper_container}>
-          <Text style={styles.favoritesTitle}>Vos Favoris</Text>
+
+          <Text style={styles.favoritesTitle}>Vos favoris</Text>
           <Swiper height={200} showsButtons={false} onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
-          dot={<View style={{backgroundColor: 'white', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
-          activeDot={<View style={{backgroundColor: 'black', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          dot={<View style={{backgroundColor: 'grey', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          activeDot={<View style={{backgroundColor: 'white', width: 10, height: 10, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
           paginationStyle={{
-            top: 171, left: 0, right: -380
+            top: -140, left: 0, right: -360
           }} loop>
             {slides}
           </Swiper>
@@ -182,10 +183,5 @@ const styles = StyleSheet.create({
     textAlign:'center',
   }
 });
-
-
-
-
-
 
 export default ProfileScene;
