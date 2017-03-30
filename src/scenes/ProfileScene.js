@@ -26,7 +26,7 @@ import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';
 import EventsCard from '../components/products/Events/EventsCard';
 import Swiper from 'react-native-swiper';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 let {
@@ -57,7 +57,12 @@ class ProfileScene extends React.Component {
   renderSlides(){
 
     if(this.state.favoritesResults.length === 0){
-      return <Text>Vous n avez pas de favoris</Text>
+      return (
+        <View style={styles.notfound}>
+          <Icon name={'ios-star-outline'} size={65} color={'#888'}/>
+          <Text style={styles.notfoundText}>Vous n avez pas de favoris</Text>
+        </View>
+      );
     }
 
     console.log('this.state.favoritesResults',this.state.favoritesResults);
@@ -181,6 +186,17 @@ const styles = StyleSheet.create({
     fontSize:24,
     marginBottom:10,
     textAlign:'center',
+  },
+  notfound:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  notfoundText:{
+    textAlign:'center',
+    fontFamily:Global.mainFontBold,
+    color:'#888',
+    fontSize:25,
   }
 });
 

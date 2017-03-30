@@ -265,7 +265,7 @@ class ResultsScene extends React.Component {
 	// }
 
 	componentDidMount() {
-		console.log("result scene props paid", this.props.paidEvents);
+		console.log("result scene props paid", this.state.paidEvents);
 		let events = [];
 		let places = [];
 

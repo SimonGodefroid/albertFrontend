@@ -24,22 +24,15 @@ export default class Filter extends React.Component {
         this.state = {
             cat: props.cat,
             isPaidEvents: props.isPaidEvents,
-            currentEvents: props.isCurrent,
-            todayEvents: props.isToday,
-            futureEvents: props.isFuture
+            currentEvents: this.props.isCurrent === true && this.props.isFuture === true ? true : this.props.isCurrent,
+            todayEvents: this.props.isToday,
+            futureEvents: this.props.isCurrent === true && this.props.isFuture === true ? false : this.props.isFuture
         }
         this.renderCurrentEvents = this.renderCurrentEvents.bind(this);
-        this.renderTodayEvents = this.renderTodayEvents.bind(this);
         this.renderFutureEvents = this.renderFutureEvents.bind(this);
     }
-
-    renderEventsFilter() {}
-    renderPlacesFilter() {}
     renderCurrentEvents() {
       this.setState({currentEvents: true, todayEvents: false, futureEvents: false})
-    }
-    renderTodayEvents() {
-      this.setState({currentEvents: false, todayEvents: true, futureEvents: false})
     }
 
     renderFutureEvents() {
@@ -55,7 +48,7 @@ export default class Filter extends React.Component {
                             <Icon name={'ios-close-circle-outline'} size={45} color={Global.mainColor}/>
                         </TouchableOpacity>
                     </View>
-                    <Animatable.Text animation="fadeInUp" delay={100}style={styles.sectionTitle}>Plutôt fauché ou blindé ?</Animatable.Text>
+                    <Animatable.Text animation="fadeInUp" delay={100} style={styles.sectionTitle}>Plutôt fauché ou blindé ?</Animatable.Text>
                     <View style={styles.section}>
                         <Animatable.View animation="bounceIn" delay={300} style={styles.itemAlbert}>
                             <Animatable.Image source={this.state.isPaidEvents === true ? require('../../../assets/img/albert-fauche-nb.png') : require('../../../assets/img/albert-fauche.png')} style={styles.albert1}/>
@@ -77,7 +70,7 @@ export default class Filter extends React.Component {
                     <View style={styles.section}>
                         <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}}>
                             <TouchableOpacity style={this.state.currentEvents ? styles.buttonPress : styles.button} onPress={this.renderCurrentEvents}>
-                                <Text style={this.state.currentEvents ? styles.timeTextPress : styles.timeText}>À l'affiche</Text>
+                                <Text style={this.state.currentEvents ? styles.timeTextPress : styles.timeText}>En ce moment</Text>
                             </TouchableOpacity>
                         </Animatable.View>
                         {/* <Animatable.View animation="fadeIn" delay={600} style={{flex: 1,padding: 5}}>
