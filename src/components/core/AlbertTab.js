@@ -87,11 +87,11 @@ export default class AlbertTab extends React.Component {
         filterVisible: false,
       });
     }
-    onValidateFilterFn(isPaidEvents) {
+    onValidateFilterFn(isPaidEvents, isCurrent, isToday, isFuture) {
       this.setState({
         filterVisible: false,
       });
-      this.props.onChangeFilterFn(isPaidEvents);
+      this.props.onChangeFilterFn(isPaidEvents, isCurrent, isToday, isFuture);
     }
 
     renderFilter() {
@@ -116,7 +116,7 @@ export default class AlbertTab extends React.Component {
       } else if (this.props.filter === false) {
         return(
           <View style={styles.itemHolder}>
-            <Icon name={'ios-options-outline'} size={40} color={Global.mainColor}/>
+            <Icon name={'ios-options-outline'} size={40} color={'#8a9190'}/>
           </View>
         );
       } else if (this.props.back === true) {

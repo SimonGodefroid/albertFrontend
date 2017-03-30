@@ -77,6 +77,7 @@ class ResultsScene extends React.Component {
 	};
 
 	changeFilter(isPaidEvents, isCurrent, isToday, isFuture) {
+		console.log('changeFilterstates dates: ', isCurrent, isToday, isFuture);
 		const filteredEvents = this.getFilteredEvents(isPaidEvents, isCurrent, isToday, isFuture);
 		console.log("changing ")
 		this.setState({
@@ -88,25 +89,79 @@ class ResultsScene extends React.Component {
 		});
 	}
 
+
 	getFilteredEvents(isPaidEvents, isCurrent, isToday, isFuture) {
 		const {
 			eventsData,
 		} = this.state;
+		const currentTime = new Date();
+		const todayDate = new Date(currentTime.getFullYear(),currentTime.getMonth(),currentTime.getDate()+1).getTime();
+
+		const eventsByModality = this.getFilteredEventsByModality(eventsData, isPaidEvents);
+		const eventsByModalityAndDates = this.getFilteredEventsByDates(eventsByModality, todayDate, isCurrent, isToday, isFuture);
+
+		return eventsByModalityAndDates;
+	}
+
+	getFilteredEventsByModality(events, isPaidEvents) {
 		// le nouvel array d evenements filtres
 		const filteredEvents = [];
 
 		// NO filter
 		if (isPaidEvents === true) {
-			return eventsData;
+			return events;
 		}
 		// FILTERS
-		eventsData.forEach((event) => {
+		events.forEach((event) => {
 			if (isPaidEvents === false) { // events gratuits
 				if (event.modality.priceType === 'gratuit') {
 						filteredEvents.push(event);
 					}
 				}
 			});
+		return filteredEvents;
+	}
+
+	getFilteredEventsByDates(events, todayDate, isCurrent, isToday, isFuture) {
+		console.log('states dates: ', isCurrent, isToday, isFuture);
+		const eventsByCurrent = this.getFilteredEventsByCurrentDate(events, todayDate, isCurrent);
+		const eventsByFuture = this.getFilteredEventsByFutureDate(eventsByCurrent, todayDate, isFuture);
+		return eventsByFuture;
+	}
+
+	getFilteredEventsByCurrentDate(events, todayDate, isCurrent) {
+		// le nouvel array d evenements filtres
+		const filteredEvents = [];
+		// NO filter
+		if (isCurrent === false) {
+			return events;
+		}
+		console.log('events.length before:', events.length);
+		events.forEach((event) => {
+			const eventDate = new Date(event.evenements.realDateStart).getTime();
+			const eventEndDate = new Date(event.evenements.realDateEnd).getTime();
+			if (eventDate <= todayDate) {
+				filteredEvents.push(event);
+			}
+		});
+		console.log('events.length after:', filteredEvents.length);
+		return filteredEvents;
+	}
+	getFilteredEventsByFutureDate(events, todayDate, isFuture) {
+		// le nouvel array d evenements filtres
+		const filteredEvents = [];
+		// NO filter
+		if (isFuture === false) {
+			return events;
+		}
+		console.log('events.length before:', events.length);
+		events.forEach((event) => {
+			const eventDate = new Date(event.evenements.realDateStart).getTime();
+			if (eventDate > todayDate) {
+				filteredEvents.push(event);
+			}
+		});
+		console.log('events.length after:', filteredEvents.length);
 		return filteredEvents;
 	}
 
@@ -146,7 +201,7 @@ class ResultsScene extends React.Component {
 		return (
 			<AlbertTab
 				cat={this.props.cat}
-				filter={true}
+				filter={this.state.index === 0 ? true : false}
 				isPaidEvents={this.state.paidEvents}
 				isCurrent={this.state.current}
 				isToday={this.state.today}
@@ -242,11 +297,11 @@ class ResultsScene extends React.Component {
             routes: [
               {
                 key: '1',
-                title: 'Events'
+                title: 'Evenements'
               },
               {
                 key: '2',
-                title: 'Places'
+                title: 'Lieux'
               }
             ]
           });
@@ -261,11 +316,11 @@ class ResultsScene extends React.Component {
 						routes: [
 							{
 								key: '1',
-								title: 'Events'
+								title: 'Evenements'
 							},
 							{
 								key: '2',
-								title: 'Places'
+								title: 'Lieux'
 							}
 						]
 					});
@@ -280,11 +335,11 @@ class ResultsScene extends React.Component {
 						routes: [
 							{
 								key: '1',
-								title: 'Events'
+								title: 'Evenements'
 							},
 							{
 								key: '2',
-								title: 'Places'
+								title: 'Lieux'
 							}
 						]
 					});
@@ -299,11 +354,11 @@ class ResultsScene extends React.Component {
 						routes: [
 							{
 								key: '1',
-								title: 'Events'
+								title: 'Evenements'
 							},
 							{
 								key: '2',
-								title: 'Places'
+								title: 'Lieux'
 							}
 						]
 					});
