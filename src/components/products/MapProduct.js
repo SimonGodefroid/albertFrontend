@@ -19,8 +19,7 @@ class MapProduct extends React.Component {
             longitude: this.props.longitude,
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
-          }}
-          cacheEnabled={true}>
+          }}>
         <Map.Marker
           title={this.props.address}
           coordinate={{

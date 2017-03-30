@@ -89,7 +89,7 @@ class InfoProduct extends React.Component {
 
     if (this.props.price === null) {
       if (this.props.priceType === "gratuit") {
-        price = "gratos"
+        price = "Gratuit"
       } else if (this.props.priceType === "payant") {
         price = "prix indisponible"
       }
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     color:Global.mainColor,
     fontSize:20,
     paddingBottom: 10,
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
   },
       hours: {
         paddingTop: 5,
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 20,
     paddingBottom: 20,
-    textDecorationLine: 'underline',
+    // textDecorationLine: 'underline',
     backgroundColor: 'white',
   },
 });
