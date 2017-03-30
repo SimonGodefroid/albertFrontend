@@ -31,7 +31,7 @@ class UserImage extends React.Component {
 }
 
 UserImage.defaultProps = {
-  image: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAxsAAAAJDIwODUzYzk5LTA2MGItNDE0ZS04YTFkLWU0OTA3NWJiYjk4Zg.jpg'
+  image: 'http://formation.reactnative.fr/img/avatar/farid.jpg'
 };
 
 

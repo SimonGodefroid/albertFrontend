@@ -109,7 +109,7 @@ class ProfileScene extends React.Component {
                />
                <View style={styles.name_desc}>
                  <Text style={styles.name}>{this.props.user.account.username.toUpperCase()}</Text>
-                 <Text style={styles.userInfos}> 26 ans - Homme - albert@albert.com</Text>
+                 <Text style={styles.userInfos}> 30 ans - Homme - Farid@albert.com</Text>
                </View>
              </View>
            </Image>
