@@ -38,28 +38,76 @@ export default class Menu extends React.Component {
 						<Icon name={'ios-close-circle-outline'} size={50} color={Global.secondColor}/>
 					</TouchableOpacity>
 					<Text style={styles.titleSection}>Faites une recherche <Icon name={'ios-search-outline'} size={25} color={Global.secondColor}/></Text>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 1
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Manger</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 2
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Boire</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 3
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Bouger</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 4
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Ecouter</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 5
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Découvrir</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 6
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Acheter</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 7
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Se détendre</Text>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => {
+						this.props.onCloseFn();
+						Actions.results({
+						cat: 8
+						})
+					}
+					}>
 						<Text style={styles.menuEntries}>Travailler</Text>
 					</TouchableOpacity>
 					<View style={styles.separator}></View>
