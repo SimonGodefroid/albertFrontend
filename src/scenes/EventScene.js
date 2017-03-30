@@ -83,6 +83,7 @@ class EventScene extends React.Component {
         </ScrollView>
         <View style={{
            position: 'absolute',
+           backgroundColor: 'white',
            bottom: 0,
            left: 0,
            right: 0,

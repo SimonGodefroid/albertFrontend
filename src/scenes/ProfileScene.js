@@ -11,6 +11,7 @@ import {
   ListView,
   TouchableOpacity,
   Alert,
+  Platform,
 } from 'react-native';
 
 import {
@@ -19,7 +20,7 @@ import {
 
 import Api from '../Api';
 import Global from '../Global';
-import Button from '../components/core/Button';
+import AlbertTab from '../components/core/AlbertTab';
 import Loading from '../components/core/Loading';
 import Favorites from '../components/user/Favorites';
 import UserImage from '../components/user/UserImage';
@@ -56,7 +57,7 @@ class ProfileScene extends React.Component {
   renderSlides(){
 
     if(this.state.favoritesResults.length === 0){
-      return <Text>Vous n'avez pas de favoris</Text>
+      return <Text>Vous n avez pas de favoris</Text>
     }
 
     console.log('this.state.favoritesResults',this.state.favoritesResults);
@@ -80,12 +81,12 @@ class ProfileScene extends React.Component {
 
       return (
         <View style={styles.swiper_container}>
-          <Text>Voici vos Favoris</Text>
+          <Text style={styles.favoritesTitle}>Vos Favoris</Text>
           <Swiper height={200} showsButtons={false} onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
-          dot={<View style={{backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
-          activeDot={<View style={{backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          dot={<View style={{backgroundColor: 'white', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
+          activeDot={<View style={{backgroundColor: 'black', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
           paginationStyle={{
-            bottom: -23, left: null, right: 10
+            top: 171, left: 0, right: -380
           }} loop>
             {slides}
           </Swiper>
@@ -95,35 +96,43 @@ class ProfileScene extends React.Component {
   }
 
   render() {
-    return(
-      <ScrollView>
-      <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
-        <View style={styles.profile_container}>
-          <UserImage
-            image={this.props.image}
-            style={styles.user_image}
-          />
-          <View style={styles.name_desc}>
-            <Text>{this.props.user.account.username.toUpperCase()}</Text>
-            <Text> 26 ans - Homme - albert@albert.com</Text>
-          </View>
-        </View>
-      </Image>
- {this.renderSlides()}
-      </ScrollView>
-    );
-  }
+   return(
+     <View style={{flex: 1}}>
+       <View style={{flex: 1}}>
+         <View style={{height: 500, paddingTop: (Platform.OS === 'ios') ? 20 : 0}}>
+           <Image source={require('../../assets/img/bg-v.png')} style={styles.container}>
+             <View style={styles.profile_container}>
+               <UserImage
+                 image={this.props.image}
+                 style={styles.user_image}
+               />
+               <View style={styles.name_desc}>
+                 <Text style={styles.name}>{this.props.user.account.username.toUpperCase()}</Text>
+                 <Text style={styles.userInfos}> 26 ans - Homme - albert@albert.com</Text>
+               </View>
+             </View>
+           </Image>
+         {this.renderSlides()}
+         </View>
+       </View>
+       <View>
+         <AlbertTab
+           filter={false}/>
+       </View>
+     </View>
+   );
+ }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 40,
+    paddingTop:10,
     alignItems: 'center',
     width:null,
     resizeMode: 'cover',
     padding: 20,
-    height:300
+    height:310,
+    paddingBottom:10,
   },
   profile_container: {
     alignItems: 'center'
@@ -133,10 +142,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent'
   },
+  name: {
+    fontSize:32,
+    color:Global.secondColor,
+    fontFamily: Global.secondFontBold,
+    marginBottom:12,
+  },
+  userInfos:{
+    fontSize:18,
+    color:Global.secondColor,
+    fontFamily: Global.secondFont,
+    marginBottom:12,
+  },
   user_image: {
-    borderRadius:75,
-    width:150,
-    height:150,
+    borderRadius:150,
+    width:170,
+    height:170,
+    borderWidth:5,
+    borderColor:Global.secondColor,
   },
   profile_elements:{
     flex:1,
@@ -150,7 +173,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   swiper_container:{
-    marginTop:20,
+    marginTop: 15,
+    marginBottom:0,
+  },
+  favoritesTitle: {
+    fontSize:24,
+    marginBottom:10,
+    textAlign:'center',
   }
 });
 
