@@ -65,7 +65,6 @@ class ContactProduct extends React.Component {
 const styles = StyleSheet.create({
   contactHolder:{
     paddingTop: 20,
-
     paddingBottom: 30,
     backgroundColor: 'white',
   },
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
   },
   resaHolder:{
     paddingTop: 10,
-    paddingBottom: 10,
+    paddingBottom: 60,
     paddingRight: 20,
     paddingLeft: 15,
     flexDirection:'row',

@@ -7,6 +7,7 @@ import {
   Platform,
   Text,
   Dimensions,
+  View,
 } from 'react-native';
 
 import {
@@ -17,6 +18,7 @@ import Config from '../Config';
 import Images from '../components/core/Images';
 import MapProduct from '../components/products/MapProduct';
 import InfoPlace from '../components/products/Places/InfoPlace';
+import AlbertTab from '../components/core/AlbertTab';
 
 const styles = StyleSheet.create({
   container: {
@@ -88,24 +90,36 @@ class PlaceScene extends React.Component {
     }
 
     return(
-      <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0,
-        }}>
-        <Image
-          style={styles.image}
-          source={photo}/>
-        <InfoPlace
-          name={name}
-          openingHours={opening}
-          address={vicinity}
-          rating={rating}
-          category={types[0]}
-          />
-        <MapProduct
-          address={vicinity}
-          longitude={geometry.location.lng}
-          latitude={geometry.location.lat}
-          />
-      </ScrollView>
+      <View>
+        <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0}}>
+          <Image
+            style={styles.image}
+            source={photo}/>
+          <InfoPlace
+            name={name}
+            openingHours={opening}
+            address={vicinity}
+            rating={rating}
+            category={types[0]}
+            />
+          <MapProduct
+            address={vicinity}
+            longitude={geometry.location.lng}
+            latitude={geometry.location.lat}
+            />
+          <View style={{paddingBottom: 80}}>
+          </View>
+        </ScrollView>
+          <View style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}>
+            <AlbertTab
+              filter={false}/>
+          </View>
+      </View>
     );
   }
 }

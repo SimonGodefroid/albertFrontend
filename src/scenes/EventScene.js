@@ -45,42 +45,52 @@ class EventScene extends React.Component {
     console.log('EventScene# product', this.props.product);
     console.log('EventScene# userid', Api.getUser()._id);
     return(
-      <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0, flex:1,}}>
-        <View style={{flex:9,}}>
-        <ImagesProduct
-          image={image.url}
-          idEvent={_id}
-        />
-        <InfoEvent
-          title={title}
-          category={evenements.category.lvl1}
-          date={evenements.realDateStart.slice(8,10)}
-          month={evenements.realDateStart.slice(5,7)}
-          place={place.name}
-          address={place.address}
-          city={place.city}
-          description={leadText}
-          hourStart={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
-          hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
-          price={modality.priceDetail}
-          priceType={modality.priceType}
-          tags={tags}
-          />
-        <MapProduct
-          address={place.address}
-          longitude={place.lon}
-          latitude={place.lat}
-          />
-        <ContactEvent
-          reservation={modality.accessLink}
-          webSite={contact.url}
-          mail={contact.mail === null ? modality.accessMail : contact.mail}
-          phone={modality.accessPhone === null ? contact.phone : modality.accessPhone}
-          facebook={contact.facebook}
-          twitter={contact.twitter}/>
+      <View>
+        <ScrollView style={{backgroundColor:'#E9EBEE', paddingTop: (Platform.OS === 'ios') ? 20 : 0}}>
+          <View style={{flex:9,}}>
+            <ImagesProduct
+              image={image.url}
+              idEvent={_id}
+            />
+            <InfoEvent
+              title={title}
+              category={evenements.category.lvl1}
+              date={evenements.realDateStart.slice(8,10)}
+              month={evenements.realDateStart.slice(5,7)}
+              place={place.name}
+              address={place.address}
+              city={place.city}
+              description={leadText}
+              hourStart={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourStart.slice(0, 5) : '00:00'}
+              hourEnd={evenements.periodes[0].seances.length > 0 ? evenements.periodes[0].seances[0].hourEnd.slice(0, 5) : '00:00' }
+              price={modality.priceDetail}
+              priceType={modality.priceType}
+              tags={tags}
+              />
+            <MapProduct
+              address={place.address}
+              longitude={place.lon}
+              latitude={place.lat}
+              />
+            <ContactEvent
+              reservation={modality.accessLink}
+              webSite={contact.url}
+              mail={contact.mail === null ? modality.accessMail : contact.mail}
+              phone={modality.accessPhone === null ? contact.phone : modality.accessPhone}
+              facebook={contact.facebook}
+              twitter={contact.twitter}/>
+          </View>
+        </ScrollView>
+        <View style={{
+           position: 'absolute',
+           bottom: 0,
+           left: 0,
+           right: 0,
+         }}>
+         <AlbertTab
+            filter={false}/>
+        </View>
       </View>
-        <AlbertTab style={{flex:1,}} back={true}/>
-      </ScrollView>
     );
   }
 }
