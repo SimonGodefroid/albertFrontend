@@ -89,7 +89,7 @@ class InfoProduct extends React.Component {
 
     if (this.props.price === null) {
       if (this.props.priceType === "gratuit") {
-        price = "gratos"
+        price = "Gratuit"
       } else if (this.props.priceType === "payant") {
         price = "prix indisponible"
       }
