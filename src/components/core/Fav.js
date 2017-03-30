@@ -43,6 +43,28 @@ class Fav extends React.Component {
       });
     }
 
+  // componentDidMount() {
+  //  console.log('componentDidMount$profileScene')
+  //  console.log('componentDidMount$Api.getUser()',Api.getUser()._id);
+  //    Api.getFavoriteEvents(Api.getUser()._id,(favoritesList) => {
+  //      console.log("getFavoriteEvents object values", Object.keys(favoritesList));
+  //      console.log('this.props.idEvent',typeof this.props.idEvent);
+  //      console.log('indexOfthis.props.idEvent',favoritesList.indexOf(this.props.idEvent));
+  //      if(favoritesList.indexOf(this.props.idEvent)!==-1){
+  //        this.setState({
+  //          star: true
+  //        })
+  //      }
+  //    })
+  //
+   // if (Api.getUser().account.favorites.indexOf(this.props.idEvent) !== -1) {
+   //   this.setState({
+   //     star: true
+   //   })
+   // }
+   // console.log('componentDidMount star', this.state.star);
+   // console.log('componentDidMount star', Api.getUser().account.favorites.indexOf(this.props._id));
+
   addToFav(userId, eventId, callback){
     console.log("coucou addFav");
     fetch(`${Config.host}/api/user/${userId}/toggleFavorite/${eventId}`, {
